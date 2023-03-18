@@ -26,3 +26,8 @@
     font-weight:bold;
     font-family: 'Aileron', sans-serif;                                        
 }
+
+.nav-link:hover {
+    color: #00660a;
+    text-decoration: none;
+}
