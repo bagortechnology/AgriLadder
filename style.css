@@ -1,0 +1,28 @@
+.navbar {
+    background: white;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%2300660a' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+  
+.navbar-toggler {
+    border-color: transparent;
+    color: white;
+}
+
+.navbar-toggler:hover {
+    border-color: transparent;
+    color: white;
+
+}
+  
+.nav-link,
+.dropdown-menu,
+.dropdown-item {
+    color: black;
+    font-weight:bold;
+    font-family: 'Aileron', sans-serif;                                        
+}
