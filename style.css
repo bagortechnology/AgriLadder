@@ -31,3 +31,11 @@
     color: #80cb2b;
     text-decoration: none;
 }
+
+footer a {
+    text-decoration: none;
+    color: black;
+  }
+  footer a:hover {
+    color: #80cb2b;
+  }
