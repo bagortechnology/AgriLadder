@@ -32,7 +32,22 @@
     text-decoration: none;
 }
 
-
+.btn {
+    background-color: white;
+    border-color: #80cb2b;
+    border-width: 2px;
+    color: #00660a;
+    transition: all 0.3s ease-in-out;
+    margin: 30px;
+    font-family: 'Aileron', sans-serif;
+  }
+  
+  .btn:hover {
+    background-color: #00660a;
+    border-color: #00660a;
+    color: white;
+    transform: scale(1.1);
+  }
 
 footer a {
     text-decoration: none;
