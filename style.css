@@ -33,19 +33,19 @@
 }
 
 .btn {
-    background-color: white;
-    border-color: #80cb2b;
-    border-width: 2px;
-    color: #00660a;
+    background-color: #00660a;
+    border-color: #00660a;
+    color: #ffff;
     transition: all 0.3s ease-in-out;
     margin: 30px;
     font-family: 'Aileron', sans-serif;
+    border-radius: 30px;
   }
   
   .btn:hover {
-    background-color: #00660a;
-    border-color: #00660a;
-    color: white;
+    background-color: #80cb2b;
+    border-color: #80cb2b;
+    color: #ffff;
     transform: scale(1.1);
   }
 
