@@ -87,21 +87,13 @@
   </footer>
   <script>
     const typed = new Typed("#hero-job", {
-      strings: ["love.","enjoy.","cherish.","are passionate about. "],
+      strings: ["love.", "enjoy.", "cherish.", "are passionate about. "],
       typeSpeed: 100,
       backSpeed: 50,
       loop: true,
-      loopCount: Infinity,
+      loopCount: null,
       smartBackspace: true,
-      onComplete: function (self) {
-        self.options.strings = options.strings;
-        self.options.typeSpeed = options.typeSpeed;
-        self.options.backSpeed = options.backSpeed;
-        self.options.loop = options.loop;
-        self.options.loopCount = options.loopCount;
-        self.start();
-      },
     });
-    </script>
+  </script>  
 </body>
 </html>
