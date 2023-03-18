@@ -22,12 +22,12 @@
 .nav-link,
 .dropdown-menu,
 .dropdown-item {
-    color: black;
+    color: #00660a;
     font-weight:bold;
     font-family: 'Aileron', sans-serif;                                        
 }
 
 .nav-link:hover {
-    color: #00660a;
+    color: #80cb2b;
     text-decoration: none;
 }
