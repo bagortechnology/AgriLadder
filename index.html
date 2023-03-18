@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon">
     <title>Home | AgriLadder</title>
 </head>
@@ -46,7 +47,21 @@
       </div>
     </div>
   </nav>
-
+  <!--hero-->
+  <div class="container" id="usp">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-sm-12 text-center text-md-left mx-auto">
+        <h2 class="display-5 mt-3 fw-bold" style="color: #00660a"> Get paid by the hour doing what you <span id="hero-job" style="color:#80cb2b"></span> 
+            </h2>
+        <p class="lead mb-4 mx-4">AgriLadder connects you to hourly farm work jobs tailored to your skills and interests, empowering you to get paid for doing what you love in agriculture. </p>
+        <a href="jobs.html" class="btn btn-lg fw-bold">Search Jobs</a>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <img src="assets/hero.png" alt="harvesting jobs" class="img-fluid p-4 m-4" height="512px" width="512px" >
+      </div>
+    </div>
+  </div>
+</div> 
   <!--Footer-->
   <footer class="bg-light py-3">
     <div class="container">
@@ -70,5 +85,23 @@
       </div>
     </div>
   </footer>
+  <script>
+    const typed = new Typed("#hero-job", {
+      strings: ["love.","enjoy.","cherish.","are passionate about. "],
+      typeSpeed: 100,
+      backSpeed: 50,
+      loop: true,
+      loopCount: Infinity,
+      smartBackspace: true,
+      onComplete: function (self) {
+        self.options.strings = options.strings;
+        self.options.typeSpeed = options.typeSpeed;
+        self.options.backSpeed = options.backSpeed;
+        self.options.loop = options.loop;
+        self.options.loopCount = options.loopCount;
+        self.start();
+      },
+    });
+    </script>
 </body>
 </html>

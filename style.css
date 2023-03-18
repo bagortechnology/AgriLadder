@@ -23,7 +23,7 @@
 .dropdown-menu,
 .dropdown-item {
     color: #00660a;
-    font-weight:bold;
+    font-weight: 800;
     font-family: 'Aileron', sans-serif;                                        
 }
 
@@ -31,6 +31,8 @@
     color: #80cb2b;
     text-decoration: none;
 }
+
+
 
 footer a {
     text-decoration: none;
