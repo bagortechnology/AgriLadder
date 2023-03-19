@@ -49,9 +49,16 @@
     transform: scale(1.1);
   }
 
+  input.form-control:focus {
+    border-color: #80cb2b;
+    box-shadow: 0 0 0 0.2rem rgba(128, 203, 43, 0.25);
+    outline: none;
+  }
+  
   .search-btn {
     background-color:#80cb2b;
     border-color:#80cb2b;
+    color: white;
   }
 
   .search-btn:hover {
