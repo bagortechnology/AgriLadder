@@ -32,7 +32,7 @@
     text-decoration: none;
 }
 
-.btn {
+.btn-usp {
     background-color: #00660a;
     border-color: #00660a;
     color: #ffff;
@@ -42,11 +42,22 @@
     border-radius: 30px;
   }
   
-  .btn:hover {
+  .btn-usp:hover {
     background-color: #80cb2b;
     border-color: #80cb2b;
     color: #ffff;
     transform: scale(1.1);
+  }
+
+  .search-btn {
+    background-color:#80cb2b;
+    border-color:#80cb2b;
+  }
+
+  .search-btn:hover {
+    background-color: white;
+    border-color: #80cb2b;
+    color:#80cb2b;
   }
 
 footer a {
