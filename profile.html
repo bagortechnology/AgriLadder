@@ -63,56 +63,56 @@
     </div>
   </nav>
   <!-- Sidebar Off Canvas -->
-  <div class="offcanvas-body ">
-    <div class="wrapper   ">
-      <nav id="sidebar">
-        <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
-          <i class="fa-solid fa-bars "> </i>
-        </button>
-        <!-- Sidebar -->
-        <div class="sidebar-header">
-          <h3>Welcome "Name"</h3>
-          <strong>Name</strong>
-        </div>
-        <ul class="list-unstyled components">
-          <li>
-            <a href="#homeSubmenu" data-toggle="collapse">
-              <i class="fa-solid fa-user"></i>
-              Profile
-            </a>
-          </li>
-          <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-              <i class="fa-solid fa-address-card"></i>
-              About You
-            </a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-              <li><a href="#">Personal Info.</a></li>
-              <li><a href="#">Education</a></li>
-              <li><a href="#">Experience</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#homeSubmenu" data-toggle="collapse">
-              <i class="fa-solid fa-briefcase"></i>
-              Find Jobs
-            </a>
-          </li>
-        </ul>
-        <div id="content">
-        </div>
-    </div>
-    <script>
-      $('#sidebar').toggleClass('active');
-      $(document).ready(function () {
 
-        $('#sidebarCollapse').on('click', function () {
-          $('#sidebar').toggleClass('active');
-        });
-      });
-    </script>
-    </nav>
+  <div class="wrapper   ">
+    <nav id="sidebar">
+      <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
+        <i class="fa-solid fa-bars "> </i>
+      </button>
+      <!-- Sidebar -->
+      <div class="sidebar-header">
+        <h3>Welcome "Name"</h3>
+        <strong>Name</strong>
+      </div>
+      <ul class="list-unstyled components">
+        <li>
+          <a href="#homeSubmenu" data-toggle="collapse">
+            <i class="fa-solid fa-user"></i>
+            Profile
+          </a>
+        </li>
+        <li>
+          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+            <i class="fa-solid fa-address-card"></i>
+            About You
+          </a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <li><a href="#">Personal Info.</a></li>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Experience</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#homeSubmenu" data-toggle="collapse">
+            <i class="fa-solid fa-briefcase"></i>
+            Find Jobs
+          </a>
+        </li>
+      </ul>
+      <div id="content">
+      </div>
   </div>
+  <script>
+    $('#sidebar').toggleClass('active');
+    $(document).ready(function () {
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+      });
+    });
+  </script>
+  </nav>
+
 
   <!--Body-->
   <!--User Profile-->
@@ -145,11 +145,11 @@
           <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="number" class="form-control" id="floatingInput" placeholder="Mobile Number" required>
+          <input type="tel" class="form-control" id="floatingInput" placeholder="Mobile Number" required>
           <label for="floatingInput" aria-required="true">Mobile Number</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="number" class="form-control" id="floatingInput" placeholder="Other Mobile Number" required>
+          <input type="tel" class="form-control" id="floatingInput" placeholder="Other Mobile Number" required>
           <label for="floatingInput" aria-required="true">Other Mobile Number</label>
         </div>
       </div>
@@ -175,11 +175,11 @@
       <h5 class="h5">Education Background</h5>
     </legend>
     <form action="" class="form-control">
-      <h6 class="h6">Full Name:</h6>
+      <h6 class="h6">Recent Education</h6>
       <div class="input-group">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" placeholder="First Name" required>
-          <label for="floatingInput" aria-required="true">First Name</label>
+          <input type="text" class="form-control" id="floatingInput" placeholder="School name" required>
+          <label for="floatingInput" aria-required="">School name</label>
         </div>
         <div class="form-floating mb-3">
           <input type="text" class="form-control" id="floatingInput" placeholder="Middle Name" required>

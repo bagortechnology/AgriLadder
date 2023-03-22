@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/029ea7a107.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon">
+    <title>Profile | AgriLadder</title>
+</head>
+
+<body>
+
+    <nav class="navbar sticky-top navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="https://www.agriladder.com">
+                <img src="assets/logo.svg" alt="AgriLadder logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="HomeNavBar" aria-expanded="false" aria-label="Toggle Navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.agriladder.com">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="jobs.html">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar Off Canvas -->
+    <div class="offcanvas-body ">
+        <div class="wrapper   ">
+            <nav id="sidebar">
+                <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
+                    <i class="fa-solid fa-bars "> </i>
+                </button>
+                <!-- Sidebar -->
+                <div class="sidebar-header">
+                    <h3>Welcome "Name"</h3>
+                    <strong>Name</strong>
+                </div>
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse">
+                            <i class="fa-solid fa-user"></i>
+                            Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+                            <i class="fa-solid fa-address-card"></i>
+                            About You
+                        </a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li><a href="#">Personal Info.</a></li>
+                            <li><a href="#">Education</a></li>
+                            <li><a href="#">Experience</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse">
+                            <i class="fa-solid fa-briefcase"></i>
+                            Find Jobs
+                        </a>
+                    </li>
+                </ul>
+                <div id="content">
+                </div>
+        </div>
+        <script>
+            $('#sidebar').toggleClass('active');
+            $(document).ready(function () {
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
+        </nav>
+    </div>
+
+    <!--Body-->
+    <!--User Profile-->
+    <br><br>
+    <!--User Information-->
+    <Nav class="container">
+        <legend>
+            <h5 class="h5">User Information:</h5>
+        </legend>
+        <form action="" class="form-control d-sm-flex flex-row">
+
+            <h6 class="h6 justify-content-center align-content-start">Full Name:</h6> <br>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="First Name" required>
+                <label for="floatingInput" aria-required="true">First Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Middle Name" required>
+                <label for="floatingInput" aria-required="true">Middle Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Last Name" required>
+                <label for="floatingInput" aria-required="true">Last Name</label>
+            </div>
+
+
+
+        </form>
+        <br>
+
+        <!--Work experience-->
+
+    </Nav>
+
+
+    <!--Footer-->
+    <footer class="bg-light py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-4 mb-3 mb-md-0 text-center text-md-start">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="index.html">Home</a></li>
+                        <li class="list-inline-item"><a href="jobs.html">Jobs</a></li>
+                        <li class="list-inline-item"><a href="profile.html">Profile</a></li>
+                        <li class="list-inline-item"><a href="privacy.html">Privacy</a></li>
+                        <li class="list-inline-item"><a href="terms.html">Terms</a></li>
+                        <li class="list-inline-item"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0 text-center">
+                    <a href="index.html"><img src="assets/footer.svg" alt="AgriLadder Logo" class="img-fluid"
+                            width="135" height="30"></a>
+                </div>
+                <div class="col-12 col-md-4 text-center text-md-end">
+                    <p class="mb-0">Copyright © 2023 AgriLadder. Powered by EXPERTIST, INC.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+</html>
