@@ -122,7 +122,7 @@
     <legend>
       <h5 class="h5">User Information:</h5>
     </legend>
-    <form action="" class="form-control">
+    <form action="submit" class="form-control">
       <h6 class="h6">Full Name:</h6>
       <div class="input-group">
         <div class="form-floating mb-3">
@@ -174,7 +174,7 @@
     <legend>
       <h5 class="h5">Education Background</h5>
     </legend>
-    <form action="" class="form-control">
+    <form action="submit" class="form-control">
       <h6 class="h6">Recent Education</h6>
       <div class="input-group">
         <div class="form-floating mb-3">
@@ -182,8 +182,19 @@
           <label for="floatingInput" aria-required="">School name</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Middle Name" required>
-          <label for="floatingInput" aria-required="true">Middle Name</label>
+          <input type="text" class="form-control" id="floatingInput" placeholder="Date Graduated" required>
+          <label for="floatingInput" aria-required="">Date graduated</label>
+        </div>
+        <div class="form-floating">
+          <select class="form-select form-control" id="floatingSelect" aria-label="Floating label select example">
+            <option selected>Select</option>
+            <option value="1">Elementary Graduate</option>
+            <option value="2">High School Graduate</option>
+            <option value="3">Associates degree</option>
+            <option value="3">Bachelors Degree</option>
+            <option value="3">Masteral</option>
+          </select>
+          <label for="floatingSelect">Select Education degree</label>
         </div>
 
       </div>
