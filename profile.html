@@ -63,56 +63,56 @@
     </div>
   </nav>
   <!-- Sidebar Off Canvas -->
-  <div class="offcanvas-body ">
-    <div class="wrapper   ">
-      <nav id="sidebar">
-        <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
-          <i class="fa-solid fa-bars "> </i>
-        </button>
-        <!-- Sidebar -->
-        <div class="sidebar-header">
-          <h3>Welcome "Name"</h3>
-          <strong>Name</strong>
-        </div>
-        <ul class="list-unstyled components">
-          <li>
-            <a href="#homeSubmenu" data-toggle="collapse">
-              <i class="fa-solid fa-user"></i>
-              Profile
-            </a>
-          </li>
-          <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-              <i class="fa-solid fa-address-card"></i>
-              About You
-            </a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-              <li><a href="#">Personal Info.</a></li>
-              <li><a href="#">Education</a></li>
-              <li><a href="#">Experience</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#homeSubmenu" data-toggle="collapse">
-              <i class="fa-solid fa-briefcase"></i>
-              Find Jobs
-            </a>
-          </li>
-        </ul>
-        <div id="content">
-        </div>
-    </div>
-    <script>
-      $('#sidebar').toggleClass('active');
-      $(document).ready(function () {
 
-        $('#sidebarCollapse').on('click', function () {
-          $('#sidebar').toggleClass('active');
-        });
-      });
-    </script>
-    </nav>
+  <div class="wrapper   ">
+    <nav id="sidebar">
+      <button type="button" id="sidebarCollapse" class="btn btn-success navbar-btn">
+        <i class="fa-solid fa-bars "> </i>
+      </button>
+      <!-- Sidebar -->
+      <div class="sidebar-header">
+        <h3>Welcome "Name"</h3>
+        <strong>Name</strong>
+      </div>
+      <ul class="list-unstyled components">
+        <li>
+          <a href="#homeSubmenu" data-toggle="collapse">
+            <i class="fa-solid fa-user"></i>
+            Profile
+          </a>
+        </li>
+        <li>
+          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+            <i class="fa-solid fa-address-card"></i>
+            About You
+          </a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <li><a href="#">Personal Info.</a></li>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Experience</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#homeSubmenu" data-toggle="collapse">
+            <i class="fa-solid fa-briefcase"></i>
+            Find Jobs
+          </a>
+        </li>
+      </ul>
+      <div id="content">
+      </div>
   </div>
+  <script>
+    $('#sidebar').toggleClass('active');
+    $(document).ready(function () {
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+      });
+    });
+  </script>
+  </nav>
+
 
   <!--Body-->
   <!--User Profile-->
@@ -122,7 +122,7 @@
     <legend>
       <h5 class="h5">User Information:</h5>
     </legend>
-    <form action="" class="form-control">
+    <form action="submit" class="form-control">
       <h6 class="h6">Full Name:</h6>
       <div class="input-group">
         <div class="form-floating mb-3">
@@ -138,6 +138,56 @@
           <label for="floatingInput" aria-required="true">Last Name</label>
         </div>
       </div>
+
+      <div class="input-group">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Last Name" required>
+          <label for="floatingInput" aria-required="true">Place of Bith</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="date" class="form-control" id="floatingInput" placeholder="Date Hired" required>
+          <label for="floatingInput" aria-required="">Date of Birth</label>
+        </div>
+        <div class="form-floating mb-3">
+        </div>
+        <div class="input-group"> <!--Radio-->
+          <h6 class="h6 ps-2 pe-2">Sex:</h6>
+          <div class="form-check ">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label pe-2" for="flexRadioDefault1">
+              Male
+            </label>
+          </div>
+          <div class="form-check ">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              Female
+            </label>
+          </div>
+
+          <h6 class="h6 ps-5 pe-2 ">Civil Status:</h6>
+          <div class="form-check ">
+            <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
+            <label class="form-check-label ps-2 pe-2" for="flexRadioDefault1">
+              Single
+            </label>
+          </div>
+          <div class="form-check ">
+            <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2" checked>
+            <label class="form-check-label ps-2 pe-2" for="flexRadioDefault2">
+              maried
+            </label>
+          </div>
+          <div class="form-check ">
+            <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2" checked>
+            <label class="form-check-label ps-2 pe-2" for="flexRadioDefault2">
+              Others
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <br>
       <h6 class="h6">Contact Details:</h6>
       <div class="input-group">
         <div class="form-floating mb-3">
@@ -145,11 +195,11 @@
           <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="number" class="form-control" id="floatingInput" placeholder="Mobile Number" required>
+          <input type="tel" class="form-control" id="floatingInput" placeholder="Mobile Number" required>
           <label for="floatingInput" aria-required="true">Mobile Number</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="number" class="form-control" id="floatingInput" placeholder="Other Mobile Number" required>
+          <input type="tel" class="form-control" id="floatingInput" placeholder="Other Mobile Number" required>
           <label for="floatingInput" aria-required="true">Other Mobile Number</label>
         </div>
       </div>
@@ -168,28 +218,117 @@
           <label for="floatingInput" aria-required="true">Region</label>
         </div>
       </div>
+      <div class="d-lg-flex flex-row end-0 justify-content-end">
+        <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
+        <input type="button" class="btn btn-md btn-outline-success" onclick="alert('your message have been submitted')"
+          value="Save">
+      </div>
     </form>
     <br>
     <!--Educational Attainment-->
     <legend>
       <h5 class="h5">Education Background</h5>
     </legend>
-    <form action="" class="form-control">
-      <h6 class="h6">Full Name:</h6>
+    <form action="submit" class="form-control">
+      <h6 class="h6">Recent Education</h6>
       <div class="input-group">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" placeholder="First Name" required>
-          <label for="floatingInput" aria-required="true">First Name</label>
+          <input type="text" class="form-control" id="floatingInput" placeholder="School name" required>
+          <label for="floatingInput" aria-required="">School name</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Middle Name" required>
-          <label for="floatingInput" aria-required="true">Middle Name</label>
+          <input type="text" class="form-control" id="floatingInput" placeholder="Date Graduated" required>
+          <label for="floatingInput" aria-required="">Date graduated</label>
         </div>
-
+        <div class="form-floating">
+          <select class="form-select form-control" id="floatingSelect" aria-label="Floating label select example">
+            <option selected>Select</option>
+            <option value="1">Elementary Graduate</option>
+            <option value="2">High School Graduate</option>
+            <option value="3">Associates degree</option>
+            <option value="3">Bachelors Degree</option>
+            <option value="3">Masteral</option>
+          </select>
+          <label for="floatingSelect">Select Education degree</label>
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="School name2" required>
+          <label for="floatingInput" aria-required="">School name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Date Graduated2" required>
+          <label for="floatingInput" aria-required="">Date graduated</label>
+        </div>
+        <div class="form-floating">
+          <select class="form-select form-control" id="floatingSelect" aria-label="Floating label select example2">
+            <option selected>Select</option>
+            <option value="1">Elementary Graduate</option>
+            <option value="2">High School Graduate</option>
+            <option value="3">Associates degree</option>
+            <option value="3">Bachelors Degree</option>
+            <option value="3">Masteral</option>
+          </select>
+          <label for="floatingSelect">Select Education degree</label>
+        </div>
+      </div>
+      <div class="d-lg-flex flex-row end-0 justify-content-end">
+        <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
+        <input type="button" class="btn btn-md btn-outline-success" onclick="alert('your message have been submitted')"
+          value="Save">
       </div>
     </form>
     <!--Work experience-->
+    <legend>
+      <h5 class="h5">Work Experience</h5>
+    </legend>
+    <form action="submit" class="form-control">
+      <h6 class="h6">First Company</h6>
+      <div class="input-group">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Company1" required>
+          <label for="floatingInput" aria-required="">Company Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Position1" required>
+          <label for="floatingInput" aria-required="">Position</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="date" class="form-control" id="floatingInput" placeholder="Date Hired" required>
+          <label for="floatingInput" aria-required="">Date Hired</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="date" class="form-control" id="floatingInput" placeholder="Date Hired" required>
+          <label for="floatingInput" aria-required="">Date Hired</label>
+        </div>
+      </div>
+      <h6 class="h6">Second Company</h6>
+      <div class="input-group">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Company1" required>
+          <label for="floatingInput" aria-required="">Company Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Position1" required>
+          <label for="floatingInput" aria-required="">Position</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="date" class="form-control" id="floatingInput" placeholder="Date Hired" required>
+          <label for="floatingInput" aria-required="">Date Hired</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="date" class="form-control" id="floatingInput" placeholder="Date Hired" required>
+          <label for="floatingInput" aria-required="">Date Hired</label>
+        </div>
+      </div>
+      <div class="d-lg-flex flex-row end-0 justify-content-end">
+        <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
+        <input type="button" class="btn btn-md btn-outline-success" onclick="alert('your message have been submitted')"
+          value="Save">
+      </div>
 
+    </form>
   </Nav>
 
 
