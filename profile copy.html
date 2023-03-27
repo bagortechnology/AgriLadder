@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+</head>
+
+<body>
+
+
+  <!--Body-->
+  <!--User Profile-->
+  <br><br>
+  <!--User Information-->
+  <Nav class="container">
+    <legend>
+      <h5 class="h5">User Information:</h5>
+    </legend>
+    <form class="form-control">
+      <h6 class="h6">Full Name:</h6>
+      <div class="input-group">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="fName" placeholder="First Name" required>
+          <label for="floatingInput" aria-required="true">First Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="mName" placeholder="Middle Name" required>
+          <label for="floatingInput" aria-required="true">Middle Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="lName" placeholder="Last Name" required>
+          <label for="floatingInput" aria-required="true">Last Name</label>
+        </div>
+      </div>
+
+      <div class="d-lg-flex flex-row end-0 justify-content-end">
+        <input type="button" class="btn btn-md btn-outline-success" onclick="submitName()" value="Save" id="submitBtn">
+        <button type="reset" class="btn btn-md btn-outline-success " value="reset">Reset</button>
+      </div>
+
+    </form>
+
+    <h4 id="msg"></h4> <br>
+    <legend>
+      <h5 class="h5">Data from local Storage:</h5>
+    </legend>
+    <form class="form-control">
+      <table border="2" id="nameTable">
+        <tr>
+          <td class="col">fName</td>
+          <td class="col">mName</td>
+          <td class="col">lName</td>
+          <td class="col">Action</td>
+        </tr>
+      </table>
+    </form>
+  </Nav>
+
+
+
+  <script>
+    //CRUD - Create, Read, Update, Delete
+
+    //Global Variables
+    var row = null;
+
+    function submitName() {
+      var nameInput = retrieveData();
+      var readData = readingDataFromLocalStorage(nameInput);
+      if (row == null) {
+        insert(readData);
+        msg.innerHTML = "Data Inserted"
+      } else {
+        update();
+        msg.innerHTML = "Data Updated"
+      }
+    }
+
+    //Retrieve data from a form
+    function retrieveData() {
+      var fName = document.getElementById("fName").value;
+      var mName = document.getElementById("mName").value;
+      var lName = document.getElementById("lName").value;
+
+      var nameArr = [fName, mName, lName];
+      return nameArr;
+    }
+
+    //Read
+    //Data in local storage
+    function readingDataFromLocalStorage(nameInput) {
+      //Storing data in local storage
+      localStorage.setItem("fName", nameInput[0]);
+      localStorage.setItem("mName", nameInput[1]);
+      localStorage.setItem("lName", nameInput[2]);
+
+      //Get values from Local to Table
+      var f1 = localStorage.getItem("fName");
+      var m1 = localStorage.getItem("mName");
+      var l1 = localStorage.getItem("lName");
+
+      var nameArr = [f1, m1, l1];
+      return nameArr;
+    }
+
+    //Insert
+    function insert(readData) {
+      var table = document.getElementById("nameTable");
+      var newRow = table.insertRow();
+      newRow.insertCell(0).innerHTML = readData[0];
+      newRow.insertCell(1).innerHTML = readData[1];
+      newRow.insertCell(2).innerHTML = readData[2];
+      newRow.insertCell(3).innerHTML = `<button onclick=edit(this)>Edit</button>
+<button onclick=remove(this)>Delete</button>`;
+    }
+
+    //Edit
+    function edit(td) {
+      row = td.parentNode.parentNode;
+      document.getElementById("fName").value = row.cells[0].innerHTML;
+      document.getElementById("mName").value = row.cells[1].innerHTML;
+      document.getElementById("lName").value = row.cells[2].innerHTML;
+    }
+
+    //Update
+    function update() {
+      row.cells[0].innerHTML = document.getElementById("fName").value;
+      row.cells[1].innerHTML = document.getElementById("mName").value;
+      row.cells[2].innerHTML = document.getElementById("lName").value;
+      row = null;
+    }
+
+
+    //delete
+    function remove(td) {
+      var ans = confirm("are you sure you want to delete this record");
+      if (ans == true) {
+        row = td.parentElement.parentElement;
+        document.getElementById("nameTable").deleteRow(row.rowIndex);
+      }
+    }
+  </script>
+</body>
+
+</html>

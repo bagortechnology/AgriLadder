@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CRUD Operations</title>
+</head>
+
+<body>
+    <h1>CRUD Operations</h1>
+
+    <form>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName"><br>
+
+        <label for="middleName">Middle Name:</label>
+        <input type="text" id="middleName"><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName"><br>
+
+        <label for="dateOfBirth">Date of Birth:</label>
+        <input type="date" id="dateOfBirth"><br>
+
+        <button type="button" onclick="submitData()">Submit</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <script>
+        let tableBody = document.getElementById('tableBody');
+        let row = null;
+
+        // Submit data to table
+        function submitData() {
+            let firstName = document.getElementById('firstName').value;
+            let middleName = document.getElementById('middleName').value;
+            let lastName = document.getElementById('lastName').value;
+            let dateOfBirth = document.getElementById('dateOfBirth').value;
+
+            if (row == null) {
+                insertRow([firstName, middleName, lastName, dateOfBirth]);
+            } else {
+                updateRow([firstName, middleName, lastName, dateOfBirth]);
+            }
+
+            document.getElementById('firstName').value = '';
+            document.getElementById('middleName').value = '';
+            document.getElementById('lastName').value = '';
+            document.getElementById('dateOfBirth').value = '';
+
+        }
+
+        // Insert row into table
+        function insertRow(data) {
+            let newRow = tableBody.insertRow();
+            newRow.insertCell(0).innerHTML = data[0];
+            newRow.insertCell(1).innerHTML = data[1];
+            newRow.insertCell(2).innerHTML = data[2];
+            newRow.insertCell(3).innerHTML = data[3];
+            newRow.insertCell(4).innerHTML = `<button onclick="editRow(this)">Edit</button>
+											  <button onclick="deleteRow(this)">Delete</button>`;
+        }
+
+        // Edit row
+        function editRow(button) {
+            row = button.parentElement.parentElement;
+            document.getElementById('firstName').value = row.cells[0].innerHTML;
+            document.getElementById('middleName').value = row.cells[1].innerHTML;
+            document.getElementById('lastName').value = row.cells[2].innerHTML;
+            document.getElementById('dateOfBirth').value = row.cells[3].innerHTML;
+        }
+
+        // Update row
+        function updateRow(data) {
+            row.cells[0].innerHTML = data[0];
+            row.cells[1].innerHTML = data[1];
+            row.cells[2].innerHTML = data[2];
+            row.cells[3].innerHTML = data[3];
+            row = null;
+        }
+
+        // Delete row
+        function deleteRow(button) {
+            let confirmation = confirm('Are you sure you want to delete this row?');
+            if (confirmation) {
+                let row = button.parentElement.parentElement;
+                tableBody.removeChild(row);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CRUD with Local Storage</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="name" placeholder="Name">
+        <input type="number" id="age" placeholder="Age">
+        <button type="button" onclick="create()">Create</button>
+        <button type="button" onclick="read()">Read</button>
+        <button type="button" onclick="update()">Update</button>
+        <button type="button" onclick="remove()">Delete</button>
+    </form>
+    <ul id="list"></ul>
+    <script>
+        // Create
+        function create() {
+            var name = document.getElementById("name").value;
+            var age = document.getElementById("age").value;
+            var data = {
+                name: name,
+                age: age
+            };
+            localStorage.setItem(name, JSON.stringify(data));
+        }
+
+        // Read
+        function read() {
+            var list = document.getElementById("list");
+            list.innerHTML = "";
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                var value = localStorage.getItem(key);
+                var data = JSON.parse(value);
+                var li = document.createElement("li");
+                li.textContent = data.name + " - " + data.age;
+                list.appendChild(li);
+            }
+        }
+
+        // Update
+        function update() {
+            var name = document.getElementById("name").value;
+            var age = document.getElementById("age").value;
+            var data = {
+                name: name,
+                age: age
+            };
+            localStorage.setItem(name, JSON.stringify(data));
+        }
+
+        // Delete
+        function remove() {
+            var name = document.getElementById("name").value;
+            localStorage.removeItem(name);
+        }
+    </script>
+</body>
+
+</html>
