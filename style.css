@@ -76,6 +76,23 @@ footer a:hover {
   color: #80cb2b;
 }
 
+.btn-login {
+  background-color: #00660a;
+  border-color: #00660a;
+  color: #ffff;
+  transition: all 0.3s ease-in-out;
+  margin: 30px;
+  font-family: 'Aileron', sans-serif;
+  border-radius: 10px;
+}
+
+.btn-login:hover {
+  background-color: #80cb2b;
+  border-color: #80cb2b;
+  color: #ffff;
+  transform: scale(1.1);
+}
+
 /* Sidebar */
 
 
