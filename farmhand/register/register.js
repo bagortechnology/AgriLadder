@@ -1,27 +1,89 @@
-const db = require("/dbconfig");
-
-router.post("/farmhand/register/index.html", async (req, res) => {
-  try {
-    const { email, password, role } = req.body;
-
-    // Check if user already exists
-    const userExists = await db.query("SELECT * FROM users WHERE email = $1", [
-      email
-    ]);
-
-    if (userExists.rowCount > 0) {
-      return res.status(400).send("User already exists.");
-    }
-
-    // Insert user into the database
-    await db.query(
-      "INSERT INTO users (email, password, role) VALUES ($1, $2, $3)",
-      [email, password, role]
-    );
-
-    return res.status(200).send("Registration successful.");
-  } catch (err) {
-    console.log(err);
-    return res.status(500).send("Internal server error.");
-  }
-});
+$(document).ready(function() {
+    // code for password strength meter
+    $('#pwdRegFh').on('input', function() {
+        var password = $(this).val();
+        var result = zxcvbn(password);
+        var score = result.score;
+        var colorClass = '';
+        var text = '';
+  
+        switch(score) {
+          case 0:
+            colorClass = 'bg-danger';
+            text = 'Very Weak';
+            break;
+          case 1:
+            colorClass = 'bg-warning';
+            text = 'Weak';
+            break;
+          case 2:
+            colorClass = 'bg-info';
+            text = 'Medium';
+            break;
+          case 3:
+            colorClass = 'bg-primary';
+            text = 'Strong';
+            break;
+          case 4:
+            colorClass = 'bg-success';
+            text = 'Very Strong';
+            break;
+        }
+  
+        $('#password-strength').removeClass().addClass('text-muted small ' + colorClass).text(text);
+      });
+  
+      $('.reveal').click(function() {
+        var passwordField = $('#pwdRegFh');
+        var passwordFieldType = passwordField.attr('type');
+  
+        if (passwordFieldType == 'password') {
+          passwordField.attr('type', 'text');
+          $(this).html('<i class="fa fa-eye-slash"></i>');
+        } else {
+          passwordField.attr('type', 'password');
+          $(this).html('<i class="fa fa-eye"></i>');
+        }
+      });
+  
+    // get form element
+    const form = document.getElementById("registerForm");
+  
+    // add event listener for form submission
+    form.addEventListener("submit", function(event) {
+      // prevent form submission if there are invalid fields or password is too weak
+      if (form.checkValidity() === false || $('#pwdRegFh').val().length < 8) {
+        event.preventDefault();
+        event.stopPropagation();
+  
+        // add 'was-validated' class to show validation feedback
+        form.classList.add("was-validated");
+  
+        // show error message for password strength
+        if ($('#pwdRegFh').val().length < 8) {
+          $('#password-strength').removeClass().addClass('text-danger small').text('Password must be at least 8 characters long.');
+        }
+      } else {
+        // clear any error messages and submit the form
+        $('#password-strength').removeClass().addClass('text-muted small').text('');
+        form.classList.add("was-validated");
+      }
+  
+      // check if password and confirm password match
+      const password = document.getElementById("pwdRegFh");
+      const confirmPassword = document.getElementById("confirmPwdRegFh");
+  
+      if (password.value !== confirmPassword.value) {
+        confirmPassword.setCustomValidity("Passwords must match");
+      } else {
+        confirmPassword.setCustomValidity("");
+      }
+    });
+  
+    // add event listener to remove custom validity on input change
+    const confirmPassword = document.getElementById("confirmPwdRegFh");
+    confirmPassword.addEventListener("input", function() {
+      confirmPassword.setCustomValidity("");
+    });
+  });
+  
