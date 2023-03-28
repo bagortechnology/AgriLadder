@@ -1,6 +1,6 @@
-const { Client } = require('pg');
+const { Pool } = require("pg");
 
-const client = new Client({
+const pool = new Pool({
   user: 'agr1ladd3r357',
   host: 'db-agriladder-0357-4244.6xw.cockroachlabs.cloud',
   database: 'agriladderdb',
@@ -11,4 +11,6 @@ const client = new Client({
   }
 });
 
-module.exports = client;
+module.exports = {
+  query: (text, params) => pool.query(text, params)
+};

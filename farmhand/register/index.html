@@ -26,7 +26,7 @@
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
   
-                  <form>
+                  <form id="registerForm" method="post">
   
                     <div class="d-flex align-items-center mb-3 pb-1">
                       <a href="https://www.agriladder.com/"><img src="/assets/logo.svg" alt="logo" style="height: 50px;"></a>
@@ -64,5 +64,60 @@
       </div>
     </div>
   </div>
+<script>
+  function registerFarmhand(event) {
+  event.preventDefault(); // prevent form submission
+  
+  // get form values
+  const email = $("#emailRegFh").val();
+  const password = $("#pwdRegFh").val();
+  const confirmPassword = $("#confirmPwdRegFh").val();
+
+  // perform form validation
+  if (!email) {
+    alert("Email address is required.");
+    return;
+  }
+
+  if (!password) {
+    alert("Password is required.");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match.");
+    return;
+  }
+
+  // hash the password
+  const hashedPassword = CryptoJS.SHA256(password).toString().substring(0, 16);
+
+  // submit the form data to the database
+  $.ajax({
+    type: "POST",
+    url: "/submit-registration",
+    data: {
+      email: email,
+      password: hashedPassword,
+      role: "farmhand"
+    },
+    success: function(response) {
+      alert("Registration successful!");
+      // redirect to login page
+      window.location.href = "/farmhand/";
+    },
+    error: function(xhr, status, error) {
+      alert("Registration failed. Please try again later.");
+    }
+  });
+}
+
+$("#registrationForm").submit(registerFarmhand);
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.min.js"></script>
 </body>
 </html>
