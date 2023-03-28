@@ -1,33 +1,3 @@
-import firebase from 'firebase/app';
-import 'firebase/database';
-import firebaseConfig from './dbconfig.js';
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
-// Get form element
-const form = document.getElementById("registerForm");
-
-// Add event listener for form submission
-form.addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    // Get input field values
-    const email = document.getElementById("emailRegFh").value;
-    const password = document.getElementById("pwdRegFh").value;
-    const confirmPassword = document.getElementById("confirmPwdRegFh").value;
-
-    // Create Firebase Realtime Database reference
-    const database = firebase.database();
-    const farmhandsRef = database.ref('farmhands');
-
-    // Push registration data to Firebase Realtime Database
-    farmhandsRef.push({
-        email: email,
-        password: password,
-        confirmPassword: confirmPassword
-    });
-});
 
 $(document).ready(function() {
     // code for password strength meter
