@@ -46,6 +46,21 @@ $(document).ready(function() {
         }
     });
 
+    // add event listener to reveal confirm password option
+$('.reveal-confirm').click(function() {
+    var confirmPasswordField = $('#confirmPwdRegFh');
+    var confirmPasswordFieldType = confirmPasswordField.attr('type');
+
+    if (confirmPasswordFieldType == 'password') {
+        confirmPasswordField.attr('type', 'text');
+        $(this).html('<i class="fa fa-eye-slash"></i>');
+    } else {
+        confirmPasswordField.attr('type', 'password');
+        $(this).html('<i class="fa fa-eye"></i>');
+    }
+});
+
+
     // get form element
     const form = document.getElementById("registerForm");
 
