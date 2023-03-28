@@ -12,6 +12,10 @@
     <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
     <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
     <title> Farmhand | AgriLadder</title>
+    <script src="/farmhand/register/register.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.min.js"></script>
 </head>
 <body>
   <div style="background-color: #00660a;">
@@ -36,18 +40,30 @@
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create a <b style="color:#00660a">Farmhand Account</b> </h5>
   
                     <div class="form-outline mb-3">
-                      <input type="email" id="emailRegFh" class="form-control form-control-lg" />
+                      <input type="email" id="emailRegFh" class="form-control form-control-lg" required/>
                       <label class="form-label" for="emailRegFh">Email Address</label>
+                      <div id="alert" class="alert alert-danger" style="display:none;">
+                        Please enter a valid email address.
+                    </div>
+                    
                     </div>
   
                     <div class="form-outline mb-3">
-                      <input type="password" id="pwdRegFh" class="form-control form-control-lg" />
+                      <input type="password" id="pwdRegFh" class="form-control form-control-lg" required/>
                       <label class="form-label" for="pwdRegFh">Password</label>
+                      <div id="alert" class="alert alert-danger" style="display:none;">
+                        Please fill in a password.
+                    </div>
+                    
                     </div>
 
                     <div class="form-outline mb-3">
-                        <input type="password" id="confirmPwdRegFh" class="form-control form-control-lg" />
+                        <input type="password" id="confirmPwdRegFh" class="form-control form-control-lg" required />
                         <label class="form-label" for="confirmPwdRegFh">Confirm Password</label>
+                        <div id="alert" class="alert alert-danger" style="display:none;">
+                          Please confirm your password.
+                      </div>
+                      
                       </div>
                     <div>
 
@@ -75,20 +91,29 @@
   const confirmPassword = $("#confirmPwdRegFh").val();
 
   // perform form validation
-  if (!email) {
-    alert("Email address is required.");
-    return;
-  }
+  const form = document.querySelector('#registerForm');
+  const pwdRegFh = document.querySelector('#pwdRegFh');
+  const confirmPwdRegFh = document.querySelector('#confirmPwdRegFh');
+  const alertMsg = document.querySelector('#alert');
 
-  if (!password) {
-    alert("Password is required.");
-    return;
-  }
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-  if (password !== confirmPassword) {
-    alert("Passwords do not match.");
-    return;
-  }
+    if (pwdRegFh.value.length < 8) {
+      alertMsg.textContent = 'Password should be at least 8 characters long.';
+      alertMsg.style.display = 'block';
+      return;
+    }
+
+    if (pwdRegFh.value !== confirmPwdRegFh.value) {
+      alertMsg.textContent = 'Passwords do not match.';
+      alertMsg.style.display = 'block';
+      return;
+    }
+
+    // If validation passes, submit the form
+    form.submit();
+  });
 
   // hash the password
   const hashedPassword = CryptoJS.SHA256(password).toString().substring(0, 16);
@@ -114,11 +139,6 @@
 }
 
 $("#registerForm").submit(registerFarmhand);
-
 </script>
-<script src="/farmhand/register/register.js" type="text/javascript"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.min.js"></script>
 </body>
 </html>
