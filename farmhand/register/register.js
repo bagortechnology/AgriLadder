@@ -1,4 +1,4 @@
-const db = require("../dbconfig");
+const db = require("/dbconfig");
 
 router.post("/submit-registration", async (req, res) => {
   try {
