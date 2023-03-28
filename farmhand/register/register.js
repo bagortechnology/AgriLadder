@@ -1,6 +1,6 @@
 const db = require("/dbconfig");
 
-router.post("/submit-registration", async (req, res) => {
+router.post("/farmhand/register/index.html", async (req, res) => {
   try {
     const { email, password, role } = req.body;
 
