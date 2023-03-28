@@ -4,144 +4,359 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/029ea7a107.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon">
+  <title>Profile | AgriLadder</title>
 </head>
 
 <body>
-
-
-  <!--Body-->
-  <!--User Profile-->
-  <br><br>
-  <!--User Information-->
-  <Nav class="container">
-    <legend>
-      <h5 class="h5">User Information:</h5>
-    </legend>
-    <form class="form-control">
-      <h6 class="h6">Full Name:</h6>
-      <div class="input-group">
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="fName" placeholder="First Name" required>
-          <label for="floatingInput" aria-required="true">First Name</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="mName" placeholder="Middle Name" required>
-          <label for="floatingInput" aria-required="true">Middle Name</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="lName" placeholder="Last Name" required>
-          <label for="floatingInput" aria-required="true">Last Name</label>
+  <nav class="navbar sticky-top navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="https://www.agriladder.com">
+        <img src="assets/logo.svg" alt="AgriLadder logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+        aria-controls="HomeNavBar" aria-expanded="false" aria-label="Toggle Navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.agriladder.com">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="jobs.html">Jobs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.html">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <!-- Card Head -->
+  <div class="container">
+    <div class="card text-center  ">
+      <div class="card-header">
+        <u`l class="nav nav-tabs card-header-tabs " id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1"
+              aria-selected="true">Profile Card</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2"
+              aria-selected="false">Job Card</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="tab3-tab" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3"
+              aria-selected="false">Job Hunt</a>
+          </li>
+          </ul>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
+            <p>Content of tab 1 goes here.</p>
+          </div>
+          <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
+            <p>Content of tab 2 goes here.</p>
+          </div>
+          <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
+            <p>Content of tab 3 goes here.</p>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+  <br>
+  <!-- Accordion -->
+  <div class="accordion container" id="accordionExample">
+    <h5 class="h5">Your Profile</h5>
+    <!-- Personal Info -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          aria-expanded="false" aria-controls="collapseOne">
+          <h6 class="h6">Personal Information</h6>
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <h6 class="h6">Full Name:</h6>
+          <div class="input-group">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="fName" placeholder="First Name" required>
+              <label for="floatingInput" aria-required="true">First Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="mName" placeholder="Middle Name" required>
+              <label for="floatingInput" aria-required="true">Middle Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="lName" placeholder="Last Name" required>
+              <label for="floatingInput" aria-required="true">Last Name</label>
+            </div>
+          </div>
 
-      <div class="d-lg-flex flex-row end-0 justify-content-end">
-        <input type="button" class="btn btn-md btn-outline-success" onclick="submitName()" value="Save" id="submitBtn">
-        <button type="reset" class="btn btn-md btn-outline-success " value="reset">Reset</button>
+          <div class="input-group">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="pob" placeholder="Last Name" required>
+              <label for="floatingInput" aria-required="true">Place of Bith</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" id="dob" placeholder="Date Hired" required>
+              <label for="floatingInput" aria-required="">Date of Birth</label>
+            </div>
+            <div class="form-floating mb-3">
+            </div>
+            <div class="input-group"> <!--Radio-->
+              <h6 class="h6 ps-2 pe-2">Gender:</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                <label class="form-check-label pe-2" for="male">Male</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                <label class="form-check-label" for="female">Female</label>
+              </div>
+
+              <h6 class="h6 ps-5 pe-2 ">Civil Status:</h6>
+              <div class="form-check ">
+                <input class="form-check-input" type="radio" name="cStatus" id="single" value="single">
+                <label class="form-check-label ps-2 pe-2" for="single">
+                  Single
+                </label>
+              </div>
+              <div class="form-check ">
+                <input class="form-check-input" type="radio" name="cStatus" id="married" value="married">
+                <label class="form-check-label ps-2 pe-2" for="married">
+                  Married
+                </label>
+              </div>
+              <div class="form-check ">
+                <input class="form-check-input" type="radio" name="cStatus" id="others" value="others">
+                <label class="form-check-label ps-2 pe-2" for="others">
+                  Others
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <br>
+          <h6 class="h6">Contact Details:</h6>
+          <div class="input-group">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="eMail" placeholder="Email@domain.com" required>
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="tel" class="form-control" id="mob1" placeholder="Mobile Number" required>
+              <label for="floatingInput" aria-required="true">Mobile Number</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="tel" class="form-control" id="mob2" placeholder="Other Mobile Number" required>
+              <label for="floatingInput" aria-required="">Other Mobile Number</label>
+            </div>
+          </div>
+          <h6 class="h6">Address Details:</h6>
+          <div class="input-group">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="homeStreet" placeholder="House St." required>
+              <label for="floatingInput" aria-required="true">House#, St.</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="municipal" placeholder="Municipality" required>
+              <label for="floatingInput" aria-required="true">municipality</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="region" placeholder="Region" required>
+              <label for="floatingInput" aria-required="true">Region</label>
+            </div>
+          </div>
+          <div class="d-lg-flex flex-row end-0 justify-content-end">
+            <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
+            <input type="button" class="btn btn-md btn-outline-success"
+              onclick="alert('your message have been submitted')" value="Save">
+          </div>
+
+        </div>
       </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+          aria-expanded="false" aria-controls="collapseTwo">
+          <h6 class="h6">Educational Background</h6>
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <h6 class="h6">Recent Education</h6>
+          <div class="input-group">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="school1" placeholder="School name" required>
+              <label for="floatingInput" aria-required="">School name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="dateGrad1" placeholder="Date Graduated" required>
+              <label for="floatingInput" aria-required="">Date graduated</label>
+            </div>
+            <div class="form-floating">
+              <select class="form-select form-control" id="degree1" aria-label="degree1">
+                <option selected>Select</option>
+                <option value="1">Elementary Graduate</option>
+                <option value="2">High School Graduate</option>
+                <option value="3">Associates degree</option>
+                <option value="4">Bachelors Degree</option>
+                <option value="5">Masteral</option>
+              </select>
+              <label for="degree1">Select Education degree</label>
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="school2" placeholder="School name2" required>
+              <label for="floatingInput" aria-required="">School name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="dateGrad2" placeholder="Date Graduated2" required>
+              <label for="floatingInput" aria-required="">Date graduated</label>
+            </div>
+            <div class="form-floating">
+              <select class="form-select form-control" id="degree2" aria-label="degree2">
+                <option selected>Select</option>
+                <option value="1">Elementary Graduate</option>
+                <option value="2">High School Graduate</option>
+                <option value="3">Associates degree</option>
+                <option value="4">Bachelors Degree</option>
+                <option value="5">Masteral</option>
+              </select>
+              <label for="degree2">Select Education degree</label>
+            </div>
+          </div>
+          <div class="d-lg-flex flex-row end-0 justify-content-end">
+            <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
+            <input type="button" class="btn btn-md btn-outline-success"
+              onclick="alert('your message have been submitted')" value="Save">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <h6 class="h6">Work Experience</h6>
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <h6 class="h6">First Company</h6>
+          <div class="input-group">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="compName1" placeholder="Company1" required>
+              <label for="floatingInput" aria-required="">Company Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="position1" placeholder="Position1" required>
+              <label for="floatingInput" aria-required="">Position</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" id="dateHire1" placeholder="Date Hired" required>
+              <label for="floatingInput" aria-required="">Date Hired</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" id="dateEnd1" placeholder="Date End" required>
+              <label for="floatingInput" aria-required="">Date End</label>
+            </div>
+          </div>
+          <h6 class="h6">Second Company</h6>
+          <div class="input-group">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="compName2" placeholder="Company1" required>
+              <label for="floatingInput" aria-required="">Company Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="position2" placeholder="Position1" required>
+              <label for="floatingInput" aria-required="">Position</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" id="dateHire2" placeholder="Date Hired" required>
+              <label for="floatingInput" aria-required="">Date Hired</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" id="dateEnd2" placeholder="Date End" required>
+              <label for="floatingInput" aria-required="">Date End</label>
+            </div>
+          </div>
+          <div class="d-lg-flex flex-row end-0 justify-content-end">
+            <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
+            <input type="button" class="btn btn-md btn-outline-success"
+              onclick="alert('your message have been submitted')" value="Save">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  br
+  <!--Footer-->
+  <footer class="bg-light py-3">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-4 mb-3 mb-md-0 text-center text-md-start">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item"><a href="index.html">Home</a></li>
+            <li class="list-inline-item"><a href="jobs.html">Jobs</a></li>
+            <li class="list-inline-item"><a href="profile.html">Profile</a></li>
+            <li class="list-inline-item"><a href="privacy.html">Privacy</a></li>
+            <li class="list-inline-item"><a href="terms.html">Terms</a></li>
+            <li class="list-inline-item"><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-4 mb-3 mb-md-0 text-center">
+          <a href="index.html"><img src="assets/footer.svg" alt="AgriLadder Logo" class="img-fluid" width="135"
+              height="30"></a>
+        </div>
+        <div class="col-12 col-md-4 text-center text-md-end">
+          <p class="mb-0">Copyright © 2023 AgriLadder. Powered by EXPERTIST, INC.
+          </p>
+        </div>
+      </div>
+    </div>
 
-    </form>
-
-    <h4 id="msg"></h4> <br>
-    <legend>
-      <h5 class="h5">Data from local Storage:</h5>
-    </legend>
-    <form class="form-control">
-      <table border="2" id="nameTable">
-        <tr>
-          <td class="col">fName</td>
-          <td class="col">mName</td>
-          <td class="col">lName</td>
-          <td class="col">Action</td>
-        </tr>
-      </table>
-    </form>
-  </Nav>
-
-
-
-  <script>
-    //CRUD - Create, Read, Update, Delete
-
-    //Global Variables
-    var row = null;
-
-    function submitName() {
-      var nameInput = retrieveData();
-      var readData = readingDataFromLocalStorage(nameInput);
-      if (row == null) {
-        insert(readData);
-        msg.innerHTML = "Data Inserted"
-      } else {
-        update();
-        msg.innerHTML = "Data Updated"
-      }
-    }
-
-    //Retrieve data from a form
-    function retrieveData() {
-      var fName = document.getElementById("fName").value;
-      var mName = document.getElementById("mName").value;
-      var lName = document.getElementById("lName").value;
-
-      var nameArr = [fName, mName, lName];
-      return nameArr;
-    }
-
-    //Read
-    //Data in local storage
-    function readingDataFromLocalStorage(nameInput) {
-      //Storing data in local storage
-      localStorage.setItem("fName", nameInput[0]);
-      localStorage.setItem("mName", nameInput[1]);
-      localStorage.setItem("lName", nameInput[2]);
-
-      //Get values from Local to Table
-      var f1 = localStorage.getItem("fName");
-      var m1 = localStorage.getItem("mName");
-      var l1 = localStorage.getItem("lName");
-
-      var nameArr = [f1, m1, l1];
-      return nameArr;
-    }
-
-    //Insert
-    function insert(readData) {
-      var table = document.getElementById("nameTable");
-      var newRow = table.insertRow();
-      newRow.insertCell(0).innerHTML = readData[0];
-      newRow.insertCell(1).innerHTML = readData[1];
-      newRow.insertCell(2).innerHTML = readData[2];
-      newRow.insertCell(3).innerHTML = `<button onclick=edit(this)>Edit</button>
-<button onclick=remove(this)>Delete</button>`;
-    }
-
-    //Edit
-    function edit(td) {
-      row = td.parentNode.parentNode;
-      document.getElementById("fName").value = row.cells[0].innerHTML;
-      document.getElementById("mName").value = row.cells[1].innerHTML;
-      document.getElementById("lName").value = row.cells[2].innerHTML;
-    }
-
-    //Update
-    function update() {
-      row.cells[0].innerHTML = document.getElementById("fName").value;
-      row.cells[1].innerHTML = document.getElementById("mName").value;
-      row.cells[2].innerHTML = document.getElementById("lName").value;
-      row = null;
-    }
-
-
-    //delete
-    function remove(td) {
-      var ans = confirm("are you sure you want to delete this record");
-      if (ans == true) {
-        row = td.parentElement.parentElement;
-        document.getElementById("nameTable").deleteRow(row.rowIndex);
-      }
-    }
-  </script>
+  </footer>
+  <script src="main_DBStructure.js"></script>
 </body>
 
-</html>
+</html>D
