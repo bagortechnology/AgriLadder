@@ -33,17 +33,17 @@
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create a <b style="color:#00660a">Farmhand Account</b></h5>
                   
                     <div class="form-outline mb-3">
-                      <input type="email" id="emailRegFh" class="form-control form-control-lg"/>
-                      <label class="form-label" for="emailRegFh">Email Address</label>
+                      <input type="email" id="email" name="email" class="form-control form-control-lg"/>
+                      <label class="form-label" for="email">Email Address</label>
                     </div>
                   
                     <div class="form-outline mb-3">
-                      <input type="password" id="pwdRegFh" class="form-control form-control-lg" />
-                      <label class="form-label" for="pwdRegFh">Password</label>
+                      <input type="password" id="pwd" name="pwd" class="form-control form-control-lg" />
+                      <label class="form-label" for="pwd">Password</label>
                     </div>
 
                     <div>
-                      <button class="btn btn-lg btn-login" id="submitData" type="submit">Register</button>
+                      <button class="btn btn-lg btn-login" id="submitData" name="submitData" type="submit">Register</button>
                     </div>
                     <p class="mb-5 pb-lg-2" style="color: black;">Already Registered? <a href="/farmhand/"
                         style="color: #80cb2b;"><b>Login</b></a></p>
@@ -77,15 +77,15 @@
 
   submitData.addEventListener('click',(e) =>{
 
-    var email = document.getElementById("emailRegFh").value;
-    var password = document.getElementById("pwdRegFh").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("pwd").value;
 
     createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
     // ... user.id
-    set(ref(database, 'farmhand/' + user.uid), {
+    set(ref(database, 'users/' + user.uid), {
     email: email,
     password: password
   })
