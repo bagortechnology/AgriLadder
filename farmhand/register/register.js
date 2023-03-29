@@ -1,4 +1,19 @@
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
+      authDomain: "agriladder-jobs.firebaseapp.com",
+      projectId: "agriladder-jobs",
+      storageBucket: "agriladder-jobs.appspot.com",
+      messagingSenderId: "635800620871",
+      appId: "1:635800620871:web:724d28204dd3878f36c662"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
 $(document).ready(function() {
     // code for password strength meter
     $('#pwdRegFh').on('input', function() {
