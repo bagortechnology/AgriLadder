@@ -86,29 +86,19 @@
  <script type="module">
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
-  import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app-check.js";
   import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
   import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
 
   const firebaseConfig = {
-    apiKey: "AIzaSyAKqy7CMKHEDYj6OpYWUXUlX9_hyUB4wXk",
-    authDomain: "agriladder-15c48.firebaseapp.com",
-    databaseURL: "https://agriladder-15c48-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "agriladder-15c48",
-    storageBucket: "agriladder-15c48.appspot.com",
-    messagingSenderId: "196602367924",
-    appId: "1:196602367924:web:0ff1631df75c0e5ec16ce1",
-    measurementId: "G-G9FRQEQM1Y",
-    databaseURL:  "https://agriladder-15c48-default-rtdb.asia-southeast1.firebasedatabase.app/"
+    apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
+    authDomain: "agriladder-jobs.firebaseapp.com",
+    projectId: "agriladder-jobs",
+    storageBucket: "agriladder-jobs.appspot.com",
+    messagingSenderId: "635800620871",
+    appId: "1:635800620871:web:724d28204dd3878f36c662"
   };
 
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const appCheck = initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider('6LfxGOEhAAAAAMOqPQl-HsOqAf6CqvoiYlWo8Vzx'),
-  isTokenAutoRefreshEnabled: true
-});
   const auth = getAuth();
   const database = getDatabase(app);
 
