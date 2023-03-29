@@ -129,8 +129,8 @@ $('.reveal-confirm').click(function() {
                 .then((userCredential) => {
                   // Signed in 
                   const user = userCredential.user;
-                // redirect user to login page after successful registration
-                 window.location.href = "https://www.agriladder.com/farmhand/";
+                  // ...
+                  alert('You are successfully registered!')
                 })
                 .catch((error) => {
                   const errorCode = error.code;
@@ -138,7 +138,6 @@ $('.reveal-confirm').click(function() {
                   // ..
                   alert(errorMessage);
                 });
-            };
+            }
         }
     });
-    
