@@ -13,8 +13,6 @@
     <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
     <title> Farmhand | AgriLadder</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
 </head>
 <body>
@@ -81,25 +79,7 @@
       </div>
     </div>
   </div>
- <script src="/farmhand/register/register.js" type="text/javascript"></script>
- <script type="module">
+ <script src="/farmhand/register/register.js" type="module"></script>
 
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
-    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
-  
-    const firebaseConfig = {
-      apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
-      authDomain: "agriladder-jobs.firebaseapp.com",
-      projectId: "agriladder-jobs",
-      storageBucket: "agriladder-jobs.appspot.com",
-      messagingSenderId: "635800620871",
-      appId: "1:635800620871:web:724d28204dd3878f36c662"
-    };
-  
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-    const auth = getAuth();
-  </script>
 </body>
 </html>
