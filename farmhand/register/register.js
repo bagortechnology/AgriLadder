@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
     import { getDatabase } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
   
     const firebaseConfig = {
       apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
@@ -85,56 +85,77 @@ $('.reveal-confirm').click(function() {
         // prevent form submission if there are invalid fields or password is too weak
         var passwordStrengthScore = zxcvbn($('#pwdRegFh').val()).score;
         if (form.checkValidity() === false || passwordStrengthScore < 2) {
+          event.preventDefault();
+          event.stopPropagation();
+      
+          // add 'was-validated' class to show validation feedback
+          form.classList.add("was-validated");
+      
+          // show error message for password strength
+          if (passwordStrengthScore < 2) {
+            $('#password-strength').removeClass().addClass('text-danger small').text('Password must be at least medium strength.');
+          }
+        } else {
+          // clear any error messages
+          $('#password-strength').removeClass().addClass('text-muted small').text('');
+          form.classList.add("was-validated");
+      
+          // check if password and confirm password match
+          const password = document.getElementById("pwdRegFh");
+          const confirmPassword = document.getElementById("confirmPwdRegFh");
+      
+          if (password.value !== confirmPassword.value) {
+            // prevent form submission if passwords don't match
             event.preventDefault();
             event.stopPropagation();
-    
+      
             // add 'was-validated' class to show validation feedback
             form.classList.add("was-validated");
-    
-            // show error message for password strength
-            if (passwordStrengthScore < 2) {
-                $('#password-strength').removeClass().addClass('text-danger small').text('Password must be at least medium strength.');
-            }
-        } else {
-            // clear any error messages
-            $('#password-strength').removeClass().addClass('text-muted small').text('');
-            form.classList.add("was-validated");
-    
-            // check if password and confirm password match
-            const password = document.getElementById("pwdRegFh");
-            const confirmPassword = document.getElementById("confirmPwdRegFh");
-    
-            if (password.value !== confirmPassword.value) {
-                // prevent form submission if passwords don't match
+      
+            // show error message for confirm password
+            confirmPassword.setCustomValidity("Passwords must match");
+          } else {
+            confirmPassword.setCustomValidity("");
+            const email = document.getElementById("emailRegFh").value;
+            const password = document.getElementById("pwdRegFh").value;
+      
+            // check if email already exists in database
+            auth.signInWithEmailAndPassword(email, password)
+              .then((userCredential) => {
+                // user with this email already exists, show error message
                 event.preventDefault();
                 event.stopPropagation();
-    
-                // add 'was-validated' class to show validation feedback
+      
                 form.classList.add("was-validated");
-    
-                // show error message for confirm password
-                confirmPassword.setCustomValidity("Passwords must match");
-            } else {
-                confirmPassword.setCustomValidity("");
-                // create user with email and password
-                const email = document.getElementById("emailRegFh").value;
-                const password = document.getElementById("pwdRegFh").value;
-                createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                  // Signed in 
-                  const user = userCredential.user;
-                  // ...
-                  alert('You are successfully registered!')
-                })
-                .catch((error) => {
-                  const errorCode = error.code;
-                  const errorMessage = error.message;
-                  // ..
-                  alert(errorMessage);
-                });
-            }
+      
+                $('#emailRegFh').removeClass().addClass('form-control is-invalid');
+                $('#emailRegFh-feedback').text('Email already exists');
+              })
+              .catch((error) => {
+                // email not found in database, create user
+                if (error.code === "auth/user-not-found") {
+                  createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                      // Signed in 
+                      const user = userCredential.user;
+                      // ...
+                      alert('You are successfully registered!')
+                    })
+                    .catch((error) => {
+                      const errorCode = error.code;
+                      const errorMessage = error.message;
+                      // ..
+                      alert(errorMessage);
+                    });
+                } else {
+                  // other error occurred, display error message
+                  alert(error.message);
+                }
+              });
+          }
         }
-    });
+      });
+      
     
 
     // add event listener to remove custom validity on input change
