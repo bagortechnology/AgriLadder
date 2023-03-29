@@ -76,7 +76,7 @@
   const auth = getAuth();
 
   signUp.addEventListener('click', (e)=>{
-
+    e.preventDefault();
     var email = document.getElementById('email').value;
     var password = document.getElementById('pwd').value;
     createUserWithEmailAndPassword(auth, email, password)
