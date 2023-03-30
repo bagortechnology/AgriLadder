@@ -83,13 +83,15 @@ signUpForm.addEventListener('submit', (e) => {
   const email = signUpForm.email.value;
   const password = signUpForm.pwd.value;
 
+  // Get the current date in mm-dd-yyyy format
+  const createdAt = new Date().toLocaleDateString('en-US');
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       //send to the database
       set(ref(database, 'users/farmhand/' + user.uid), {
       email: email,
-      password: password
+      createdAt: createdAt
     });
       // Clear the form inputs
       signUpForm.email.value = '';
