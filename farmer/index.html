@@ -58,7 +58,7 @@
   </div>
  <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
-import { getDatabase, update, ref } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+import { getDatabase, update, ref, get } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -85,31 +85,51 @@ loginForm.addEventListener('submit', (e) => {
 
   // Get the current date in mm-dd-yyyy format
   const lastLogin = new Date().toLocaleDateString('en-US');
+  // Define user role
+  const userRole = 'farmer';
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+
       const user = userCredential.user;
-      //send to the database
-      update(ref(database, 'users/farmer/' + user.uid), {
-      lastLogin: lastLogin
-    });
       // Clear the form inputs
       loginForm.email.value = '';
       loginForm.pwd.value = '';
+        
+          // Check if user has the required role
+          const userRef = ref(database, `users/${userRole}/${user.uid}`);
+          get(userRef).then((snapshot) => {
+          if (snapshot.exists()) {
+            //send to the database
+            update(ref(database, 'users/farmer/' + user.uid), {
+            lastLogin: lastLogin
+            });
+            // Display success message
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-success mt-3';
+            alert.setAttribute('role', 'alert');
+            alert.innerText = 'Login successful!';
 
-      // Display success message
-      const alert = document.createElement('div');
-      alert.className = 'alert alert-success mt-3';
-      alert.setAttribute('role', 'alert');
-      alert.innerText = 'Login successful!';
+            const cardBody = document.querySelector('.card-body');
+            cardBody.insertBefore(alert, loginForm);
+            
+            // User has the required role, // Redirect to farmer dashboard page
+                setTimeout(() => {
+                window.location.href = '/';
+                }, 2000);
+          } else {
+            // User doesn't have the required farmer role, display error message
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-danger mt-3';
+            alert.setAttribute('role', 'alert');
+            alert.innerText = 'You need a valid farmer account to access this page.';
 
-      const cardBody = document.querySelector('.card-body');
-      cardBody.insertBefore(alert, loginForm);
-
-      // Redirect to login page
-      setTimeout(() => {
-        window.location.href = '/';
-      }, 2000);
-
+            const cardBody = document.querySelector('.card-body');
+            cardBody.insertBefore(alert, loginForm);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     })
     .catch((error) => {
       // Display error message

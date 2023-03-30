@@ -85,13 +85,16 @@ signUpForm.addEventListener('submit', (e) => {
 
   // Get the current date in mm-dd-yyyy format
   const createdAt = new Date().toLocaleDateString('en-US');
+  // Define user role
+  const userRole = 'farmer';
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       //send to the database
-      set(ref(database, 'users/farmer/' + user.uid), {
+      set(ref(database, `users/${userRole}/${user.uid}`), {
       email: email,
-      createdAt: createdAt
+      createdAt: createdAt,
+      role: userRole // Include user role in the database
     });
       // Clear the form inputs
       signUpForm.email.value = '';
