@@ -13,7 +13,7 @@
     <title> Farmer | AgriLadder</title>
 </head>
 <body>
-  <div style="background-color: #00660a;">
+  <div style="background-color: #80cb2b;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-xl-10">
@@ -25,37 +25,29 @@
               </div>
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
-  
-                  <form>
-  
+                  <form id="registerForm">
                     <div class="d-flex align-items-center mb-3 pb-1">
                       <a href="https://www.agriladder.com/"><img src="/assets/logo.svg" alt="logo" style="height: 50px;"></a>
                     </div>
-  
-                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create a <b style="color:#00660a">Farmer Account</b> </h5>
-  
+                  
+                    <h5 class="fw-normal lead mb-3 pb-3" style="letter-spacing: 1px;">Create a <b style="color:#80cb2b">Farmer Account</b></h5>
+                  
                     <div class="form-outline mb-3">
-                      <input type="email" id="emailRegFr" class="form-control form-control-lg" />
-                      <label class="form-label" for="emailRegFr">Email Address</label>
+                      <input type="email" id="email" name="email" class="form-control form-control-lg"/>
+                      <label class="form-label" for="email">Email Address</label>
                     </div>
-  
+                  
                     <div class="form-outline mb-3">
-                      <input type="password" id="pwdRegFr" class="form-control form-control-lg" />
-                      <label class="form-label" for="pwdRegFr">Password</label>
+                      <input type="password" id="pwd" name="pwd" class="form-control form-control-lg" />
+                      <label class="form-label" for="pwd">Password</label>
                     </div>
 
-                    <div class="form-outline mb-3">
-                        <input type="password" id="confirmPwdRegFr" class="form-control form-control-lg" />
-                        <label class="form-label" for="confirmPwdRegFr">Confirm Password</label>
-                      </div>
                     <div>
-
-                      <button class="btn btn-lg btn-login" type="submit">Register</button>
+                      <button class="btn btn-lg btn-login" id="signUp" name="signUp" type="submit">Register</button>
                     </div>
                     <p class="mb-5 pb-lg-2" style="color: black;">Already Registered? <a href="/farmer/"
-                        style="color: #80cb2b;"><b>Login</b></a></p> 
+                        style="color: #80cb2b;"><b>Login</b></a></p>
                   </form>
-  
                 </div>
               </div>
             </div>
@@ -64,5 +56,74 @@
       </div>
     </div>
   </div>
+ <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
+    authDomain: "agriladder-jobs.firebaseapp.com",
+    databaseURL: "https://agriladder-jobs-default-rtdb.firebaseio.com",
+    projectId: "agriladder-jobs",
+    storageBucket: "agriladder-jobs.appspot.com",
+    messagingSenderId: "635800620871",
+    appId: "1:635800620871:web:724d28204dd3878f36c662"
+};
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
+
+const signUpForm = document.getElementById('registerForm');
+const signUpButton = document.getElementById('signUp');
+
+signUpForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = signUpForm.email.value;
+  const password = signUpForm.pwd.value;
+
+  // Get the current date in mm-dd-yyyy format
+  const createdAt = new Date().toLocaleDateString('en-US');
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      //send to the database
+      set(ref(database, 'users/farmer/' + user.uid), {
+      email: email,
+      createdAt: createdAt
+    });
+      // Clear the form inputs
+      signUpForm.email.value = '';
+      signUpForm.pwd.value = '';
+
+      // Display success message
+      const alert = document.createElement('div');
+      alert.className = 'alert alert-success mt-3';
+      alert.setAttribute('role', 'alert');
+      alert.innerText = 'Registration successful!';
+
+      const cardBody = document.querySelector('.card-body');
+      cardBody.insertBefore(alert, signUpForm);
+
+      // Redirect to login page
+      setTimeout(() => {
+        window.location.href = '/farmer/';
+      }, 2000);
+
+    })
+    .catch((error) => {
+      // Display error message
+      const alert = document.createElement('div');
+      alert.className = 'alert alert-danger mt-3';
+      alert.setAttribute('role', 'alert');
+      alert.innerText = error.message;
+
+      const cardBody = document.querySelector('.card-body');
+      cardBody.insertBefore(alert, signUpForm);
+    });
+});
+
+</script>
 </body>
 </html>
