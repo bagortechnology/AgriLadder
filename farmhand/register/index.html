@@ -59,7 +59,7 @@
  <script type="module">
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
-  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+  import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
   import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
 
   const firebaseConfig = {
@@ -76,24 +76,28 @@
   const auth = getAuth();
 
   signUp.addEventListener('click', (e)=>{
-    e.preventDefault();
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('pwd').value;
-    createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-    alert('You are successfully registered!')
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-    alert(error);
-  });
+  e.preventDefault();
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('pwd').value;
+  
+  // Create user authentication record
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+    // send user data to database
+    set(ref(database, 'users/farmhand/' + user.uid), {
+        email: email,
+        password: password
+     })
+      
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Error creating user: ", error);
+    });
+});
 
-  });
 </script>
 </body>
 </html>
