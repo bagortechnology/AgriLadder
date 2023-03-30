@@ -94,10 +94,11 @@ loginForm.addEventListener('submit', (e) => {
       // Clear the form inputs
       loginForm.email.value = '';
       loginForm.pwd.value = '';
-      
+        
           // Check if user has the required role
           const userRef = ref(database, `users/${userRole}/${user.uid}`);
-      userRef.get()
+          const userRefObject = userRef.get();
+      userRefObject.get()
         .then((snapshot) => {
           if (snapshot.exists()) {
             //send to the database
