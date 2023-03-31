@@ -64,7 +64,7 @@ let getEducBackInfo = () => {
 
     farmHand.push(educBackInfo);
 };
-// getEducBack Function
+// getWorkExp Function
 let getWorkExpInfo = () => {
     let workExpInfo = {
         compName1: compName1.value,
@@ -78,7 +78,7 @@ let getWorkExpInfo = () => {
         dateEnd2: dateEnd2.value,
     };
 
-    farmHand.push(workExpInfo);
+    farmHand.push(workExp);
 };
 
 
