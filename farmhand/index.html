@@ -121,7 +121,7 @@ loginForm.addEventListener('submit', (e) => {
             const alert = document.createElement('div');
             alert.className = 'alert alert-danger mt-3';
             alert.setAttribute('role', 'alert');
-            alert.innerText = 'You do not have permission to access this page.';
+            alert.innerText = 'You need farmhand account to access this page.';
 
             const cardBody = document.querySelector('.card-body');
             cardBody.insertBefore(alert, loginForm);
