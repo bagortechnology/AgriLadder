@@ -8,9 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/aileron@4.5.3/100.min.css">
     <link rel="shortcut icon" href="/assets/favicon.svg" type="image/x-icon">
-    <title> Admin | AgriLadder</title>
+    <title> Farm Master | AgriLadder</title>
 </head>
 <body>
   <div style="background-color: #00660a;">
@@ -25,30 +25,27 @@
               </div>
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
-  
-                  <form>
-  
+                  <form id="loginForm">
                     <div class="d-flex align-items-center mb-3 pb-1">
                       <a href="https://www.agriladder.com/"><img src="/assets/logo.svg" alt="logo" style="height: 50px;"></a>
                     </div>
-  
-                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;"> <b style="color:#00660a">Admin Access</b> </h5>
-  
+                  
+                    <h5 class="fw-normal lead mb-3 pb-3" style="letter-spacing: 1px;"><b class="lead fs-3 fw-bold"><b style="color:#00660a">Farmer Master</b></h5>
+                  
                     <div class="form-outline mb-3">
-                      <input type="email" id="emailLogin" class="form-control form-control-lg" />
-                      <label class="form-label" for="emailAdmin">Email</label>
+                      <input type="email" id="email" name="email" class="form-control form-control-lg"/>
+                      <label class="form-label" for="email">Email Address</label>
                     </div>
-  
+                  
                     <div class="form-outline mb-3">
-                      <input type="password" id="pwdAdmin" class="form-control form-control-lg" />
-                      <label class="form-label" for="pwdAdmin">Password</label>
+                      <input type="password" id="pwd" name="pwd" class="form-control form-control-lg" />
+                      <label class="form-label" for="pwd">Password</label>
                     </div>
-  
+
                     <div>
-                      <button class="btn btn-lg btn-login" type="button">Login</button>
-                    </div> 
+                      <button class="btn btn-lg btn-login" id="login" name="login" type="submit">Login</button>
+                    </div>
                   </form>
-  
                 </div>
               </div>
             </div>
@@ -57,5 +54,93 @@
       </div>
     </div>
   </div>
+ <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+import { getDatabase, update, ref, get } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
+    authDomain: "agriladder-jobs.firebaseapp.com",
+    databaseURL: "https://agriladder-jobs-default-rtdb.firebaseio.com",
+    projectId: "agriladder-jobs",
+    storageBucket: "agriladder-jobs.appspot.com",
+    messagingSenderId: "635800620871",
+    appId: "1:635800620871:web:724d28204dd3878f36c662"
+};
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
+
+const loginForm = document.getElementById('loginForm');
+const loginButton = document.getElementById('login');
+
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = loginForm.email.value;
+  const password = loginForm.pwd.value;
+
+  // Get the current date in mm-dd-yyyy format
+  const lastLogin = new Date().toLocaleDateString('en-US');
+  // Define user role
+  const userRole = 'farmmaster';
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+
+      const user = userCredential.user;
+      // Clear the form inputs
+      loginForm.email.value = '';
+      loginForm.pwd.value = '';
+        
+          // Check if user has the required role
+          const userRef = ref(database, `users/${userRole}/${user.uid}`);
+          get(userRef).then((snapshot) => {
+          if (snapshot.exists()) {
+            //send to the database
+            update(ref(database, 'users/farmmaster/' + user.uid), {
+            lastLogin: lastLogin
+            });
+            // Display success message
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-success mt-3';
+            alert.setAttribute('role', 'alert');
+            alert.innerText = 'Login successful!';
+
+            const cardBody = document.querySelector('.card-body');
+            cardBody.insertBefore(alert, loginForm);
+            
+            // User has the required role, // Redirect to farmer dashboard page
+                setTimeout(() => {
+                window.location.href = '/';
+                }, 2000);
+          } else {
+            // User doesn't have the required farmer role, display error message
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-danger mt-3';
+            alert.setAttribute('role', 'alert');
+            alert.innerText = 'You need a valid farmer account to access this page.';
+
+            const cardBody = document.querySelector('.card-body');
+            cardBody.insertBefore(alert, loginForm);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    })
+    .catch((error) => {
+      // Display error message
+      const alert = document.createElement('div');
+      alert.className = 'alert alert-danger mt-3';
+      alert.setAttribute('role', 'alert');
+      alert.innerText = error.message;
+
+      const cardBody = document.querySelector('.card-body');
+      cardBody.insertBefore(alert, loginForm);
+    });
+});
+
+</script>
 </body>
 </html>
