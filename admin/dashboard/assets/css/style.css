@@ -463,7 +463,6 @@ body {
   .main.active .toggle {
     color: #fff;
     position: fixed;
-    right: 0;
-    left: initial;
+    left: 10;
   }
 }
