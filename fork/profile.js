@@ -78,7 +78,7 @@ let getWorkExpInfo = () => {
         dateEnd2: dateEnd2.value,
     };
 
-    farmHand.push(workExp);
+    farmHand.push(workExpInfo);
 };
 
 
