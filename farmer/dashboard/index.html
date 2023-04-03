@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer | Dashboard</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="leaf"></ion-icon>
+                        </span>
+                        <span class="title">Farmer </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Farm Profile</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="add-circle-outline"></ion-icon>
+                        </span>
+                        <span class="title">Post Job</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="briefcase-outline"></ion-icon>
+                        </span>
+                        <span class="title">Manage Jobs</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="documents-outline"></ion-icon>
+                        </span>
+                        <span class="title">All Applicants</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search">
+                        <ion-icon name="search-sharp"></ion-icon>
+                    </label>
+                </div>
+
+                <div class="user">
+                    <img src="assets/imgs/ronquillo.png" alt="">
+                </div>
+            </div>
+
+            <!-- ======================= Cards ================== -->
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">55</div>
+                        <div class="cardName">Posted Jobs</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="briefcase-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">10</div>
+                        <div class="cardName">Viewed Applications</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">12</div>
+                        <div class="cardName">Shortlisted</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="chatbox-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">₱110,895</div>
+                        <div class="cardName">Total Spend</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="wallet-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================ Recent Jobs ================= -->
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Recent Contract</h2>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Contract</td>
+                                <td>Amount</td>
+                                <td>Payment</td>
+                                <td>Job Status</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Harvesting Tomato</td>
+                                <td>₱1200</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Rendered</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Husking Coconut</td>
+                                <td>₱110</td>
+                                <td>Due</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Delivering Copra</td>
+                                <td>₱1200</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Rendered</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Harvesting Sugarcane</td>
+                                <td>₱620</td>
+                                <td>Due</td>
+                                <td><span class="status inProgress">In Progress</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Spraying Ricefield</td>
+                                <td>₱1200</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Diking Paddy</td>
+                                <td>₱110</td>
+                                <td>Due</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Grass Cutting</td>
+                                <td>₱1200</td>
+                                <td>Paid</td>
+                                <td><span class="status return">Return</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Plucking Cacao Pods</td>
+                                <td>₱620</td>
+                                <td>Due</td>
+                                <td><span class="status inProgress">In Progress</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- ================= Recent Employed ================ -->
+                <div class="recentCustomers">
+                    <div class="cardHeader">
+                        <h2>Recent Employed</h2>
+                    </div>
+
+                    <table>
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/Chat Profile.png" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Blessed Bagor <br> <span>Labason</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/kris.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Kris Ronquillo <br> <span>Caloocan City</span></h4>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/Chat Profile.png" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Blessed Bagor <br> <span>Labason</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/kris.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Kris Ronquillo <br> <span>Caloocan City</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/Chat Profile.png" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Blessed Bagor <br> <span>Labason</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/kris.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Kris Ronquillo <br> <span>Caloocan City</span></h4>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
