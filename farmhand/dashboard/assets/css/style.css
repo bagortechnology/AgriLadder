@@ -148,7 +148,7 @@ body {
 
 .main.active {
   width: calc(100% - 80px);
-  left: 110px;
+  left: 10px;
 }
 
 .topbar {
