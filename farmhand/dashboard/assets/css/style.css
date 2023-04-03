@@ -36,10 +36,12 @@ body {
   border-left: 10px solid var(--green);
   transition: 0.5s;
   overflow: hidden;
+  left: 0;
 }
 
+/* side panel moved to left  */
 .navigation.active {
-  width: 80px;
+  width: 110px;
 }
 
 .navigation ul {
@@ -137,6 +139,7 @@ body {
 .main {
   position: absolute;
   width: calc(100% - 300px);
+  /* ===== green side======*/
   left: 300px;
   min-height: 100vh;
   background: var(--white);
@@ -145,7 +148,7 @@ body {
 
 .main.active {
   width: calc(100% - 80px);
-  left: 80px;
+  left: 110px;
 }
 
 .topbar {
@@ -491,7 +494,11 @@ body {
   }
 
   .navigation.active {
-    width: 64%;
+
+    width: 65%;
+
+    width: 63%;
+
     left: 0;
   }
 
@@ -503,6 +510,7 @@ body {
     color: #fff;
     position: fixed;
 
-    left: 30;
+
+    left: 10;
   }
 }
