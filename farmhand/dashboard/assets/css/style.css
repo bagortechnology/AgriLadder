@@ -491,7 +491,7 @@ body {
   }
 
   .navigation.active {
-    width: 63%;
+    width: 65%;
     left: 0;
   }
 
@@ -503,6 +503,6 @@ body {
     color: #fff;
     position: fixed;
 
-    left: 20;
+    left: 30;
   }
 }
