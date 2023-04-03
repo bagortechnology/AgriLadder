@@ -491,7 +491,7 @@ body {
   }
 
   .navigation.active {
-    width: 65%;
+    width: 100%;
     left: 0;
   }
 
@@ -502,7 +502,7 @@ body {
   .main.active .toggle {
     color: #fff;
     position: fixed;
-
-    left: 10;
+    right: 0;
+    left: initial;
   }
 }
