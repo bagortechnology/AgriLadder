@@ -116,10 +116,27 @@ $('#myTab a').on('click', function (e) {
   $(this).tab('show')
 });
 
-// Get the "Upload Photo" button element
-const uploadBtn = document.getElementById('upload-btn');
-uploadBtn.addEventListener('click', () => {
-  // Handle upload button click event here
-  console.log('Upload button clicked!');
+// //Upload  profile image
+
+const uploadBtn = document.getElementById("uploadImg-btn");
+const imgInput = document.getElementById("imgInput");
+const imgPreview = document.getElementById("imgPreview");
+const imgPreviewIco = document.getElementById("imgIco");
+
+uploadBtn.addEventListener("click", function () {
+  imgInput.click();
 });
 
+imgInput.addEventListener("change", function () {
+  const file = imgInput.files[0];
+  const reader = new FileReader();
+
+  reader.addEventListener("load", function () {
+    imgPreview.src = reader.result;
+    imgPreviewIco.src = reader.result;
+  });
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+});

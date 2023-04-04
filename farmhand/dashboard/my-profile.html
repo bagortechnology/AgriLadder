@@ -118,23 +118,24 @@
                     </label>
                 </div>
                 <div class="user">
-                    <img src="assets/imgs/Chat Profile.png" alt="">
+                    <img id="imgIco" src="/assets/hero.png" alt="">
                 </div>
             </div>
             <!-- ========================= Profile ==================== -->
             <div class="container">
                 <br>
                 <!-- ========================= Personal Info ==================== -->
-
-                <form id="formPersonalInfo" data-bs-toggle="validator" class="box">
+                <div>
                     <h4 class="h4">Personal Information</h4> <br>
                     <div class="d-sm-flex justify-content-center align-items-end g-2">
                         <div class="border border-success p-2">
-                            <img class="img-fluid rounded-3" style="max-height: 150px" src="/assets/hero.png" alt="">
+                            <img id="imgPreview" class="img-fluid rounded-3" style="max-height: 150px"
+                                src="/assets/hero.png" alt="Default image">
                         </div>
-                        <div class="ps-3 ">
+                        <div class="ps-3">
                             <h4 class="h4">Hello User</h4>
-                            <button id="upload-btn" type="button"
+                            <input type="file" id="imgInput" style="display:none" accept="image/*">
+                            <button id="uploadImg-btn" type="button"
                                 class="shadow-sm h3 btn btn-md btn-outline-success d-flex justify-content-center align-items-center gap-2">
                                 <ion-icon name="cloud-upload-outline"></ion-icon>
                                 Upload
@@ -144,6 +145,11 @@
 
 
 
+
+
+                </div>
+                <br>
+                <form id="formPersonalInfo" data-bs-toggle="validator" class="box">
                     <h6 class="h6">Full Name:</h6>
                     <div class="d-sm-flex gap-2 ">
                         <div class="form-floating mb-3 flex-fill ">
