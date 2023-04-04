@@ -117,19 +117,9 @@ $('#myTab a').on('click', function (e) {
 });
 
 // Get the "Upload Photo" button element
-const uploadBtn = document.getElementById('upload-photo-btn');
-
+const uploadBtn = document.getElementById('upload-btn');
 uploadBtn.addEventListener('click', () => {
-
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = 'image/*';
-  input.onchange = e => {
-
-    const file = e.target.files[0];
-    console.log(file);
-
-  };
-  input.click();
+  // Handle upload button click event here
+  console.log('Upload button clicked!');
 });
 

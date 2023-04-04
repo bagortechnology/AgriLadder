@@ -435,6 +435,22 @@ body {
   color: var(--white);
 }
 
+/* ====================== shadow ========================== */
+.box {
+
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.h4 {
+  font-weight: 600;
+  color: var(--green);
+}
+
+
+
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {
   .navigation {

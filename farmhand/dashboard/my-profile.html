@@ -36,15 +36,7 @@
                         </span>
                         <span class="title">Farmhand</span>
                     </a>
-                    <div class="d-flex flex-column justify-content-center align-items-center">
-                        <div class="rounded-circle border border-white p-2">
-                            <img class="img-fluid rounded-circle " style="max-height: 200px"
-                                src="/assets/login-hero.png" alt="">
-                        </div>
-                        <a href="#" class="text-white justify-content-center align-items-center">
-                            <span class="title border-bottom border-white pb-1 h5">Hello "User"</span>
-                        </a>
-                    </div>
+
                 </li>
 
                 <li>
@@ -125,24 +117,35 @@
                         <ion-icon name="search-sharp"></ion-icon>
                     </label>
                 </div>
-
-                <ion-icon name="cloud-upload-outline"></ion-icon>
                 <div class="user">
                     <img src="assets/imgs/Chat Profile.png" alt="">
                 </div>
-
-
-
-
             </div>
             <!-- ========================= Profile ==================== -->
             <div class="container">
                 <br>
                 <!-- ========================= Personal Info ==================== -->
-                <h4 class="h4">Personal Information</h4> <br>
-                <form id="formPersonalInfo" data-bs-toggle="validator">
+
+                <form id="formPersonalInfo" data-bs-toggle="validator" class="box">
+                    <h4 class="h4">Personal Information</h4> <br>
+                    <div class="d-sm-flex justify-content-center align-items-end g-2">
+                        <div class="border border-success p-2">
+                            <img class="img-fluid rounded-3" style="max-height: 150px" src="/assets/hero.png" alt="">
+                        </div>
+                        <div class="ps-3 ">
+                            <h4 class="h4">Hello User</h4>
+                            <button id="upload-btn" type="button"
+                                class="shadow-sm h3 btn btn-md btn-outline-success d-flex justify-content-center align-items-center gap-2">
+                                <ion-icon name="cloud-upload-outline"></ion-icon>
+                                Upload
+                            </button>
+                        </div>
+                    </div>
+
+
+
                     <h6 class="h6">Full Name:</h6>
-                    <div class="d-sm-flex gap-2">
+                    <div class="d-sm-flex gap-2 ">
                         <div class="form-floating mb-3 flex-fill ">
                             <input type="text" class="form-control" id="fName" placeholder="First Name" required>
                             <label for="fName" aria-required="true">First Name</label>
@@ -249,8 +252,9 @@
             <br>
             <!-- ========================= Educational Background ==================== -->
             <div class="container">
-                <h4 class="h4">Recent Education</h4> <br>
-                <form id="formEducBacklInfo" data-bs-toggle="validator">
+
+                <form id="formEducBacklInfo" data-bs-toggle="validator" class="box">
+                    <h4 class="h4">Recent Education</h4> <br>
                     <div class="d-sm-flex gap-2">
                         <div class="form-floating mb-3 flex-fill w-100 w-sm-50">
                             <input type="text" class="form-control" id="school1" placeholder="School name" required>
@@ -310,8 +314,9 @@
             <br>
             <!-- ========================= Educational Background ==================== -->
             <div class="container">
-                <h4 class="h4">Work Experience</h4> <br>
-                <form id="formWorkExpInfo " data-bs-toggle="validator">
+
+                <form id="formWorkExpInfo " data-bs-toggle="validator" class="box">
+                    <h4 class="h4">Work Experience</h4> <br>
                     <h6 class="h6">First Company</h6>
 
                     <div class="d-lg-flex gap-2">
