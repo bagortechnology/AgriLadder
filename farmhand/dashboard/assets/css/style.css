@@ -147,8 +147,8 @@ body {
 }
 
 .main.active {
-  width: calc(100% - 80px);
-  left: 10px;
+  width: calc(100% - 120px);
+  left: 120px;
 }
 
 .topbar {
@@ -195,9 +195,10 @@ body {
 
 .search label ion-icon {
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 10px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  color: var(--green);
 }
 
 .user {
