@@ -436,13 +436,16 @@ body {
 }
 
 /* ====================== shadow ========================== */
-.box {
+.box,
+.imgBox {
 
   background: var(--white);
   padding: 20px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
 }
+
+
 
 .h4 {
   font-weight: 600;
