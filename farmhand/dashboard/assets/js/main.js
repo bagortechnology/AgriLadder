@@ -1,3 +1,4 @@
+
 // add hovered class to selected list item
 let list = document.querySelectorAll(".navigation li");
 
@@ -140,3 +141,5 @@ imgInput.addEventListener("change", function () {
     reader.readAsDataURL(file);
   }
 });
+
+
