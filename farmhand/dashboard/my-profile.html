@@ -385,32 +385,14 @@
 
 
         <!-- =========== Scripts =========  -->
-        <script src="assets/js/main.js"></script>
+        <script type="module" src="assets/js/main.js">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+            import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+            import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
 
-        <!-- ====== ionicons ======= -->
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    </div>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
 
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
-            authDomain: "agriladder-jobs.firebaseapp.com",
-            databaseURL: "https://agriladder-jobs-default-rtdb.firebaseio.com",
-            projectId: "agriladder-jobs",
-            storageBucket: "agriladder-jobs.appspot.com",
-            messagingSenderId: "635800620871",
-            appId: "1:635800620871:web:724d28204dd3878f36c662"
-        };
+        </script>
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-    </script>
 </body>
 
 </html>
