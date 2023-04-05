@@ -72,15 +72,6 @@ let getUserInfo = () => { // getUserInfo Function
     region: region.value,
   };
 
-  if (farmHand.length > 0) {
-    for (let i = 0; i < farmHand.length; i++) {
-      if (farmHand[i].hasOwnProperty('fName') && farmHand[i].fName === userInfo.fName) {
-        // update existing object
-        farmHand[i] = userInfo;
-        return;
-      }
-    }
-  }
   farmHand.push(userInfo); // push object into array
 };
 
