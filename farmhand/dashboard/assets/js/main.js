@@ -1,4 +1,26 @@
 
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
+  authDomain: "agriladder-jobs.firebaseapp.com",
+  databaseURL: "https://agriladder-jobs-default-rtdb.firebaseio.com",
+  projectId: "agriladder-jobs",
+  storageBucket: "agriladder-jobs.appspot.com",
+  messagingSenderId: "635800620871",
+  appId: "1:635800620871:web:724d28204dd3878f36c662"
+};
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
+
+
+
+
+
+
+
+
 // add hovered class to selected list item
 let list = document.querySelectorAll(".navigation li");
 
@@ -21,7 +43,6 @@ toggle.onclick = function () {
   main.classList.toggle("active");
 };
 
-
 // Value Delaration
 let formPersonalInfo = document.getElementById("formPersonalInfo");
 let formEducBacklInfo = document.getElementById("formEducBacklInfo");
@@ -36,7 +57,6 @@ formPersonalInfo.addEventListener("submit", (e) => {
   console.log(farmHand);
   alert('Record Saved')
 });
-
 
 formEducBacklInfo.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -73,7 +93,13 @@ let getUserInfo = () => { // getUserInfo Function
   };
 
   farmHand.push(userInfo); // push object into array
+  set(ref(myDB, "FarmHand"), userInfo);
 };
+
+
+
+
+
 
 // getEducBack Function
 
