@@ -71,6 +71,16 @@ let getUserInfo = () => { // getUserInfo Function
     municipal: municipal.value,
     region: region.value,
   };
+
+  if (farmHand.length > 0) {
+    for (let i = 0; i < farmHand.length; i++) {
+      if (farmHand[i].hasOwnProperty('fName') && farmHand[i].fName === userInfo.fName) {
+        // update existing object
+        farmHand[i] = userInfo;
+        return;
+      }
+    }
+  }
   farmHand.push(userInfo); // push object into array
 };
 
@@ -106,16 +116,11 @@ let getWorkExpInfo = () => {
   farmHand.push(workExpInfo);
 };
 
-
-
-
-
-
-//Tab Control
-$('#myTab a').on('click', function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-});
+// //Tab Control
+// $('#myTab a').on('click', function (e) {
+//   e.preventDefault()
+//   $(this).tab('show')
+// });
 
 // //Upload  profile image
 
@@ -123,6 +128,7 @@ const uploadBtn = document.getElementById("uploadImg-btn");
 const imgInput = document.getElementById("imgInput");
 const imgPreview = document.getElementById("imgPreview");
 const imgPreviewIco = document.getElementById("imgIco");
+
 
 uploadBtn.addEventListener("click", function () {
   imgInput.click();
@@ -135,8 +141,16 @@ imgInput.addEventListener("change", function () {
   reader.addEventListener("load", function () {
     imgPreview.src = reader.result;
     imgPreviewIco.src = reader.result;
-  });
 
+    let getuserPhoto = () => {
+      let userPhoto = {
+        userPhoto: reader.result,
+      };
+      farmHand.push(userPhoto);
+    };
+    getuserPhoto();
+    console.log(farmHand);
+  });
   if (file) {
     reader.readAsDataURL(file);
   }
