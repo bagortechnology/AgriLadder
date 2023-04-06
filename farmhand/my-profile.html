@@ -26,7 +26,7 @@
 
 <body>
     <!-- =============== Navigation ================ -->
-    <div class="container-">
+    <div class="container-fluid">
         <div class="navigation">
             <ul>
                 <li>
@@ -121,7 +121,7 @@
                 </div>
             </div>
             <!-- ========================= Profile ==================== -->
-            <div class="container">
+            <div class="container-fluid">
                 <br>
                 <!-- ========================= Personal Info ==================== -->
                 <div>
@@ -252,7 +252,7 @@
             </div>
             <br>
             <!-- ========================= Educational Background ==================== -->
-            <div class="container">
+            <div class="container-fluid">
 
                 <form id="formEducBacklInfo" data-bs-toggle="validator" class="box">
                     <h4 class="h4">Recent Education</h4> <br>
@@ -314,7 +314,7 @@
             </div>
             <br>
             <!-- ========================= Educational Background ==================== -->
-            <div class="container">
+            <div class="container-fluid">
 
                 <form id="formWorkExpInfo " data-bs-toggle="validator" class="box">
                     <h4 class="h4">Work Experience</h4> <br>
@@ -380,19 +380,31 @@
             </div>
             <br>
         </div>
+    </div>
 
 
 
+    <!-- =========== Scripts =========  -->
+    <script type="module" src="assets/js/main.js">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+        import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
 
-        <!-- =========== Scripts =========  -->
-        <script type="module" src="assets/js/main.js">
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
-            import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
-            import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
+            authDomain: "agriladder-jobs.firebaseapp.com",
+            databaseURL: "https://agriladder-jobs-default-rtdb.firebaseio.com",
+            projectId: "agriladder-jobs",
+            storageBucket: "agriladder-jobs.appspot.com",
+            messagingSenderId: "635800620871",
+            appId: "1:635800620871:web:724d28204dd3878f36c662"
+        };
 
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth();
 
-        </script>
-
+    </script>
 </body>
 
 </html>
