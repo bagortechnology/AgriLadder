@@ -67,6 +67,10 @@
     color: #80cb2b;
   }
   
+  .agri-job {
+    text-decoration: none;
+  }
+  
   footer a {
     text-decoration: none;
     color: black;
@@ -75,3 +79,38 @@
   footer a:hover {
     color: #80cb2b;
   }
+
+  /***Featured Job Listings***/
+  .job-item .text-truncate i {
+    color:#80cb2b;
+  }
+  .job-item .btn {
+    background-color: #00660a;
+    color: #fff;
+    border-color: #00660a;
+  }
+  
+  .job-item .btn:hover {
+    background-color: #80cb2b;
+    border-color: #80cb2b;
+  }
+  
+  .job-item .btn i {
+    color: #fff;
+  }
+  
+  .job-item .btn:hover i {
+    color: #fff;
+  }
+  
+  .job-item {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+}
+
+.job-item:hover {
+    border-color: rgba(0, 0, 0, .08);
+    box-shadow: none;
+}
