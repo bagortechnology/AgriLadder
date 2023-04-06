@@ -1,4 +1,6 @@
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
@@ -13,11 +15,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
-
-
-
-
-
 
 
 
@@ -73,7 +70,9 @@ formWorkExpInfo.addEventListener("submit", (e) => {
   console.log(farmHand);
   alert('Record Saved')
 });
+// --------------------------------------------------------
 
+let user = firebase.auth().currentUser;  // this cause the error, make sure you are login
 
 let getUserInfo = () => { // getUserInfo Function
   let userInfo = {    // put properties into object
@@ -93,12 +92,13 @@ let getUserInfo = () => { // getUserInfo Function
   };
 
   farmHand.push(userInfo); // push object into array
-  set(ref(myDB, "FarmHand"), userInfo);
+
+  if (user) {
+    let userRef = database.ref("users/" + user.uid);
+    userRef.child("FarmHand").set(userInfo);
+
+  };
 };
-
-
-
-
 
 
 // getEducBack Function
@@ -115,7 +115,10 @@ let getEducBackInfo = () => {
   };
 
   farmHand.push(educBackInfo);
+  // set(ref(database, "FarmHand"), educBackInfo);
 };
+
+
 // getWorkExp Function
 let getWorkExpInfo = () => {
   let workExpInfo = {
@@ -131,7 +134,9 @@ let getWorkExpInfo = () => {
   };
 
   farmHand.push(workExpInfo);
+  // set(ref(database, "FarmHand\workExpInfo"), workExpInfo);
 };
+
 
 // //Tab Control
 // $('#myTab a').on('click', function (e) {
@@ -162,11 +167,16 @@ imgInput.addEventListener("change", function () {
     let getuserPhoto = () => {
       let userPhoto = {
         userPhoto: reader.result,
+
       };
       farmHand.push(userPhoto);
+
+      // set(ref(database, "FarmHand"), userPhoto);
     };
+
     getuserPhoto();
     console.log(farmHand);
+    alert('Record Saved')
   });
   if (file) {
     reader.readAsDataURL(file);
@@ -174,3 +184,6 @@ imgInput.addEventListener("change", function () {
 });
 
 
+
+//firebase.auth().signOut()   to sign out
+//firebase.auth().currentUser. This will return the currently authenticated 
