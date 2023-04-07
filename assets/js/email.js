@@ -8,9 +8,9 @@ function sendEmail() {
     let body = "Name: " + FName + " " + LName +"<br/> Message: " + message;
 
     Email.send({
-        SecureToken : "b1764bdb-aab4-4b6c-9097-dced334622f5",
+        SecureToken : "324dbbf6-80a6-48b0-bbc0-8b9e54ba427f",
         To : email,
-        From : 'agriladder@gmail.com',
+        From : 'info@agriladder.com',
         Subject : subject,
         Body : body
     }).then(
