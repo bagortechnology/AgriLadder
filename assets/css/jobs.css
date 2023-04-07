@@ -110,3 +110,7 @@
     color:#80cb2b;
     transform: scale(1.1);
 }
+
+.nav-pills .nav-item .active {
+  border-bottom: 2px solid #80cb2b;
+}
