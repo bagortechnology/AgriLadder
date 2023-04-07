@@ -37,7 +37,7 @@ function sendEmail() {
           To : "agriladder@gmail.com",
           From : "info@agriladder.com",
           Subject : "New message from " + FName + " " + LName,
-          Body : "Sender Email: " + email + "<br/>" + recipientMessage 
+          Body : "Sender Email: " + email + "<br/> Message:  " + body + "<br/> Email Status: " + recipientMessage 
         }).then(
           ownerMessage => {
             // Clear input fields and display success alert
