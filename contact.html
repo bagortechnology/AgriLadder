@@ -15,7 +15,7 @@
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/contact.css">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
     integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
@@ -70,6 +70,53 @@
     </div>
   </nav>
 
+  <!--Contact Form-->
+  <div class="container my-5 shadow" style="border-radius: 15px;">
+    <div class="row">
+        <div class="col-md-4 bg-primary p-5 text-white order-sm-first order-last" style="border-radius: 10px;">
+            <h2 class="display-4">Let's get in touch</h2>
+            <p class="">We're open for any suggestion or just to have a chat.</p>
+            <div class="d-flex mt-2">
+                <p class="mt-3 ms-3 fs-6"><i class="fa fa-map-marker-alt " aria-hidden="true"></i> <b>Address</b> : Antonino, Labason, Zamboanga del Norte</p>
+            </div>
+            <div class="d-flex mt-2">
+                <p class="mt-4 ms-3 fs-6"><i class="fa fa-phone-alt" aria-hidden="true"></i> <b>Phone</b> : (065) 908 3252</p>
+            </div>
+            <div class="d-flex mt-2">
+                <p class="mt-4 ms-3 fs-6"> <i class="fa fa-envelope" aria-hidden="true"></i> <b>Email</b> : info@agriladder.com</p>
+            </div>
+        </div>
+        <div class="col-md-8 p-5 " >
+            <h2 class="display-4 fw-bold" style="color: #00660a">Contact Us</h2>
+            <form class="row g-3 contactForm mt-4" action="https://formsubmit.co/agriladder@gmail.com" method="POST">
+                <div class="col-md-6">
+                  <label for="inputFName" class="form-label">First Name</label>
+                  <input type="email" class="form-control" id="inputFName" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="inputLName" class="form-label">Last Name</label>
+                  <input type="password" class="form-control" id="inputLName" required>
+                </div>
+                <div class="col-12">
+                  <label for="inputSubject" class="form-label">Subject</label>
+                  <input type="text" class="form-control" id="inputSubject" required>
+                </div>
+                <div class="col-12">
+                    <label for="inputEmail" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="inputEmail" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="inputMessage" class="form-label">Message</label>
+                    <textarea class="form-control" id="inputMessage" rows="5" required></textarea>
+                  </div>
+                  
+                <div class="col-12">
+                  <button type="submit" class="btn btn-lg mt-3">Submit</button>
+                </div>
+              </form>
+        </div>
+    </div>
+</div>
   <!--Footer-->
   <footer class="bg-light py-3">
     <div class="container">
