@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
-    <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon">
-    <title>Home | AgriLadder</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGPMW96YN2"></script>
+  <script src="/assets/js/ga4.js" type="text/javascript"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/contact.css">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"
+    integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel="shortcut icon" href="/assets/images/favicon.svg" type="image/x-icon">
+  <title>Contact | AgriLadder</title>
 </head>
+
 <body>
   <!--Navbar-->
   <nav class="navbar sticky-top navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="https://www.agriladder.com">
-        <img src="assets/logo.svg" alt="AgriLadder logo">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/images/logo.svg" alt="AgriLadder logo">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="HomeNavBar" aria-expanded="false" aria-label="Toggle Navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+        aria-controls="HomeNavBar" aria-expanded="false" aria-label="Toggle Navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="https://www.agriladder.com">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="jobs.html">Jobs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="faq.html">FAQs</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about.html">About</a>
@@ -36,17 +56,67 @@
           <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="register.html">Register</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-user" aria-hidden="true"></i> Login/Register
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/farmhand/login.html">Farmhand (Jobseeker)</a></li>
+              <li><a class="dropdown-item" href="/farmer/login.html">Farmer (Employer)</a></li>
+            </ul>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <!--Contact Form-->
+  <div class="container my-5 shadow" style="border-radius: 15px;">
+    <div class="row">
+        <div class="col-md-4 bg-primary p-5 text-white order-sm-first order-last" style="border-radius: 10px;">
+            <h2 class="display-4">Let's get in touch</h2>
+            <p class="">We're open for any suggestion or just to have a chat.</p>
+            <div class="d-flex mt-2">
+                <p class="mt-3 ms-3 fs-6"><i class="fa fa-map-marker-alt " aria-hidden="true"></i> <b>Address</b> : Antonino, Labason, Zamboanga del Norte</p>
+            </div>
+            <div class="d-flex mt-2">
+                <p class="mt-4 ms-3 fs-6"><i class="fa fa-phone-alt" aria-hidden="true"></i> <b>Phone</b> : (065) 908 3252</p>
+            </div>
+            <div class="d-flex mt-2">
+                <p class="mt-4 ms-3 fs-6"> <i class="fa fa-envelope" aria-hidden="true"></i> <b>Email</b> : info@agriladder.com</p>
+            </div>
+        </div>
+        <div class="col-md-8 p-5 " >
+            <h2 class="display-4 fw-bold" style="color: #00660a">Contact Us</h2>
+            <form class="row g-3 contactForm mt-4" action="https://formsubmit.co/agriladder@gmail.com" method="POST">
+                <div class="col-md-6">
+                  <label for="inputFName" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="inputFName" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="inputLName" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="inputLName" required>
+                </div>
+                <div class="col-12">
+                  <label for="inputSubject" class="form-label">Subject</label>
+                  <input type="text" class="form-control" id="inputSubject" required>
+                </div>
+                <div class="col-12">
+                    <label for="inputEmail" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="inputEmail" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="inputMessage" class="form-label">Message</label>
+                    <textarea class="form-control" id="inputMessage" rows="5" required></textarea>
+                  </div>
+                  
+                <div class="col-12">
+                  <button type="submit" class="btn btn-lg mt-3">Submit</button>
+                </div>
+              </form>
+        </div>
+    </div>
+</div>
   <!--Footer-->
   <footer class="bg-light py-3">
     <div class="container">
@@ -61,7 +131,7 @@
           </ul>
         </div>
         <div class="col-12 col-md-4 mb-3 mb-md-0 text-center">
-          <a href="index.html"><img src="assets/footer.svg" alt="AgriLadder Logo" class="img-fluid" width="135" height="30"></a>
+          <a href="/"><img src="/assets/images/footer.svg" alt="AgriLadder Logo" class="img-fluid" width="135" height="30"></a>
         </div>
         <div class="col-12 col-md-4 text-center text-md-end">
           <p class="mb-0">Copyright © 2023 AgriLadder. Powered by EXPERTIST, INC.
