@@ -5,12 +5,12 @@ function sendEmail() {
     let email = document.getElementById("inputEmail").value;
     let message = document.getElementById("inputMessage").value;
 
-    let body = "Name: " + FName + "&nbsp" + LName +"</br> Message: " + message;
+    let body = "Name: " + FName + "&nbsp" + LName +"<br/> Message: " + message;
 
     Email.send({
         SecureToken : "b1764bdb-aab4-4b6c-9097-dced334622f5",
-        To : 'agriladder@gmail.com',
-        From : email,
+        To : email,
+        From : 'agriladder@gmail.com',
         Subject : subject,
         Body : body
     }).then(
