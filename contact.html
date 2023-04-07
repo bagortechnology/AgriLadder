@@ -88,7 +88,7 @@
         </div>
         <div class="col-md-8 p-5 " >
             <h2 class="display-4 fw-bold" style="color: #00660a">Contact Us</h2>
-            <form class="row g-3 contactForm mt-4" action="https://formsubmit.co/agriladder@gmail.com" method="POST">
+            <form class="row g-3 contactForm mt-4" method="POST">
                 <div class="col-md-6">
                   <label for="inputFName" class="form-label">First Name</label>
                   <input type="text" class="form-control" id="inputFName" required>
@@ -111,7 +111,7 @@
                   </div>
                   
                 <div class="col-12">
-                  <button type="submit" class="btn btn-lg mt-3">Submit</button>
+                  <button type="button" onclick="sendEmail()" class="btn btn-lg mt-3">Submit</button>
                 </div>
               </form>
         </div>
@@ -140,5 +140,7 @@
       </div>
     </div>
   </footer>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script src="/assets/js/email.js" type="text/javascript"></script>
 </body>
 </html>
