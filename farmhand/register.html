@@ -95,8 +95,8 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
 
+
 const signUpForm = document.getElementById('registerForm');
-const signUpButton = document.getElementById('signUp');
 
 signUpForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -113,30 +113,41 @@ signUpForm.addEventListener('submit', (e) => {
       const user = userCredential.user;
       //send to the database
       set(ref(database, `users/${userRole}/${user.uid}`), {
-      email: email,
-      createdAt: createdAt,
-      username: username,
-      role: userRole // Include user role in the database
-    });
-      // Clear the form inputs
-      signUpForm.username.value = '';
-      signUpForm.email.value = '';
-      signUpForm.pwd.value = '';
+        email: email,
+        createdAt: createdAt,
+        username: username,
+        role: userRole // Include user role in the database
+      })
+      .then(() => {
+        // Clear the form inputs
+        signUpForm.username.value = '';
+        signUpForm.email.value = '';
+        signUpForm.pwd.value = '';
 
-      // Display success message
-      const alert = document.createElement('div');
-      alert.className = 'alert alert-success mt-3';
-      alert.setAttribute('role', 'alert');
-      alert.innerText = 'Registration successful!';
+        // Display success message
+        const alert = document.createElement('div');
+        alert.className = 'alert alert-success mt-3';
+        alert.setAttribute('role', 'alert');
+        alert.innerText = 'Registration successful!';
 
-      const cardBody = document.querySelector('.card-body');
-      cardBody.insertBefore(alert, signUpForm);
+        const cardBody = document.querySelector('.card-body');
+        cardBody.insertBefore(alert, signUpForm);
 
-      // Redirect to login page
-      setTimeout(() => {
-        window.location.href = '/farmhand/login.html';
-      }, 2000);
+        // Redirect to login page
+        setTimeout(() => {
+          window.location.href = '/farmhand/login.html';
+        }, 2000);
+      })
+      .catch((error) => {
+        // Display error message
+        const alert = document.createElement('div');
+        alert.className = 'alert alert-danger mt-3';
+        alert.setAttribute('role', 'alert');
+        alert.innerText = error.message;
 
+        const cardBody = document.querySelector('.card-body');
+        cardBody.insertBefore(alert, signUpForm);
+      });
     })
     .catch((error) => {
       // Display error message
