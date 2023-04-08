@@ -95,7 +95,7 @@
             <span class="input-group-text">
               <i class="fas fa-briefcase" style="color:#80cb2b"></i>
             </span>
-            <input type="text" class="form-control" placeholder="Job, title, skills, or farm" style="height: 50px">
+            <input type="text" class="form-control" id="job-search" placeholder="Job, title, skills, or farm" style="height: 50px">
           </div>
         </div>
         <div class="col-12 col-md-4 py-2">
@@ -103,11 +103,11 @@
             <span class="input-group-text">
               <i class="fas fa-map-marker-alt" style="color:#80cb2b"></i>
             </span>
-            <input type="text" class="form-control" placeholder="Town, city, or zip" style="height: 50px">
+            <input type="text" class="form-control" id="location-search" placeholder="Town, city, or zip" style="height: 50px">
           </div>
         </div>
         <div class="col-12 col-md-4 py-2">
-          <button class="btn search-btn w-100 btn-lg" type="button">
+          <button class="btn search-btn w-100 btn-lg" type="button" onclick="searchJobs()">
             <i class="fas fa-search"></i>
           </button>
         </div>
@@ -122,6 +122,7 @@
         style="color:#80cb2b">Set your agri-job interest.</a></p>
   </div>
   <!--Featured Jobs-->
+  <div id="job-postings">
   <div class="container job-item p-4 mb-4">
     <div class="row g-4">
       <div class="col-sm-12 col-md-8 d-flex align-items-center">
@@ -247,12 +248,12 @@
       </div>
     </div>
   </div>
-
+</div>
   <h5 class="display-5 text-center mx-3 px-3" style="color:#00660a">Discover hourly jobs that fit your lifestyle. Haven't found your match yet?</h5>
   <div class="container" style="display: flex; justify-content: center; align-items: center;">
     <a href="jobs.html" class="btn btn-lg btn-usp">Browse More Jobs</a>
   </div>
-  
+
 
   <!--Footer-->
   <footer class="bg-light py-3">
@@ -281,5 +282,6 @@
   </footer>
   <script src="/assets/js/typed.js" type="text/javascript"></script>
   <script src="/assets/js/tawk.js" type="text/javascript"></script>
+  <script src="/assets/js/jobsearch.js" type="text/javascript"></script>
 </body>
 </html>
