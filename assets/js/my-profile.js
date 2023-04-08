@@ -200,8 +200,3 @@ imgInput.addEventListener("change", function () {
     reader.readAsDataURL(file);
   }
 });
-
-
-
-//firebase.auth().signOut()   to sign out
-//firebase.auth().currentUser. This will return the currently authenticated 
