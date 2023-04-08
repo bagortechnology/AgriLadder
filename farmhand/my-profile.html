@@ -21,7 +21,7 @@
 
     <title>My Profile | Farmhand</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
 </head>
 
 <body>
@@ -36,9 +36,7 @@
                         </span>
                         <span class="title">Farmhand</span>
                     </a>
-
                 </li>
-
                 <li>
                     <a href="/farmhand/dashboard/">
                         <span class="icon">
@@ -49,7 +47,7 @@
                 </li>
 
                 <li>
-                    <a href="/farmhand/dashboard/my-profile.html">
+                    <a href="/farmhand/my-profile.html">
                         <span class="icon">
                             <ion-icon name="person-outline"></ion-icon>
                         </span>
@@ -121,7 +119,7 @@
                 </div>
             </div>
             <!-- ========================= Profile ==================== -->
-            <div class="container-fluid">
+            <div class="container">
                 <br>
                 <!-- ========================= Personal Info ==================== -->
                 <div>
@@ -129,7 +127,7 @@
                     <div class="d-sm-flex justify-content-center align-items-end g-2">
                         <div class=" imgBox border border-3 border-success p-2">
                             <img id="imgPreview" class="img-fluid rounded-3" style="max-height: 150px"
-                                src="/assets/hero.png" alt="Default image">
+                                src="/assets/images/hero.png" alt="Default image">
                         </div>
                         <div class="ps-3">
                             <h4 class="h4">Hi SidongtheGreat</h4>
@@ -251,160 +249,17 @@
                 </form>
             </div>
             <br>
-            <!-- ========================= Educational Background ==================== -->
-            <div class="container-fluid">
 
-                <form id="formEducBacklInfo" data-bs-toggle="validator" class="box">
-                    <h4 class="h4">Recent Education</h4> <br>
-                    <div class="d-sm-flex gap-2">
-                        <div class="form-floating mb-3 flex-fill w-100 w-sm-50">
-                            <input type="text" class="form-control" id="school1" placeholder="School name" required>
-                            <label for="floatingInput" aria-required="true">School name</label>
-                        </div>
-                        <div class="form-floating mb-3 flex-fill ">
-                            <input type="date" class="form-control" id="dateGrad1" placeholder="Date Graduated"
-                                required>
-                            <label for="floatingInput" aria-required="true">Date
-                                Graduated</label>
-                        </div>
-                        <div class="form-floating mb-3 flex-fill w-100 w-sm-25">
-                            <select class="form-select form-control" id="degree1" aria-label="degree1"
-                                aria-required="true">
-                                <option selected>Select</option>
-                                <option value="1">Elementary Graduate</option>
-                                <option value="2">High School Graduate</option>
-                                <option value="3">Associates degree</option>
-                                <option value="4">Bachelor's Degree</option>
-                                <option value="5">Graduate Studies</option>
-                            </select>
-                            <label for="degree1">Education degree</label>
-                        </div>
-                    </div>
-
-                    <div class="d-sm-flex gap-2">
-                        <div class="form-floating mb-3 flex-fill w-100 w-sm-50">
-                            <input type="text" class="form-control" id="school2" placeholder="School name2" required>
-                            <label for="floatingInput" aria-required="">School
-                                Naame</label>
-                        </div>
-                        <div class="form-floating mb-3 flex-fill ">
-                            <input type="date" class="form-control" id="dateGrad2" placeholder="Date Graduated2"
-                                required>
-                            <label for="floatingInput" aria-required="">Date
-                                Graduated</label>
-                        </div>
-                        <div class="form-floating mb-3 flex-fill w-100 w-sm-25">
-                            <select class="form-select form-control" id="degree2" aria-label="degree2">
-                                <option selected>Select</option>
-                                <option value="1">Elementary Graduate</option>
-                                <option value="2">High School Graduate</option>
-                                <option value="3">Associates degree</option>
-                                <option value="4">Bachelors Degree</option>
-                                <option value="5">Master's Degree</option>
-                            </select>
-                            <label for="degree2">Education degree</label>
-                        </div>
-                    </div>
-                    <div class="d-lg-flex justify-content-end gap-2">
-                        <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
-                        <input type="submit" class="btn btn-md btn-outline-success" data-bs-target="#formEducBacklInfo"
-                            value="Save">
-                    </div>
-                </form>
-            </div>
-            <br>
-            <!-- ========================= Educational Background ==================== -->
-            <div class="container-fluid">
-
-                <form id="formWorkExpInfo " data-bs-toggle="validator" class="box">
-                    <h4 class="h4">Work Experience</h4> <br>
-                    <h6 class="h6">First Company</h6>
-
-                    <div class="d-lg-flex gap-2">
-                        <div class="form-floating mb-3 flex-fill w-100 w-sm-30">
-                            <input type="text" class="form-control" id="compName1" placeholder="Company1" required>
-                            <label for="floatingInput" aria-required="">Company
-                                Name</label>
-                        </div>
-                        <div class="form-floating mb-3 flex-fill w-100 w-sm-30">
-                            <input type="text" class="form-control" id="position1" placeholder="Position1" required>
-                            <label for="floatingInput" aria-required="">Position</label>
-                        </div>
-                        <div class="d-sm-flex gap-2">
-                            <div class="form-floating mb-3 flex-fill w-100 w-sm-20">
-                                <input type="date" class="form-control" id="dateHire1" placeholder="Date Hired1"
-                                    required>
-                                <label for="floatingInput" aria-required="">Date
-                                    Hired</label>
-                            </div>
-                            <div class="form-floating mb-3 flex-fill w-100 w-sm-20">
-                                <input type="date" class="form-control" id="dateEnd1" placeholder="Date End1" required>
-                                <label for="floatingInput" aria-required="">Date
-                                    End</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h6 class="h6">Second Company</h6>
-                    <div class="d-lg-flex gap-2">
-                        <div class="form-floating mb-3 flex-fill w-100 w-sm-30">
-                            <input type="text" class="form-control" id="compName2" placeholder="Company2" required>
-                            <label for="floatingInput" aria-required="">Company
-                                Name</label>
-                        </div>
-                        <div class="form-floating mb-3 flex-fill w-100 w-sm-30">
-                            <input type="text" class="form-control" id="position2" placeholder="Position2" required>
-                            <label for="floatingInput" aria-required="">Position</label>
-                        </div>
-                        <div class="d-sm-flex gap-2">
-                            <div class="form-floating mb-3 flex-fill w-100 w-sm-20">
-                                <input type="date" class="form-control" id="dateHire2" placeholder="Date Hired2"
-                                    required>
-                                <label for="floatingInput" aria-required="">Date
-                                    Hired</label>
-                            </div>
-                            <div class="form-floating mb-3 flex-fill w-100 w-sm-20">
-                                <input type="date" class="form-control" id="dateEnd2" placeholder="Date End2" required>
-                                <label for="floatingInput" aria-required="">Date
-                                    End</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-lg-flex justify-content-end gap-2">
-                        <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
-                        <input type="submit" class="btn btn-md btn-outline-success" data-bs-target="#formWorkExpInfo "
-                            value="Save">
-                    </div>
-                </form>
-            </div>
-            <br>
         </div>
     </div>
 
 
 
     <!-- =========== Scripts =========  -->
-    <script type="module" src="assets/js/main.js">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
-        import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
-            authDomain: "agriladder-jobs.firebaseapp.com",
-            databaseURL: "https://agriladder-jobs-default-rtdb.firebaseio.com",
-            projectId: "agriladder-jobs",
-            storageBucket: "agriladder-jobs.appspot.com",
-            messagingSenderId: "635800620871",
-            appId: "1:635800620871:web:724d28204dd3878f36c662"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-        const auth = getAuth();
-
-    </script>
+    <script src="/assets/js/my-profile.js">  </script>
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
