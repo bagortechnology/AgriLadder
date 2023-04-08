@@ -45,6 +45,8 @@ let formEducBacklInfo = document.getElementById("formEducBacklInfo");
 let formWorkExpInfo = document.getElementById("formWorkExpInfo ");
 const farmHand = [];  // array
 
+
+// dont forget on load event to load all element 
 // Event Lisener for submitform
 formPersonalInfo.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -124,7 +126,7 @@ let getEducBackInfo = () => {
     // degree2: degree2.value
   };
 
-  farmHand.push(educBackInfo);
+  farmHand.EducBackInfo.push(educBackInfo);
   // set(ref(database, "FarmHand"), educBackInfo);
 };
 
@@ -178,24 +180,36 @@ imgInput.addEventListener("change", function () {
   const reader = new FileReader();
 
   reader.addEventListener("load", function () {
-    imgPreview.src = reader.result;
-    imgPreviewModal.src = reader.result;
-    imgPreviewIco.src = reader.result;
+    // Check if a new image has been selected
+    if (file) {
+      imgPreview.src = reader.result;
+      imgPreviewModal.src = reader.result;
+      imgPreviewIco.src = reader.result;
 
-    let getuserPhoto = () => {
-      let userPhoto = {
-        userPhoto: reader.result,
+      let getuserPhoto = () => {
+        let userPhoto = {
+          userPhoto: reader.result,
+        };
 
+        // Check if an image already exists in the array
+        const existingImageIndex = farmHand.findIndex(
+          (item) => item.userPhoto !== undefined
+        );
+        if (existingImageIndex !== -1) {
+          farmHand[existingImageIndex] = userPhoto;
+        } else {
+          farmHand.push(userPhoto);
+        }
+
+        // set(ref(database, "FarmHand"), userPhoto);
       };
-      farmHand.push(userPhoto);
 
-      // set(ref(database, "FarmHand"), userPhoto);
-    };
-
-    getuserPhoto();
-    console.log(farmHand);
-    alert('Record Saved')
+      getuserPhoto();
+      console.log(farmHand);
+      alert('Record Saved')
+    }
   });
+
   if (file) {
     reader.readAsDataURL(file);
   }
