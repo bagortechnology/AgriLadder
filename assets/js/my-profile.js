@@ -1,5 +1,20 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
+  authDomain: "agriladder-jobs.firebaseapp.com",
+  databaseURL: "https://agriladder-jobs-default-rtdb.firebaseio.com",
+  projectId: "agriladder-jobs",
+  storageBucket: "agriladder-jobs.appspot.com",
+  messagingSenderId: "635800620871",
+  appId: "1:635800620871:web:724d28204dd3878f36c662"
+};
 
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
 
 
 // add hovered class to selected list item
@@ -54,6 +69,17 @@ formWorkExpInfo.addEventListener("submit", (e) => {
   console.log(farmHand);
   alert('Record Saved')
 });
+
+formPortfolioInfo.addEventListener("submit", (e) => {
+  e.preventDefault();
+  getPortfolioInfo();
+
+  console.log(farmHand);
+  alert('Record Saved')
+});
+
+
+
 // --------------------------------------------------------
 
 //let user = firebase.auth().currentUser;  // this cause the error, make sure you are login
@@ -93,9 +119,9 @@ let getEducBackInfo = () => {
     dateGrad1: dateGrad1.value,
     degree1: degree1.value,
 
-    school2: school2.value,
-    dateGrad2: dateGrad2.value,
-    degree2: degree2.value
+    // school2: school2.value,
+    // dateGrad2: dateGrad2.value,
+    // degree2: degree2.value
   };
 
   farmHand.push(educBackInfo);
@@ -111,10 +137,10 @@ let getWorkExpInfo = () => {
     dateHire1: dateHire1.value,
     dateEnd1: dateEnd1.value,
 
-    compName2: compName2.value,
-    position2: position2.value,
-    dateHire2: dateHire2.value,
-    dateEnd2: dateEnd2.value,
+    // compName2: compName2.value,
+    // position2: position2.value,
+    // dateHire2: dateHire2.value,
+    // dateEnd2: dateEnd2.value,
   };
 
   farmHand.push(workExpInfo);
@@ -141,7 +167,7 @@ const uploadBtn = document.getElementById("uploadImg-btn");
 const imgInput = document.getElementById("imgInput");
 const imgPreview = document.getElementById("imgPreview");
 const imgPreviewIco = document.getElementById("imgIco");
-
+const imgPreviewModal = document.getElementById("imgPreviewModal");
 
 uploadBtn.addEventListener("click", function () {
   imgInput.click();
