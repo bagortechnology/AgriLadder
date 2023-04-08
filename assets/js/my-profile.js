@@ -56,7 +56,7 @@ formWorkExpInfo.addEventListener("submit", (e) => {
 });
 // --------------------------------------------------------
 
-let user = firebase.auth().currentUser;  // this cause the error, make sure you are login
+//let user = firebase.auth().currentUser;  // this cause the error, make sure you are login
 
 let getUserInfo = () => { // getUserInfo Function
   let userInfo = {    // put properties into object
@@ -120,6 +120,21 @@ let getWorkExpInfo = () => {
   farmHand.push(workExpInfo);
   // set(ref(database, "FarmHand\workExpInfo"), workExpInfo);
 };
+
+// getWorkExp Function
+let getPortfolioInfo = () => {
+
+  let PortfolioInfo = {
+    videoUrl: videoUrl.value,
+    url: url.value,
+
+  };
+
+  farmHand.push(PortfolioInfo);
+
+};
+
+
 
 
 // //Tab Control
