@@ -77,7 +77,7 @@
             <span class="input-group-text">
               <i class="fas fa-briefcase" style="color:#80cb2b"></i>
             </span>
-            <input type="text" class="form-control" placeholder="Job, title, skills, or farm" style="height: 50px">
+            <input type="text" class="form-control" id="job-search" placeholder="Job, title, skills, or farm" style="height: 50px">
           </div>
         </div>
         <div class="col-12 col-md-4 py-2">
@@ -85,17 +85,19 @@
             <span class="input-group-text">
               <i class="fas fa-map-marker-alt" style="color:#80cb2b"></i>
             </span>
-            <input type="text" class="form-control" placeholder="Town, city, or zip" style="height: 50px">
+            <input type="text" class="form-control" id="location-search" placeholder="Town, city, or zip" style="height: 50px">
           </div>
         </div>
         <div class="col-12 col-md-4 py-2">
-          <button class="btn search-btn w-100 btn-lg" type="button">
+          <button class="btn search-btn w-100 btn-lg" type="button" onclick="JobSearch()">
             <i class="fas fa-search"></i>
           </button>
         </div>
       </div>
     </form>
   </div>
+  <!--Show Job Search Results-->
+  <div class="my-3" id="job-search-results"></div>
   <!--Explore Jobs-->
   <div class="container">
     <h2 class="display-5 fw-bold text-center m-3" style="color:#00660a">Discover hourly jobs that fit your lifestyle.</h2>
@@ -295,6 +297,7 @@
    
     <!--Flexible Job Listing Tab-->
     <section class="tab-content">
+      <div id="jobpostings">
         <div id="flexible" class="tab-pane fade show p-0">
             <div class="container job-item p-4 mb-4">
                 <div class="row g-4">
@@ -422,9 +425,11 @@
                 </div>
               </div>
         </div>
+      </div>
     </section>
     <!--Fixed Term Job Listing Tab-->
     <section class="tab-content">
+      <div id="job-postings">
         <div id="fixed" class="tab-pane fade show p-0">
             <div class="container job-item p-4 mb-4">
                 <div class="row g-4">
@@ -553,6 +558,7 @@
                 </div>
               </div>
         </div>
+      </div>
     </section>
 </div>
   <!--Footer-->
@@ -580,6 +586,7 @@
       </div>
     </div>
   </footer>
-  <script src="/assets/js/tawk.js" type="text/javascript"></script> 
+  <script src="/assets/js/tawk.js" type="text/javascript"></script>
+  <script src="/assets/js/jobsearch.js"></script> 
 </body>
 </html>
