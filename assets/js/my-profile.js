@@ -103,11 +103,11 @@ let getUserInfo = () => { // getUserInfo Function
 
   farmHand.push(userInfo); // push object into array
 
-  if (user) {
-    let userRef = database.ref("users/" + user.uid);
-    userRef.child("FarmHand").set(userInfo);
+  // if (user) {
+  //   let userRef = database.ref("users/" + user.uid);
+  //   userRef.child("FarmHand").set(userInfo);
 
-  };
+  // };
 };
 
 
