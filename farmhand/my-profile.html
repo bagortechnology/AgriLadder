@@ -445,32 +445,30 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
-
                     <div class="d-sm-flex justify-content-center align-items-end g-2">
                         <div class=" imgBox border border-3 border-success p-2">
                             <img id="imgPreviewModal" class="img-fluid rounded-3" style="max-height: 150px"
                                 src="/assets/images/hero.png" alt="Default image">
                         </div>
-
-
+                        <br>
                         <div class="ps-3">
                             <h4 id="nickName" class="h4">Hi SidongtheGreat</h4> <!-- link to Name -->
                             <input type="file" id="imgInput" style="display:none" accept="image/*">
+                            <br>
                             <button id="uploadImg-btn" type="button"
                                 class="shadow-sm h4 btn btn-md btn-outline-success d-flex justify-content-center align-items-center gap-2">
                                 <ion-icon name="cloud-upload-outline"></ion-icon>
                                 Upload
                             </button>
                         </div>
-
                     </div>
+                    <br>
                     <form id="formPortfolioInfo" data-bs-toggle="validator" class="box">
                         <h5 class="h5"> Video URL</h5>
-                        <input id="videoUrl" type="text" class="form-control"
+                        <input id="videoUrl" type="url" class="form-control"
                             placeholder="Add video URL of Youtube, Vimeo."> <br>
                         <h5 class="h5"> Personal Link</h5>
-                        <input id="url" type="text" class="form-control" placeholder="Add your personal link here">
+                        <input id="url" type="url" class="form-control" placeholder="Add your personal link here">
 
                         <div class=" modal-footer d-lg-flex justify-content-end gap-2">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
