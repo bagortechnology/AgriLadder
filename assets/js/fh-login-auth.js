@@ -15,6 +15,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebas
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
     const auth = getAuth();
+    const usernameDisplay = document.getElementById('username');
 
     // Listen for changes in the authentication state
 onAuthStateChanged(auth, (user) => {
@@ -24,7 +25,9 @@ onAuthStateChanged(auth, (user) => {
       const userRef = ref(database, `users/${userRole}/${user.uid}`);
       get(userRef).then((snapshot) => {
         if (snapshot.exists()) {
-          // User has the required role, do nothing
+          const userData = snapshot.val();
+          const username = userData.username;
+          usernameDisplay.innerText = username;
         } else {
           // User doesn't have the required role, sign them out
           auth.signOut();
