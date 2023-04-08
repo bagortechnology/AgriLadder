@@ -135,14 +135,6 @@ let getPortfolioInfo = () => {
 };
 
 
-
-
-// //Tab Control
-// $('#myTab a').on('click', function (e) {
-//   e.preventDefault()
-//   $(this).tab('show')
-// });
-
 // //Upload  profile image
 
 const uploadBtn = document.getElementById("uploadImg-btn");
@@ -161,6 +153,7 @@ imgInput.addEventListener("change", function () {
 
   reader.addEventListener("load", function () {
     imgPreview.src = reader.result;
+    imgPreviewModal.src = reader.result;
     imgPreviewIco.src = reader.result;
 
     let getuserPhoto = () => {
