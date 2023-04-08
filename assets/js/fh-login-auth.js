@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
     import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
@@ -38,3 +38,26 @@ onAuthStateChanged(auth, (user) => {
       window.location.href = '/farmhand/login.html';
     }
   });
+
+const signOutLink = document.getElementById('logout');
+
+signOutLink.addEventListener('click', (e) => {
+  e.preventDefault();
+  auth.signOut().then(() => {
+    // Display success message
+    const alert = document.createElement('div');
+    alert.className = 'alert alert-success mt-3';
+    alert.setAttribute('role', 'alert');
+    alert.innerText = 'You have been signed out successfully.';
+
+    const cardBody = document.querySelector('.card-body');
+    cardBody.insertBefore(alert, loginForm);
+
+    // Redirect to the login page
+    setTimeout(() => {
+      window.location.href = '/';
+    }, 2000);
+  }).catch((error) => {
+    console.error(error);
+  });
+});

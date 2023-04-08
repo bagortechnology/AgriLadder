@@ -14,7 +14,7 @@ signOutLink.addEventListener('click', (e) => {
 
     // Redirect to the login page
     setTimeout(() => {
-      window.location.href = '/login.html';
+      window.location.href = '/farmhand/login.html';
     }, 2000);
   }).catch((error) => {
     console.error(error);
