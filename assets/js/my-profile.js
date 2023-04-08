@@ -135,14 +135,6 @@ let getPortfolioInfo = () => {
 };
 
 
-
-
-// //Tab Control
-// $('#myTab a').on('click', function (e) {
-//   e.preventDefault()
-//   $(this).tab('show')
-// });
-
 // //Upload  profile image
 
 const uploadBtn = document.getElementById("uploadImg-btn");
