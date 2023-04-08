@@ -248,7 +248,7 @@
                         <input type="submit" class="btn btn-md btn-outline-success" data-bs-target="#formPersonalInfo"
                             value="Save">
                     </div>
-
+                    <br>
                     <!-- Button trigger modal Education-->
                     <button type="button" class="btn btn-md btn-success" data-bs-toggle="modal"
                         data-bs-target="#formEducBacklInfoModal">
@@ -445,7 +445,7 @@
                                 src="/assets/images/hero.png" alt="Default image">
                         </div>
 
-                        <form id="formPortfolioInfo" data-bs-toggle="validator" class="box"></form>
+
                         <div class="ps-3">
                             <h4 id="nickName" class="h4">Hi SidongtheGreat</h4> <!-- link to Name -->
                             <input type="file" id="imgInput" style="display:none" accept="image/*">
@@ -454,22 +454,23 @@
                                 <ion-icon name="cloud-upload-outline"></ion-icon>
                                 Upload
                             </button>
-
                         </div>
-                    </div>
-                    <h5 class="h5"> Video URL</h5>
-                    <input id="videoUrl" type="text" class="form-control"
-                        placeholder="Add video URL of Youtube, Vimeo."> <br>
-                    <h5 class="h5"> Personal Link</h5>
-                    <input id="url" type="text" class="form-control" placeholder="Add your personal link here">
-                    </form>
 
-                    <div class=" modal-footer d-lg-flex justify-content-end gap-2">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
-                        <input type="submit" class="btn btn-md btn-outline-success" data-bs-target="#formPortfolioInfo"
-                            value="Save">
                     </div>
+                    <form id="formPortfolioInfo" data-bs-toggle="validator" class="box">
+                        <h5 class="h5"> Video URL</h5>
+                        <input id="videoUrl" type="text" class="form-control"
+                            placeholder="Add video URL of Youtube, Vimeo."> <br>
+                        <h5 class="h5"> Personal Link</h5>
+                        <input id="url" type="text" class="form-control" placeholder="Add your personal link here">
+
+                        <div class=" modal-footer d-lg-flex justify-content-end gap-2">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
+                            <input type="submit" class="btn btn-md btn-outline-success"
+                                data-bs-target="#formPortfolioInfo" value="Save">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
