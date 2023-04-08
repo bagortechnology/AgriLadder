@@ -161,6 +161,7 @@ imgInput.addEventListener("change", function () {
 
   reader.addEventListener("load", function () {
     imgPreview.src = reader.result;
+    imgPreviewModal.src = reader.result;
     imgPreviewIco.src = reader.result;
 
     let getuserPhoto = () => {
