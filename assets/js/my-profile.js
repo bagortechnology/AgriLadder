@@ -39,6 +39,8 @@ onAuthStateChanged(auth, (user) => {
 
 //Forms Button submit Event Lisener to get User data ------------------------------------->
 
+
+
 // dont forget on load event to load all element 
 // Event Lisener for submitform
 formPersonalInfo.addEventListener("submit", (e) => {
