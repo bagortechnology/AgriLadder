@@ -16,6 +16,10 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
 
+
+
+
+
 // // check authentication
 // firebase.auth().onAuthStateChanged(function (user) {
 //   if (user) {
@@ -29,11 +33,6 @@ const auth = getAuth();
 // });
 
 // const dbRef = firebase.database().ref("users/farmhand/" + uid);
-
-
-
-
-
 
 
 
@@ -132,7 +131,7 @@ let getUserInfo = () => { // getUserInfo Function
   };
 
   farmHand.push(userInfo); // push object into array
-
+  //set(ref(database, "FarmHand\workExpInfo"), workExpInfo);
 };
 
 
@@ -246,3 +245,7 @@ imgInput.addEventListener("change", function () {
     reader.readAsDataURL(file);
   }
 });
+
+
+
+
