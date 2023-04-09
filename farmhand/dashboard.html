@@ -125,9 +125,9 @@
                 <h4 style="color: #00660a">Welcome, <span id="username"></span>!</h4>
             </div>
             <div class="cardBox">
-                <div class="card">
+                <div class="card" data-bs-toggle="modal" data-bs-target="#appliedJobs">
                     <div>
-                        <div class="numbers">32</div>
+                        <div class="numbers">8</div>
                         <div class="cardName">Applied Jobs</div>
                     </div>
 
@@ -138,7 +138,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">10</div>
+                        <div class="numbers">3</div>
                         <div class="cardName">Interviews</div>
                     </div>
 
@@ -149,7 +149,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">12</div>
+                        <div class="numbers">5</div>
                         <div class="cardName">Favorite Jobs</div>
                     </div>
 
@@ -170,6 +170,86 @@
                 </div>
             </div>
 
+            <!-- ========Applied Jobs============= -->
+<div class="modal fade" id="appliedJobs" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Recent Application</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!--Applied Jobs List in Table Form-->
+          <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Date Applied</th>
+                        <th>Job</th>
+                        <th>Hourly Rate</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>9 April 2023</td>
+                        <td>Sprayman</td>
+                        <td>₱75.00</td>
+                        <td><span class="status pending">In Review</span></td>
+                    </tr>
+                    <tr>
+                        <td>9 April 2023</td>
+                        <td>Mushroom Picker</td>
+                        <td>₱110.00</td>
+                        <td><span class="status inProgress">Shortlisted</span></td>
+                    </tr>
+                    <tr>
+                        <td>8 April 2023</td>
+                        <td>Gardener</td>
+                        <td>₱105.00</td>
+                        <td><span class="status delivered">Hired</span></td>
+                    </tr>
+                    <tr>
+                        <td>7 April 2023</td>
+                        <td>Lettuce Picker</td>
+                        <td>₱115.00</td>
+                        <td><span class="status inProgress">Shortlisted</span></td>
+                    </tr>
+                    <tr>
+                        <td>1 April 2023</td>
+                        <td>Composting Staff</td>
+                        <td>₱95.00</td>
+                        <td><span class="status delivered">Hired</span></td>
+                    </tr>
+                    <tr>
+                        <td>30 March 2023</td>
+                        <td>Fork Lift Operator</td>
+                        <td>P245.00</td>
+                        <td><span class="status return">Rejected</span></td>
+                    </tr>
+                    <tr>
+                        <td>25 March 2023</td>
+                        <td>Foodscape Worker</td>
+                        <td>185.00</td>
+                        <td><span class="status pending">In Review</span></td>
+                    </tr>
+                    <tr>
+                        <td>14 March 2023</td>
+                        <td>4-Wheeled Tractor Operator</td>
+                        <td>450.00</td>
+                        <td><span class="status delivered">Hired</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
             <!-- ================ Recent Jobs ================= -->
             <div class="details">
                 <div class="recentOrders">
@@ -315,7 +395,7 @@
 
     <!-- =========== Scripts =========  -->
     <script src="/assets/js/hover.js" type="text/javascript"></script>
-    <script src="/assets/js/fh-login-auth.js" type="module"></script>
+    <script src="/assets/js/fh-dash.js" type="module"></script>
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
