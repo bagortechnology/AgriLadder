@@ -16,6 +16,33 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
 
+// // check authentication
+// firebase.auth().onAuthStateChanged(function (user) {
+//   if (user) {
+//     // User is signed in, get their UID
+//     const uid = user.uid;
+
+//     // TODO: Use the UID to save data to the database
+//   } else {
+//     // User is signed out
+//   }
+// });
+
+// const dbRef = firebase.database().ref("users/farmhand/" + uid);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------
 
 // add hovered class to selected list item
 let list = document.querySelectorAll(".navigation li");
@@ -86,6 +113,7 @@ formPortfolioInfo.addEventListener("submit", (e) => {
 
 //let user = firebase.auth().currentUser;  // this cause the error, make sure you are login
 
+
 let getUserInfo = () => { // getUserInfo Function
   let userInfo = {    // put properties into object
     fName: fName.value,
@@ -105,11 +133,6 @@ let getUserInfo = () => { // getUserInfo Function
 
   farmHand.push(userInfo); // push object into array
 
-  // if (user) {
-  //   let userRef = database.ref("users/" + user.uid);
-  //   userRef.child("FarmHand").set(userInfo);
-
-  // };
 };
 
 
@@ -126,8 +149,17 @@ let getEducBackInfo = () => {
     // degree2: degree2.value
   };
 
-  farmHand.EducBackInfo.push(educBackInfo);
-  // set(ref(database, "FarmHand"), educBackInfo);
+  farmHand.push(educBackInfo);
+
+  // dbRef.child("educBackInfo").set(educBackInfo)
+  //   .then(function () {
+  //     console.log("Data saved successfully");
+  //   })
+  //   .catch(function (error) {
+  //     console.error("Error saving data:", error);
+  //   });
+
+
 };
 
 
