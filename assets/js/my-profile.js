@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
 import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
@@ -15,61 +15,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
-
-
-
-
-
-// // check authentication
-// firebase.auth().onAuthStateChanged(function (user) {
-//   if (user) {
-//     // User is signed in, get their UID
-//     const uid = user.uid;
-
-//     // TODO: Use the UID to save data to the database
-//   } else {
-//     // User is signed out
-//   }
-// });
-
-// const dbRef = firebase.database().ref("users/farmhand/" + uid);
-
-
-
-
-
-
-
-
-//----------------------------------------------------------------------
-
-// add hovered class to selected list item
-let list = document.querySelectorAll(".navigation li");
-
-function activeLink() {
-  list.forEach((item) => {
-    item.classList.remove("hovered");
-  });
-  this.classList.add("hovered");
-}
-
-list.forEach((item) => item.addEventListener("mouseover", activeLink));
-
-// Menu Toggle
-let toggle = document.querySelector(".toggle");
-let navigation = document.querySelector(".navigation");
-let main = document.querySelector(".main");
-
-toggle.onclick = function () {
-  navigation.classList.toggle("active");
-  main.classList.toggle("active");
-};
+const usernameDisplay = document.getElementById('username');
 
 // Value Delaration
 let formPersonalInfo = document.getElementById("formPersonalInfo");
 let formEducBacklInfo = document.getElementById("formEducBacklInfo");
 let formWorkExpInfo = document.getElementById("formWorkExpInfo ");
+let formPortfolioInfo = document.getElementById("formPortfolioInfo ");
+
 const farmHand = [];  // array
+
+//----------------------------------------------------------------------
+
 
 
 // dont forget on load event to load all element 
@@ -109,8 +66,14 @@ formPortfolioInfo.addEventListener("submit", (e) => {
 
 
 // --------------------------------------------------------
+// formPersonalInfo.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   getUserInfo();
 
-//let user = firebase.auth().currentUser;  // this cause the error, make sure you are login
+//   console.log(farmHand);
+//   alert('Record Saved')
+// });
+
 
 
 let getUserInfo = () => { // getUserInfo Function
@@ -131,8 +94,43 @@ let getUserInfo = () => { // getUserInfo Function
   };
 
   farmHand.push(userInfo); // push object into array
-  //set(ref(database, "FarmHand\workExpInfo"), workExpInfo);
+
+  // to firebase
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, check their role
+      const userRole = 'farmhand';
+      const userRef = ref(database, `users/${userRole}/${user.uid}`);
+      get(userRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          const userData = snapshot.val();
+          const username = userData.username;
+          usernameDisplay.innerText = username;
+
+          // Save user information next to the user in the database
+          const userInfoRef = child(userRef, 'userInfo');
+          set(userInfoRef, {
+            userInfo
+          });
+        } else {
+          // User doesn't have the required role, sign them out
+          auth.signOut();
+        }
+      })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      // User is not signed in, redirect to login page
+      window.location.href = '/farmhand/login.html';
+    }
+  });
+
 };
+
+
+
+
 
 
 // getEducBack Function
@@ -177,20 +175,15 @@ let getWorkExpInfo = () => {
   };
 
   farmHand.push(workExpInfo);
-  // set(ref(database, "FarmHand\workExpInfo"), workExpInfo);
 };
 
 // getWorkExp Function
 let getPortfolioInfo = () => {
-
-  let PortfolioInfo = {
+  let portfolioInfo = {
     videoUrl: videoUrl.value,
     url: url.value,
-
   };
-
-  farmHand.push(PortfolioInfo);
-
+  farmHand.push(portfolioInfo);
 };
 
 
