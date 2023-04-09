@@ -21,13 +21,23 @@ const usernameDisplay = document.getElementById('username');
 let formPersonalInfo = document.getElementById("formPersonalInfo");
 let formEducBacklInfo = document.getElementById("formEducBacklInfo");
 let formWorkExpInfo = document.getElementById("formWorkExpInfo ");
-let formPortfolioInfo = document.getElementById("formPortfolioInfo ");
+//let formPortfolioInfo = document.getElementById("formPortfolioInfo ");
+const farmHand = [];  // array fro local
 
-const farmHand = [];  // array
+// Get the User 
+let userRef;
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, check their role
+    const userRole = 'farmhand';
+    userRef = ref(database, `users/${userRole}/${user.uid}`);
+  } else {
+    // User is not signed in, redirect to login page
+    window.location.href = '/farmhand/login.html';
+  }
+});
 
-//----------------------------------------------------------------------
-
-
+//Forms Button submit Event Lisener to get User data ------------------------------------->
 
 // dont forget on load event to load all element 
 // Event Lisener for submitform
@@ -63,20 +73,8 @@ formPortfolioInfo.addEventListener("submit", (e) => {
   alert('Record Saved')
 });
 
-
-
-// --------------------------------------------------------
-// formPersonalInfo.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   getUserInfo();
-
-//   console.log(farmHand);
-//   alert('Record Saved')
-// });
-
-
-
-let getUserInfo = () => { // getUserInfo Function
+//Forms get User data ------------------------------------->
+let getUserInfo = () => { // getUserInfo Function with userRef parameter
   let userInfo = {    // put properties into object
     fName: fName.value,
     mName: mName.value,
@@ -92,73 +90,23 @@ let getUserInfo = () => { // getUserInfo Function
     municipal: municipal.value,
     region: region.value,
   };
-
   farmHand.push(userInfo); // push object into array
-
-  // to firebase
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, check their role
-      const userRole = 'farmhand';
-      const userRef = ref(database, `users/${userRole}/${user.uid}`);
-      get(userRef).then((snapshot) => {
-        if (snapshot.exists()) {
-          const userData = snapshot.val();
-          const username = userData.username;
-          usernameDisplay.innerText = username;
-
-          // Save user information next to the user in the database
-          const userInfoRef = child(userRef, 'userInfo');
-          set(userInfoRef, {
-            userInfo
-          });
-        } else {
-          // User doesn't have the required role, sign them out
-          auth.signOut();
-        }
-      })
-        .catch((error) => {
-          console.error(error);
-        });
-    } else {
-      // User is not signed in, redirect to login page
-      window.location.href = '/farmhand/login.html';
-    }
-  });
-
-};
-
-
-
-
-
+  // Save user information next to the user in the database
+  let userInfoRef = child(userRef, 'userInfo');
+  set(userInfoRef, userInfo);
+}
 
 // getEducBack Function
-
 let getEducBackInfo = () => {
   let educBackInfo = {
     school1: school1.value,
     dateGrad1: dateGrad1.value,
     degree1: degree1.value,
-
-    // school2: school2.value,
-    // dateGrad2: dateGrad2.value,
-    // degree2: degree2.value
   };
-
   farmHand.push(educBackInfo);
-
-  // dbRef.child("educBackInfo").set(educBackInfo)
-  //   .then(function () {
-  //     console.log("Data saved successfully");
-  //   })
-  //   .catch(function (error) {
-  //     console.error("Error saving data:", error);
-  //   });
-
-
+  let userInfoRef = child(userRef, 'educBackInfo');
+  set(userInfoRef, educBackInfo);
 };
-
 
 // getWorkExp Function
 let getWorkExpInfo = () => {
@@ -167,25 +115,23 @@ let getWorkExpInfo = () => {
     position1: position1.value,
     dateHire1: dateHire1.value,
     dateEnd1: dateEnd1.value,
-
-    // compName2: compName2.value,
-    // position2: position2.value,
-    // dateHire2: dateHire2.value,
-    // dateEnd2: dateEnd2.value,
   };
 
   farmHand.push(workExpInfo);
+  let userInfoRef = child(userRef, 'workExpInfo');
+  set(userInfoRef, workExpInfo);
 };
 
-// getWorkExp Function
+// getPortfolioInfo Function
 let getPortfolioInfo = () => {
   let portfolioInfo = {
     videoUrl: videoUrl.value,
     url: url.value,
   };
   farmHand.push(portfolioInfo);
+  let userInfoRef = child(userRef, 'portfolioInfo');
+  set(userInfoRef, portfolioInfo);
 };
-
 
 // //Upload  profile image
 
@@ -223,9 +169,10 @@ imgInput.addEventListener("change", function () {
           farmHand[existingImageIndex] = userPhoto;
         } else {
           farmHand.push(userPhoto);
+          let userInfoRef = child(userRef, 'userPhoto');
+          set(userInfoRef, userPhoto);
         }
 
-        // set(ref(database, "FarmHand"), userPhoto);
       };
 
       getuserPhoto();
