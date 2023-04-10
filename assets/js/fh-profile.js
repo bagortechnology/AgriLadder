@@ -66,14 +66,46 @@ form.addEventListener("submit", (e) => {
       alert("Error updating profile data: " + error.message);
     });
 
-  // Display the input data inside the respective form field
-  fNameInput.value = fName;
-  mNameInput.value = mName;
-  lNameInput.value = lName;
-  emailInput.value = email;
-  mobileInput.value = mobile;
-  birthDateInput.value = birthDate;
-  genderInputs.forEach((input) => (input.checked = input.value === gender));
-  portfolioInput.value = portfolio;
-  aboutMeInput.value = aboutMe;
-});
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Retrieve the user data from the database
+        const userRole = 'farmhand';
+        const userRef = ref(database, `users/${userRole}/${user.uid}`);
+        get(userRef).then((snapshot) => {
+          const data = snapshot.val();
+          if (data) {
+            // Populate the form fields with the user data
+            fNameInput.value = data.name.first || '';
+            mNameInput.value = data.name.middle || '';
+            lNameInput.value = data.name.last || '';
+            emailInput.value = data.email || '';
+            mobileInput.value = data.mobile || '';
+            birthDateInput.value = data.birthDate || '';
+            if (data.gender) {
+              const genderInput = [...genderInputs].find((input) => input.value === data.gender);
+              if (genderInput) {
+                genderInput.checked = true;
+              }
+            }
+            portfolioInput.value = data.portfolio || '';
+            aboutMeInput.value = data.aboutMe || '';
+          }
+        }).catch((error) => {
+          console.error(error);
+        });
+      } else {
+        // Clear the form fields when the user is not authenticated
+        fNameInput.value = '';
+        mNameInput.value = '';
+        lNameInput.value = '';
+        emailInput.value = '';
+        mobileInput.value = '';
+        birthDateInput.value = '';
+        genderInputs.forEach((input) => {
+          input.checked = false;
+        });
+        portfolioInput.value = '';
+        aboutMeInput.value = '';
+      }
+    });
+  });
