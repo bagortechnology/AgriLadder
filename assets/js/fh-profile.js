@@ -75,38 +75,37 @@ form.addEventListener("submit", (e) => {
           const data = snapshot.val();
           if (data) {
             // Populate the form fields with the user data
-            const { name, email, mobile, birthDate, gender, portfolio, aboutMe } = data;
-            fNameInput.value = name?.first || '';
-            mNameInput.value = name?.middle || '';
-            lNameInput.value = name?.last || '';
-            emailInput.value = email || '';
-            mobileInput.value = mobile || '';
-            birthDateInput.value = birthDate || '';
-            if (gender) {
-              const genderInput = [...genderInputs].find((input) => input.value === gender);
-              if (genderInput) {
-                genderInput.checked = true;
+            fName.value = data.name.first || '';
+            mName.value = data.name.middle || '';
+            lName.value = data.name.last || '';
+            email.value = data.email || '';
+            mobile.value = data.mobile || '';
+            birthDate.value = data.birthDate || '';
+            if (data.gender) {
+              const gender = [...gender].find((input) => input.value === data.gender);
+              if (gender) {
+                gender.checked = true;
               }
             }
-            portfolioInput.value = portfolio || '';
-            aboutMeInput.value = aboutMe || '';
+            portfolio.value = data.portfolio || '';
+            aboutMe.value = data.aboutMe || '';
           }
         }).catch((error) => {
           console.error(error);
         });
       } else {
         // Clear the form fields when the user is not authenticated
-        fNameInput.value = '';
-        mNameInput.value = '';
-        lNameInput.value = '';
-        emailInput.value = '';
-        mobileInput.value = '';
-        birthDateInput.value = '';
-        genderInputs.forEach((input) => {
+        fName.value = '';
+        mName.value = '';
+        lName.value = '';
+        email.value = '';
+        mobile.value = '';
+        birthDate.value = '';
+        gender.forEach((input) => {
           input.checked = false;
         });
-        portfolioInput.value = '';
-        aboutMeInput.value = '';
+        portfolio.value = '';
+        aboutMe.value = '';
       }
     });
-  });    
+  });
