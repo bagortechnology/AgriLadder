@@ -122,9 +122,9 @@
                   </div>
             </div>
         <!-- ================= Basic Information =============-->
-        <div class="container">
+        <div class="container mx-2">
         <h4 class="h4">Basic Information</h4> <br>
-        <h6 class="h6">Complete Name <span class="text-danger">*</span></h6>
+        <h6 class="h6">Complete Name<span class="text-danger">*</span></h6>
         <div class="d-sm-flex gap-2 ">
             <div class="form-floating mb-3 flex-fill ">
                 <input type="text" class="form-control" id="FName" placeholder="First Name" required>
@@ -140,7 +140,21 @@
             </div>
         </div>
 
-        
+        <h6>Contact Details <span class="text-danger">*</span></h6>
+        <div class="d-sm-flex gap-2">
+                <div class="form-floating mb-3 flex-fill">
+                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                    <label for="email" aria-required="true">Email Address</label>
+                </div>
+                <div class="form-floating mb-3 flex-fill ">
+                    <input type="tel" class="form-control" id="mobile" placeholder="mobile" required maxlength="11"
+                      pattern="^\+63[0-9]{8,}$" title="Please enter a valid mobile number">
+                    <label for="mobile" aria-required="true">Mobile No.</label>
+                  </div>
+                  
+            </div>
+        </div>
+
         <!--end of container-->
         </div>
 
