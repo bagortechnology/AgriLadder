@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebas
 import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
 
-    const firebaseConfig = {
+const firebaseConfig = {
       apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
       authDomain: "agriladder-jobs.firebaseapp.com",
       databaseURL: "https://agriladder-jobs-default-rtdb.firebaseio.com",
@@ -12,11 +12,11 @@ import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
       appId: "1:635800620871:web:724d28204dd3878f36c662"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-    const auth = getAuth();
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
     
-    const form = document.querySelector(".container");
+const form = document.querySelector(".container");
 const fNameInput = form.querySelector("#FName");
 const mNameInput = form.querySelector("#MName");
 const lNameInput = form.querySelector("#LName");
