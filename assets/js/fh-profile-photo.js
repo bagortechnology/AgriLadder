@@ -63,7 +63,7 @@ import { getAuth,} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth
           if (width < minWidth || height < minHeight || width != height) {
             alert('Please upload an image that is at least 512x512 pixels and square.');
             const image = document.querySelector('.image-upload img');
-            image.src = '/assets/images/Chat Profile.png'; // Reset to default image
+            image.src = '/assets/images/default-profile-photo.png'; // Reset to default image
           }
         };
       }
