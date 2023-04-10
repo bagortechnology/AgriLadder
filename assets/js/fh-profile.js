@@ -65,47 +65,4 @@ form.addEventListener("submit", (e) => {
     .catch((error) => {
       alert("Error updating profile data: " + error.message);
     });
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // Retrieve the user data from the database
-        const userRole = 'farmhand';
-        const userRef = ref(database, `users/${userRole}/${user.uid}`);
-        get(userRef).then((snapshot) => {
-          const data = snapshot.val();
-          if (data) {
-            // Populate the form fields with the user data
-            fName.value = data.name.first || '';
-            mName.value = data.name.middle || '';
-            lName.value = data.name.last || '';
-            email.value = data.email || '';
-            mobile.value = data.mobile || '';
-            birthDate.value = data.birthDate || '';
-            if (data.gender) {
-              const gender = [...gender].find((input) => input.value === data.gender);
-              if (gender) {
-                gender.checked = true;
-              }
-            }
-            portfolio.value = data.portfolio || '';
-            aboutMe.value = data.aboutMe || '';
-          }
-        }).catch((error) => {
-          console.error(error);
-        });
-      } else {
-        // Clear the form fields when the user is not authenticated
-        fName.value = '';
-        mName.value = '';
-        lName.value = '';
-        email.value = '';
-        mobile.value = '';
-        birthDate.value = '';
-        gender.forEach((input) => {
-          input.checked = false;
-        });
-        portfolio.value = '';
-        aboutMe.value = '';
-      }
-    });
   });
