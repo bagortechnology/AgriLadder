@@ -50,3 +50,22 @@ fileUploadInput.addEventListener("change", (event) => {
     });
 });
 
+// Get a reference to the profile photo element in the HTML code
+const profilePhoto = document.getElementById("photo");
+
+// Listen for changes in the user's authentication state
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, retrieve their photo URL from the database
+    get(ref(database, `users/farmhand/${user.uid}`)).then((snapshot) => {
+      const photoURL = snapshot.val().photoURL;
+      if (photoURL) {
+        // Update the profile photo element with the user's photo URL
+        profilePhoto.setAttribute("src", photoURL);
+      }
+    });
+  } else {
+    // User is signed out, reset the profile photo element to the default photo
+    profilePhoto.setAttribute("src", "/assets/images/default-profile-photo.png");
+  }
+});
