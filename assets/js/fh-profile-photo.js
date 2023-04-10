@@ -28,11 +28,11 @@ fileUpload.addEventListener("change", (event) => {
 
   // Get a reference to the storage location where the file should be uploaded
   const storageLocation = storageRef(storage, "profile-photos/");
-
-  // Upload the file to the storage location
+  const userRole = 'farmhand';
+  
   uploadBytes(storageLocation, file).then((snapshot) => {
     // Get the download URL of the uploaded file
-    snapshot.ref.getDownloadURL().then((downloadURL) => {
+    getDownloadURL(snapshot.ref).then((downloadURL) => {
       // Update the realtime database with the download URL of the uploaded file
       update(ref(database, `users/${userRole}/${user.uid}`), { photoURL: downloadURL }).then(() => {
         // Inform the user that the photo has been uploaded successfully
@@ -46,7 +46,7 @@ fileUpload.addEventListener("change", (event) => {
     // Inform the user if there was an error uploading the photo
     alert("Error uploading photo: " + error.message);
   });
-});
+  
 
 // Get the current user's profile photo
 onAuthStateChanged(auth, (user) => {
