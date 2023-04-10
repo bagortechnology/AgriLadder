@@ -76,20 +76,20 @@ onAuthStateChanged(auth, (user) => {
       const data = snapshot.val();
       if (data) {
         // Update the input fields with the user's data
-        fNameInput.value = data.fName;
-        mNameInput.value = data.mName;
-        lNameInput.value = data.lName;
-        emailInput.value = data.email;
-        mobileInput.value = data.mobile;
-        birthDateInput.value = data.birthDate;
+        fNameInput.value = data.fName ?? "";
+        mNameInput.value = data.mName ?? "";
+        lNameInput.value = data.lName ?? "";
+        emailInput.value = data.email ?? "";
+        mobileInput.value = data.mobile ?? "";
+        birthDateInput.value = data.birthDate ?? "";
         genderInputs.forEach((input) => {
           if (input.value === data.gender) {
             input.checked = true;
           }
         });
-        portfolioInput.value = data.portfolio;
-        aboutMeInput.value = data.aboutMe;
-      }
+        portfolioInput.value = data.portfolio ?? "";
+        aboutMeInput.value = data.aboutMe ?? "";
+      }      
     });
   }
 });
