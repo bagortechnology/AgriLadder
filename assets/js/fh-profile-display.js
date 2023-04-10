@@ -15,7 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
-const usernameDisplay = document.getElementById('username');
+const FNameDisplay = document.getElementById('FName');
 
 // Listen for changes in the authentication state
 onAuthStateChanged(auth, (user) => {
@@ -26,8 +26,8 @@ onAuthStateChanged(auth, (user) => {
     get(userRef).then((snapshot) => {
       if (snapshot.exists()) {
         const userData = snapshot.val();
-        const username = userData.username;
-        usernameDisplay.innerText = username;
+        const username = userData.name;
+        FNameDisplay.innerText = username;
       } else {
         // User doesn't have the required role, sign them out
         auth.signOut();

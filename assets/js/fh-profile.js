@@ -41,11 +41,9 @@ form.addEventListener("submit", (e) => {
   const aboutMe = aboutMeInput.value;
 
   const data = {
-    name: {
-      first: fName,
-      middle: mName,
-      last: lName,
-    },
+    fName,
+    mName,
+    lName,
     email,
     mobile,
     birthDate,
