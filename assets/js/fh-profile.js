@@ -57,8 +57,14 @@ form.addEventListener("submit", (e) => {
 
   // Get the current authenticated user
   const user = auth.currentUser;
-  // Update the database
-  update(ref(database, `users/${userRole}/${user.uid}`), data);
+    // Update the user's data in the database
+    update(ref(database, `users/${userRole}/${user.uid}`), data)
+    .then(() => {
+      alert("Profile data updated successfully!");
+    })
+    .catch((error) => {
+      alert("Error updating profile data: " + error.message);
+    });
 
   // Display the input data inside the respective form field
   fNameInput.value = fName;
