@@ -18,42 +18,33 @@ const database = getDatabase(app);
 const auth = getAuth();
 const storage = getStorage();
 
-// Get the file input and image elements
+// Get a reference to the file upload input element in the HTML code
 const fileUpload = document.getElementById("file-upload");
-const photo = document.getElementById("photo");
 
-// Listen for changes to the file input
-fileUpload.addEventListener("change", function(event) {
-  // Get the selected file
+// Add an event listener to the file upload input element to listen for changes
+fileUpload.addEventListener("change", (event) => {
+  // Get the file object from the file upload input element
   const file = event.target.files[0];
-  
-  // Create a reference to the Firebase storage location
-  const storageLocation = storageRef(storage, "profile-photos/" + file.name);
-  
-  // Upload the file to Firebase storage
+
+  // Get a reference to the storage location where the file should be uploaded
+  const storageLocation = storageRef(storage, "path/to/file");
+
+  // Upload the file to the storage location
   uploadBytes(storageLocation, file).then((snapshot) => {
-    console.log("File uploaded successfully!");
-    
-    // Get the download URL for the uploaded file
+    // Get the download URL of the uploaded file
     snapshot.ref.getDownloadURL().then((downloadURL) => {
-      console.log("Download URL:", downloadURL);
-      
-      // Update the user's profile photo URL in the Firebase database
-      const userId = auth.currentUser.uid;
-      const userRef = ref(database, "users/" + userId);
-      update(userRef, { photoURL: downloadURL }).then(() => {
-        console.log("Profile photo URL updated successfully!");
-        
-        // Update the image source in the frontend
-        photo.src = downloadURL;
+      // Update the realtime database with the download URL of the uploaded file
+      update(ref(database, "users/123"), { photoURL: downloadURL }).then(() => {
+        // Inform the user that the photo has been uploaded successfully
+        alert("Photo uploaded successfully!");
       }).catch((error) => {
-        console.error("Error updating profile photo URL:", error);
+        // Inform the user if there was an error uploading the photo
+        alert("Error uploading photo: " + error.message);
       });
-    }).catch((error) => {
-      console.error("Error getting download URL:", error);
     });
   }).catch((error) => {
-    console.error("Error uploading file:", error);
+    // Inform the user if there was an error uploading the photo
+    alert("Error uploading photo: " + error.message);
   });
 });
 
