@@ -63,14 +63,15 @@ const profilePhoto = document.getElementById("photo");
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, retrieve their photo URL from the database
-    get(ref(database, `users/farmhand/${user.uid}`)).then((snapshot) => {
+    const uid = user.uid;
+    get(ref(database, `users/farmhand/${uid}`)).then((snapshot) => {
       const photoURL = snapshot.val().photoURL;
       if (photoURL) {
         // Update the profile photo element with the user's photo URL
         profilePhoto.setAttribute("src", photoURL);
 
         // Get a reference to the user's profile photo in the Firebase Storage
-        const photoRef = storageRef(storage, "profile-photos/" + user.uid);
+        const photoRef = storageRef(storage, "profile-photos/" + uid);
 
         // Get the download URL for the user's profile photo
         getDownloadURL(photoRef).then((url) => {
