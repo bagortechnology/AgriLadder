@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
 import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
@@ -15,61 +15,30 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
-
-
-
-
-
-// // check authentication
-// firebase.auth().onAuthStateChanged(function (user) {
-//   if (user) {
-//     // User is signed in, get their UID
-//     const uid = user.uid;
-
-//     // TODO: Use the UID to save data to the database
-//   } else {
-//     // User is signed out
-//   }
-// });
-
-// const dbRef = firebase.database().ref("users/farmhand/" + uid);
-
-
-
-
-
-
-
-
-//----------------------------------------------------------------------
-
-// add hovered class to selected list item
-let list = document.querySelectorAll(".navigation li");
-
-function activeLink() {
-  list.forEach((item) => {
-    item.classList.remove("hovered");
-  });
-  this.classList.add("hovered");
-}
-
-list.forEach((item) => item.addEventListener("mouseover", activeLink));
-
-// Menu Toggle
-let toggle = document.querySelector(".toggle");
-let navigation = document.querySelector(".navigation");
-let main = document.querySelector(".main");
-
-toggle.onclick = function () {
-  navigation.classList.toggle("active");
-  main.classList.toggle("active");
-};
+const usernameDisplay = document.getElementById('username');
 
 // Value Delaration
 let formPersonalInfo = document.getElementById("formPersonalInfo");
 let formEducBacklInfo = document.getElementById("formEducBacklInfo");
 let formWorkExpInfo = document.getElementById("formWorkExpInfo ");
-const farmHand = [];  // array
+//let formPortfolioInfo = document.getElementById("formPortfolioInfo ");
+const farmHand = [];  // array fro local
+
+// Get the User 
+let userRef;
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, check their role
+    const userRole = 'farmhand';
+    userRef = ref(database, `users/${userRole}/${user.uid}`);
+  } else {
+    // User is not signed in, redirect to login page
+    window.location.href = '/farmhand/login.html';
+  }
+});
+
+//Forms Button submit Event Lisener to get User data ------------------------------------->
+
 
 
 // dont forget on load event to load all element 
@@ -106,14 +75,8 @@ formPortfolioInfo.addEventListener("submit", (e) => {
   alert('Record Saved')
 });
 
-
-
-// --------------------------------------------------------
-
-//let user = firebase.auth().currentUser;  // this cause the error, make sure you are login
-
-
-let getUserInfo = () => { // getUserInfo Function
+//Forms get User data ------------------------------------->
+let getUserInfo = () => { // getUserInfo Function with userRef parameter
   let userInfo = {    // put properties into object
     fName: fName.value,
     mName: mName.value,
@@ -129,38 +92,23 @@ let getUserInfo = () => { // getUserInfo Function
     municipal: municipal.value,
     region: region.value,
   };
-
   farmHand.push(userInfo); // push object into array
-  //set(ref(database, "FarmHand\workExpInfo"), workExpInfo);
-};
-
+  // Save user information next to the user in the database
+  let userInfoRef = child(userRef, 'userInfo');
+  set(userInfoRef, userInfo);
+}
 
 // getEducBack Function
-
 let getEducBackInfo = () => {
   let educBackInfo = {
     school1: school1.value,
     dateGrad1: dateGrad1.value,
     degree1: degree1.value,
-
-    // school2: school2.value,
-    // dateGrad2: dateGrad2.value,
-    // degree2: degree2.value
   };
-
   farmHand.push(educBackInfo);
-
-  // dbRef.child("educBackInfo").set(educBackInfo)
-  //   .then(function () {
-  //     console.log("Data saved successfully");
-  //   })
-  //   .catch(function (error) {
-  //     console.error("Error saving data:", error);
-  //   });
-
-
+  let userInfoRef = child(userRef, 'educBackInfo');
+  set(userInfoRef, educBackInfo);
 };
-
 
 // getWorkExp Function
 let getWorkExpInfo = () => {
@@ -169,30 +117,23 @@ let getWorkExpInfo = () => {
     position1: position1.value,
     dateHire1: dateHire1.value,
     dateEnd1: dateEnd1.value,
-
-    // compName2: compName2.value,
-    // position2: position2.value,
-    // dateHire2: dateHire2.value,
-    // dateEnd2: dateEnd2.value,
   };
 
   farmHand.push(workExpInfo);
-  // set(ref(database, "FarmHand\workExpInfo"), workExpInfo);
+  let userInfoRef = child(userRef, 'workExpInfo');
+  set(userInfoRef, workExpInfo);
 };
 
-// getWorkExp Function
+// getPortfolioInfo Function
 let getPortfolioInfo = () => {
-
-  let PortfolioInfo = {
+  let portfolioInfo = {
     videoUrl: videoUrl.value,
     url: url.value,
-
   };
-
-  farmHand.push(PortfolioInfo);
-
+  farmHand.push(portfolioInfo);
+  let userInfoRef = child(userRef, 'portfolioInfo');
+  set(userInfoRef, portfolioInfo);
 };
-
 
 // //Upload  profile image
 
@@ -230,9 +171,10 @@ imgInput.addEventListener("change", function () {
           farmHand[existingImageIndex] = userPhoto;
         } else {
           farmHand.push(userPhoto);
+          let userInfoRef = child(userRef, 'userPhoto');
+          set(userInfoRef, userPhoto);
         }
 
-        // set(ref(database, "FarmHand"), userPhoto);
       };
 
       getuserPhoto();
