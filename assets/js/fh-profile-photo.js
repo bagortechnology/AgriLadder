@@ -24,7 +24,7 @@ const fileUploadInput = document.getElementById("file-upload");
 // Add an event listener to the file upload input element to listen for changes
 fileUploadInput.addEventListener("change", (event) => {
   const file = event.target.files[0];
-  const storageLocationRef = storageRef(storage, "profile-photos/");
+  const storageLocationRef = storageRef(storage, "profile-photos/" + user.uid);
   const userRole = 'farmhand';
 
   // Upload the file to the storage location
@@ -64,7 +64,7 @@ onAuthStateChanged(auth, (user) => {
         profilePhoto.setAttribute("src", photoURL);
 
         // Get a reference to the user's profile photo in the Firebase Storage
-        const photoRef = storageRef(storage, "profile-photos/");
+        const photoRef = storageRef(storage, "profile-photos/" + user.uid);
 
         // Get the download URL for the user's profile photo
         getDownloadURL(photoRef).then((url) => {
