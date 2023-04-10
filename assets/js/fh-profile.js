@@ -51,8 +51,8 @@ form.addEventListener("submit", (e) => {
     portfolio,
     aboutMe,
   };
-  const userRole = 'farmhand';
 
+  const userRole = 'farmhand';
   // Get the current authenticated user
   const user = auth.currentUser;
     // Update the user's data in the database
@@ -67,7 +67,7 @@ form.addEventListener("submit", (e) => {
 
 // Get the current authenticated user
 const user = auth.currentUser;
-
+ const userRole = 'farmhand';
 // Listen for changes in the user's authentication state
 onAuthStateChanged(auth, (user) => {
   if (user) {
