@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
-import { getDatabase, ref, get, set, update} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+import { getDatabase, ref, get, update} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
 import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
-import { getStorage, ref as storageRef, uploadBytes } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js";
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL  } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
@@ -30,22 +30,22 @@ fileUpload.addEventListener("change", (event) => {
   const storageLocation = storageRef(storage, "profile-photos/");
   const userRole = 'farmhand';
   // Upload the file to the storage location
-  uploadBytes(storageLocation, file).then((snapshot) => {
-    // Get the download URL of the uploaded file
-    getDownloadURL().then((downloadURL) => {
-      // Update the realtime database with the download URL of the uploaded file
-      update(ref(database, `users/${userRole}/${user.uid}`), { photoURL: downloadURL }).then(() => {
-        // Inform the user that the photo has been uploaded successfully
-        alert("Photo uploaded successfully!");
-      }).catch((error) => {
-        // Inform the user if there was an error uploading the photo
-        alert("Error uploading photo: " + error.message);
-      });
+
+uploadBytes(storageLocation, file).then((snapshot) => {
+  // Get the download URL of the uploaded file
+  getDownloadURL(snapshot.ref).then((downloadURL) => {
+    // Update the realtime database with the download URL of the uploaded file
+    update(ref(database, `users/${userRole}/${user.uid}`), { photoURL: downloadURL }).then(() => {
+      // Inform the user that the photo has been uploaded successfully
+      alert("Photo uploaded successfully!");
+    }).catch((error) => {
+      // Inform the user if there was an error uploading the photo
+      alert("Error uploading photo: " + error.message);
     });
-  }).catch((error) => {
-    // Inform the user if there was an error uploading the photo
-    alert("Error uploading photo: " + error.message);
   });
+}).catch((error) => {
+  // Inform the user if there was an error uploading the photo
+  alert("Error uploading photo: " + error.message);
 });
 
 // Get the current user's profile photo
