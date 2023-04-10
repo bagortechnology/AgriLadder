@@ -526,8 +526,25 @@ body {
   .main.active .toggle {
     color: #fff;
     position: fixed;
-
-
     left: 10;
   }
 }
+
+/* ======================Upload Image ================= */
+.image-upload {
+  position: relative;
+}
+
+.upload-icon {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  cursor: pointer;
+}
+
+.upload-icon i {
+  font-size: 10px;
+}
+
