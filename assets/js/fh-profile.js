@@ -53,7 +53,7 @@ form.addEventListener("submit", (e) => {
     portfolio,
     aboutMe,
   };
-
+  const userRole = 'farmhand';
   // Update the database
   update(ref(database, `users/${userRole}/${user.uid}`), data);
 
