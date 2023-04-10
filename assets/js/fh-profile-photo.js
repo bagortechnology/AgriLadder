@@ -49,7 +49,7 @@ const file = fileUpload.files[0];
         snapshot.ref.getDownloadURL().then((downloadURL) => {
           console.log('File available at', downloadURL);
           
-          update(ref(database, 'users/' + userUid), {
+          update(ref(database, `users/${userRole}/${user.uid}`), {
             photoURL: downloadURL
           }).then(() => {
             console.log('Image URL updated in the database.');
