@@ -54,9 +54,9 @@ form.addEventListener("submit", (e) => {
     aboutMe,
   };
   const userRole = 'farmhand';
-  
-    // Get the current authenticated user
-    const user = auth.currentUser;
+
+  // Get the current authenticated user
+  const user = auth.currentUser;
   // Update the database
   update(ref(database, `users/${userRole}/${user.uid}`), data);
 
