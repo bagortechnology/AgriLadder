@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
 import { getDatabase, ref, get, set, update} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
-import { getAuth,} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
 import { getStorage, ref as storageRef, uploadBytes } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js";
 
     const firebaseConfig = {
@@ -64,5 +64,24 @@ const file = fileUpload.files[0];
       });
     }
     reader.readAsDataURL(file);
+  }
+});
+
+// Get the current user's profile photo
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, check their role
+    const userRole = 'farmhand';
+    const userRef = ref(database, `users/${userRole}/${user.uid}`);
+    get(userRef).then((snapshot) => {
+      const userData = snapshot.val();
+      const photoUrl = userData.photoURL;
+      if (photoUrl) {
+        const photo = document.getElementById('photo');
+        photo.src = photoUrl;
+      }
+    }).catch((error) => {
+      console.error('Error getting profile photo data:', error);
+    });
   }
 });
