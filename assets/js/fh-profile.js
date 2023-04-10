@@ -40,19 +40,25 @@ form.addEventListener("submit", (e) => {
   const portfolio = portfolioInput.value;
   const aboutMe = aboutMeInput.value;
 
+  const data = {
+    name: {
+      first: fName,
+      middle: mName,
+      last: lName,
+    },
+    email,
+    mobile,
+    birthDate,
+    gender,
+    portfolio,
+    aboutMe,
+  };
   const userRole = 'farmhand';
   
-  // Get the current authenticated user
-  const user = auth.currentUser;
-
-  // Update the user's data in the database
-  update(ref(database, `users/${userRole}/${user.uid}`), data)
-    .then(() => {
-      alert("User data updated successfully!");
-    })
-    .catch((error) => {
-      alert("Error updating user data: " + error.message);
-    });
+    // Get the current authenticated user
+    const user = auth.currentUser;
+  // Update the database
+  update(ref(database, `users/${userRole}/${user.uid}`), data);
 
   // Display the input data inside the respective form field
   fNameInput.value = fName;
