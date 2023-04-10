@@ -548,3 +548,12 @@ body {
   font-size: 10px;
 }
 
+.btn-usp {
+  background-color: var(--green);
+  color:#fff;
+}
+
+.btn-usp:hover {
+  border-color: #00660a;
+  color: var(--green)
+}
