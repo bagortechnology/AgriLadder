@@ -64,3 +64,47 @@ form.addEventListener("submit", (e) => {
       alert("Error updating profile data: " + error.message);
     });
   });
+
+  // Listen for changes in the authentication state
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // Retrieve the user data from the database
+    const userRole = 'farmhand';
+    const userRef = ref(database, `users/${userRole}/${user.uid}`);
+    get(userRef).then((snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        // Populate the form fields with the user data
+        fNameInput.value = data.name.first || '';
+        mNameInput.value = data.name.middle || '';
+        lNameInput.value = data.name.last || '';
+        emailInput.value = data.email || '';
+        mobileInput.value = data.mobile || '';
+        birthDateInput.value = data.birthDate || '';
+        if (data.gender) {
+          const genderInput = [...genderInputs].find((input) => input.value === data.gender);
+          if (genderInput) {
+            genderInput.checked = true;
+          }
+        }
+        portfolioInput.value = data.portfolio || '';
+        aboutMeInput.value = data.aboutMe || '';
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+  } else {
+    // Clear the form fields when the user is not authenticated
+    fNameInput.value = '';
+    mNameInput.value = '';
+    lNameInput.value = '';
+    emailInput.value = '';
+    mobileInput.value = '';
+    birthDateInput.value = '';
+    genderInputs.forEach((input) => {
+      input.checked = false;
+    });
+    portfolioInput.value = '';
+    aboutMeInput.value = '';
+  }
+});  
