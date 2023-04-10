@@ -16,3 +16,55 @@ import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
     const database = getDatabase(app);
     const auth = getAuth();
     
+    const form = document.querySelector(".container");
+const fNameInput = form.querySelector("#FName");
+const mNameInput = form.querySelector("#MName");
+const lNameInput = form.querySelector("#LName");
+const emailInput = form.querySelector("#email");
+const mobileInput = form.querySelector("#mobile");
+const birthDateInput = form.querySelector("#birthDate");
+const genderInputs = form.querySelectorAll("input[name='gender']");
+const portfolioInput = form.querySelector("#portfolio");
+const aboutMeInput = form.querySelector("#about-me");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const fName = fNameInput.value;
+  const mName = mNameInput.value;
+  const lName = lNameInput.value;
+  const email = emailInput.value;
+  const mobile = mobileInput.value;
+  const birthDate = birthDateInput.value;
+  const gender = [...genderInputs].find((input) => input.checked).value;
+  const portfolio = portfolioInput.value;
+  const aboutMe = aboutMeInput.value;
+
+  const data = {
+    name: {
+      first: fName,
+      middle: mName,
+      last: lName,
+    },
+    email,
+    mobile,
+    birthDate,
+    gender,
+    portfolio,
+    aboutMe,
+  };
+
+  // Update the database
+  update(ref(database, "user"), data);
+
+  // Display the input data inside the respective form field
+  fNameInput.value = fName;
+  mNameInput.value = mName;
+  lNameInput.value = lName;
+  emailInput.value = email;
+  mobileInput.value = mobile;
+  birthDateInput.value = birthDate;
+  genderInputs.forEach((input) => (input.checked = input.value === gender));
+  portfolioInput.value = portfolio;
+  aboutMeInput.value = aboutMe;
+});
