@@ -55,7 +55,7 @@ form.addEventListener("submit", (e) => {
   };
 
   // Update the database
-  update(ref(database, "user"), data);
+  update(ref(database, `users/${userRole}/${user.uid}`), data);
 
   // Display the input data inside the respective form field
   fNameInput.value = fName;
