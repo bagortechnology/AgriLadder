@@ -50,25 +50,3 @@ fileUploadInput.addEventListener("change", (event) => {
     });
 });
 
-// Get the current user's profile photo
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, check their role
-    const userRole = 'farmhand';
-    const userRef = ref(database, `users/${userRole}/${user.uid}`);
-
-    get(userRef)
-      .then((snapshot) => {
-        const userData = snapshot.val();
-        const photoUrl = userData.photoURL;
-        if (photoUrl) {
-          const photo = document.getElementById('photo');
-          photo.src = photoUrl;
-        }
-      })
-      .catch((error) => {
-        console.error('Error getting profile photo data:', error);
-        alert('Failed to retrieve profile photo. Please try again later.');
-      });
-  }
-});
