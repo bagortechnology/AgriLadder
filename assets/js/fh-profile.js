@@ -75,20 +75,21 @@ form.addEventListener("submit", (e) => {
           const data = snapshot.val();
           if (data) {
             // Populate the form fields with the user data
-            fNameInput.value = data.name.first || '';
-            mNameInput.value = data.name.middle || '';
-            lNameInput.value = data.name.last || '';
-            emailInput.value = data.email || '';
-            mobileInput.value = data.mobile || '';
-            birthDateInput.value = data.birthDate || '';
-            if (data.gender) {
-              const genderInput = [...genderInputs].find((input) => input.value === data.gender);
+            const { name, email, mobile, birthDate, gender, portfolio, aboutMe } = data;
+            fNameInput.value = name?.first || '';
+            mNameInput.value = name?.middle || '';
+            lNameInput.value = name?.last || '';
+            emailInput.value = email || '';
+            mobileInput.value = mobile || '';
+            birthDateInput.value = birthDate || '';
+            if (gender) {
+              const genderInput = [...genderInputs].find((input) => input.value === gender);
               if (genderInput) {
                 genderInput.checked = true;
               }
             }
-            portfolioInput.value = data.portfolio || '';
-            aboutMeInput.value = data.aboutMe || '';
+            portfolioInput.value = portfolio || '';
+            aboutMeInput.value = aboutMe || '';
           }
         }).catch((error) => {
           console.error(error);
@@ -108,4 +109,4 @@ form.addEventListener("submit", (e) => {
         aboutMeInput.value = '';
       }
     });
-  });
+  });    
