@@ -65,28 +65,3 @@ signOutLink.addEventListener('click', (e) => {
     console.error(error);
   });
 });
-
-
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, check their role
-    const userRole = 'farmhand';
-    const userRef = ref(database, `users/${userRole}/${user.uid}`);
-    get(userRef).then((snapshot) => {
-      if (snapshot.exists()) {
-        const userData = snapshot.val();
-        const username = userData.username;
-        usernameDisplay.innerText = username;
-      } else {
-        // User doesn't have the required role, sign them out
-        auth.signOut();
-      }
-    })
-      .catch((error) => {
-        console.error(error);
-      });
-  } else {
-    // User is not signed in, redirect to login page
-    window.location.href = '/farmhand/login.html';
-  }
-});
