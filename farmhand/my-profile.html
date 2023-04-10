@@ -113,381 +113,100 @@
                         <ion-icon name="search-sharp"></ion-icon>
                     </label>
                 </div>
-                <div class="user">
-                    <img id="imgIco" class="img-fluid rounded-3" src="/assets/images/hero.png" alt="Default image">
-                </div>
+                <div class="image-upload">
+                    <img id="photo" src="/assets/images/default-profile-photo.png" class="rounded-circle" alt="Profile Photo" style="height: 45px; width: 45px;">
+                    <label for="file-upload" class="upload-icon">
+                      <i class="fa fa-camera"></i>
+                    </label>
+                    <input id="file-upload" type="file" style="display:none;">
+                  </div>
             </div>
-            <!-- ========================= Profile ==================== -->
-            <div class="container">
-                <br>
-                <!-- ========================= Personal Info ==================== -->
-                <div>
-
-                    <div class="d-sm-flex justify-content-center align-items-end g-2">
-                        <div class=" imgBox border border-3 border-success p-2">
-                            <img id="imgPreview" class="img-fluid rounded-3" style="max-height: 150px"
-                                src="/assets/images/Chat Profile.png" alt="Default image">
-                        </div>
-                        <div class="ps-3">
-                            <h4 class="h4">Hello <span id="username"></span>!</h4>
-                            <input type="file" id="imgInput" style="display:none" accept="image/*">
-
-                            <button type="button"
-                                class="shadow-sm h4 btn btn-md btn-outline-success d-flex justify-content-center align-items-center gap-2"
-                                data-bs-toggle="modal" data-bs-target="#formPortfolioModal">
-                                Upload Photo
-                            </button>
-
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <form id="formPersonalInfo" data-bs-toggle="validator" class="box">
-                    <h4 class="h4">Personal Information</h4> <br>
-                    <h6 class="h6">Full Name:</h6>
-                    <div class="d-sm-flex gap-2 ">
-                        <div class="form-floating mb-3 flex-fill ">
-                            <input type="text" class="form-control" id="fName" placeholder="First Name" required>
-                            <label for="fName" aria-required="true">First Name</label>
-                        </div>
-                        <div class="form-floating mb-3 flex-fill ">
-                            <input type="text" class="form-control" id="mName" placeholder="Middle Name" required>
-                            <label for="mName" aria-required="true">Middle Name</label>
-                        </div>
-                        <div class="form-floating mb-3 flex-fill ">
-                            <input type="text" class="form-control" id="lName" placeholder="Last Name" required>
-                            <label for="lName" aria-required="true">Last Name</label>
-                        </div>
-                    </div>
-
-                    <div class="d-sm-flex gap-2">
-                        <div class="form-floating mb-3 flex-fill w-100 w-sm-75">
-                            <input type="text" class="form-control" id="pob" placeholder="Last Name">
-                            <label for="floatingInput" aria-required="">Place of Birth</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="dob" placeholder="Date Hired" required>
-                            <label for="floatingInput" aria-required="true">Date of Birth</label>
-                        </div>
-                    </div>
-
-                    <div class="d-lg-flex gap-3">
-                        <div class="d-sm-flex gap-2 "> <!--Radio-->
-                            <h6 class="h6">Gender:</h6>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
-                                <label class="form-check-label pe-2" for="male">Male</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                                <label class="form-check-label" for="female">Female</label>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="d-sm-flex gap-2 "> <!--Radio-->
-                            <h6 class="h6">Civil Status:</h6>
-                            <div class="form-check ">
-                                <input class="form-check-input" type="radio" name="cStatus" id="single" value="single">
-                                <label class="form-check-label ps-2 pe-2" for="single">
-                                    Single
-                                </label>
-                            </div>
-                            <div class="form-check ">
-                                <input class="form-check-input" type="radio" name="cStatus" id="married"
-                                    value="married">
-                                <label class="form-check-label ps-2 pe-2" for="married">
-                                    Married
-                                </label>
-                            </div>
-                            <div class="form-check ">
-                                <input class="form-check-input" type="radio" name="cStatus" id="others" value="others">
-                                <label class="form-check-label ps-2 pe-2" for="others">
-                                    Others
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <h6 class="h6">Contact Details:</h6>
-                    <div class="d-sm-flex gap-2">
-                        <div class="form-floating mb-3 flex-fill w-100 w-sm-50">
-                            <input type="email" class="form-control" id="eMail" placeholder="Email@domain.com" required>
-                            <label for="floatingInput" aria-required="">Email address</label>
-                        </div>
-                        <div class="form-floating mb-3 flex-fill ">
-                            <input type="tel" class="form-control" id="mob1" placeholder="Mobile Number" required>
-                            <label for="floatingInput" aria-required="true">Mobile No.</label>
-                        </div>
-                        <div class="form-floating mb-3 flex-fill ">
-                            <input type="tel" class="form-control" id="mob2" placeholder="Mobile Number">
-                            <label for="floatingInput" aria-required="">
-                                Telephone No.</label>
-                        </div>
-                    </div>
-
-                    <h6 class="h6">Address Details:</h6>
-                    <div class="d-sm-flex gap-2">
-                        <div class="form-floating mb-3 flex-fill ">
-                            <input type="text" class="form-control" id="homeStreet" placeholder="House St.">
-                            <label for="floatingInput" aria-required="">House#,
-                                St.</label>
-                        </div>
-                        <div class="form-floating mb-3 flex-fill w-25">
-                            <input type="text" class="form-control" id="municipal" placeholder="Municipality" required>
-                            <label for="floatingInput" aria-required="true">Town/City</label>
-                        </div>
-                        <div class="form-floating mb-3 flex-fill w-25">
-                            <input type="text" class="form-control" id="region" placeholder="Region" required>
-                            <label for="floatingInput" aria-required="true">Province</label>
-                        </div>
-                    </div>
-
-                    <div class="d-lg-flex justify-content-end gap-2">
-                        <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
-                        <input type="submit" class="btn btn-md btn-outline-success" data-bs-target="#formPersonalInfo"
-                            value="Save">
-                    </div>
-                    <br>
-                    <h4 class="h4">Update your Other Information</h4>
-                    <br>
-                    <div class="btn-group gap-2">
-                        <!-- Button trigger modal Education-->
-                        <button type="button" class="btn btn-md btn-success" data-bs-toggle="modal"
-                            data-bs-target="#formEducBacklInfoModal">
-                            Education
-                        </button>
-                        <!-- Button trigger modal Esperience-->
-                        <button type="button" class="btn btn-md btn-success" data-bs-toggle="modal"
-                            data-bs-target="#formWorkExpInfoModal">
-                            Experience
-                        </button>
-
-                        <!-- Button trigger modal Portfolio-->
-                        <button type="button" class="btn btn-md btn-success" data-bs-toggle="modal"
-                            data-bs-target="#formPortfolioModal">
-                            Portfolio
-                        </button>
-                    </div>
-                </form>
+        <!-- ================= Basic Information =============-->
+        <form class="container mx-2">
+        <h4 class="h4">My Profile</h4> <br>
+        <h6 class="h6">Complete Name<span class="text-danger">*</span></h6>
+        <div class="d-sm-flex gap-2 ">
+            <div class="form-floating mb-3 flex-fill ">
+                <input type="text" class="form-control" id="FName" placeholder="First Name" required>
+                <label for="FName" aria-required="true">First Name</label>
             </div>
-            <br>
-
+            <div class="form-floating mb-3 flex-fill ">
+                <input type="text" class="form-control" id="MName" placeholder="Middle Name" required>
+                <label for="MName" aria-required="true">Middle Name</label>
+            </div>
+            <div class="form-floating mb-3 flex-fill ">
+                <input type="text" class="form-control" id="LName" placeholder="Last Name" required>
+                <label for="LName" aria-required="true">Last Name</label>
+            </div>
         </div>
-    </div>
 
-    <!-- Experience Modal -->
-    <div class="modal modal-dialog modal-lg fade" id="formWorkExpInfoModal" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Work Experience</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h6>Contact Details <span class="text-danger">*</span></h6>
+        <div class="d-sm-flex gap-2">
+                <div class="form-floating mb-3 flex-fill">
+                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                    <label for="email" aria-required="true">Email Address</label>
                 </div>
-
-                <div class="modal-body">
-                    <form id="formWorkExpInfo " data-bs-toggle="validator" class="box">
-                        <h6 class="h6">First Company</h6>
-                        <div class="form-floating mb-3 flex-fill w-100 w-sm-30">
-                            <input type="text" class="form-control" id="compName1" placeholder="Company1" required>
-                            <label for="floatingInput" aria-required="">Company
-                                Name</label>
-                        </div>
-                        <div class="d-lg-flex gap-2">
-
-                            <div class="form-floating mb-3 flex-fill w-100 w-sm-30">
-                                <input type="text" class="form-control" id="position1" placeholder="Position1" required>
-                                <label for="floatingInput" aria-required="">Position</label>
-                            </div>
-                            <div class="d-sm-flex gap-2">
-                                <div class="form-floating mb-3 flex-fill w-100 w-sm-20">
-                                    <input type="date" class="form-control" id="dateHire1" placeholder="Date Hired1"
-                                        required>
-                                    <label for="floatingInput" aria-required="">Date
-                                        Hired</label>
-                                </div>
-                                <div class="form-floating mb-3 flex-fill w-100 w-sm-20">
-                                    <input type="date" class="form-control" id="dateEnd1" placeholder="Date End1"
-                                        required>
-                                    <label for="floatingInput" aria-required="">Date
-                                        End</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- <h6 class="h6">Second Company</h6>
-                        <div class="form-floating mb-3 flex-fill w-100 w-sm-30">
-                            <input type="text" class="form-control" id="compName2" placeholder="Company2" required>
-                            <label for="floatingInput" aria-required="">Company
-                                Name</label>
-                        </div>
-                        <div class="d-lg-flex gap-2">
-
-                            <div class="form-floating mb-3 flex-fill w-100 w-sm-30">
-                                <input type="text" class="form-control" id="position2" placeholder="Position2" required>
-                                <label for="floatingInput" aria-required="">Position</label>
-                            </div>
-                            <div class="d-sm-flex gap-2">
-                                <div class="form-floating mb-3 flex-fill w-100 w-sm-20">
-                                    <input type="date" class="form-control" id="dateHire2" placeholder="Date Hired2"
-                                        required>
-                                    <label for="floatingInput" aria-required="">Date
-                                        Hired</label>
-                                </div>
-                                <div class="form-floating mb-3 flex-fill w-100 w-sm-20">
-                                    <input type="date" class="form-control" id="dateEnd2" placeholder="Date End2"
-                                        required>
-                                    <label for="floatingInput" aria-required="">Date
-                                        End</label>
-                                </div>
-                            </div>
-                        </div>-->
-
-
-                        <div class=" modal-footer d-lg-flex justify-content-end gap-2">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
-                            <input type="submit" class="btn btn-md btn-outline-success"
-                                data-bs-target="#formWorkExpInfo " value="Save">
-                        </div>
-                    </form>
+                <div class="form-floating mb-3 flex-fill ">
+                    <input type="tel" class="form-control" id="mobile" placeholder="mobile" required maxlength="11"
+                      pattern="^\09[0-9]{9}$" title="Please enter a valid mobile number">
+                    <label for="mobile" aria-required="true">Mobile Number</label>
+                  </div>  
+            </div>
+        
+        <h6>Birthdate</h6>
+        <div class="col-md-6 col-sm-12">
+            <div class="d-sm-flex gap-2 ">
+                <div class="form-floating mb-3 flex-fill ">
+                    <input type="date" class="form-control" id="birthDate" placeholder="Birth Date">
+                    <label for="birthDate" aria-required="true">Date of Birth</label>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Education Modal -->
-    <div class="modal modal-dialog modal-lg fade" id="formEducBacklInfoModal" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Education Background</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+        <div class="d-sm-flex gap-2 ">
+            <h6 class="h6">Gender: </h6>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                <label class="form-check-label pe-2" for="male">Male</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                <label class="form-check-label" for="female">Female</label>
+            </div>
+        </div>
 
-                    <form id="formEducBacklInfo" data-bs-toggle="validator" class="box">
-                        <div class="form-floating mb-3 flex-fill w-100 w-sm-50">
-                            <input type="text" class="form-control" id="school1" placeholder="School name" required>
-                            <label for="floatingInput" aria-required="true">School name</label>
-                        </div>
-                        <div class="d-sm-flex gap-2">
-                            <div class="form-floating mb-3 flex-fill ">
-                                <input type="date" class="form-control" id="dateGrad1" placeholder="Date Graduated"
-                                    required>
-                                <label for="floatingInput" aria-required="true">Date
-                                    Graduated</label>
-                            </div>
-                            <div class="form-floating mb-3 flex-fill w-100 w-sm-25">
-                                <select class="form-select form-control" id="degree1" aria-label="degree1"
-                                    aria-required="true">
-                                    <option selected>Select</option>
-                                    <option value="1">Elementary Graduate</option>
-                                    <option value="2">High School Graduate</option>
-                                    <option value="3">Associates degree</option>
-                                    <option value="4">Bachelor's Degree</option>
-                                    <option value="5">Graduate Studies</option>
-                                </select>
-                                <label for="degree1">Education degree</label>
-                            </div>
-                        </div>
-
-                        <!--     <div class="form-floating mb-3 flex-fill w-100 w-sm-50">
-                            <input type="text" class="form-control" id="school2" placeholder="School name2" required>
-                            <label for="floatingInput" aria-required="">School
-                                Naame</label>
-                        </div>
-                        <div class="d-sm-flex gap-2">
-                            <div class="form-floating mb-3 flex-fill ">
-                                <input type="date" class="form-control" id="dateGrad2" placeholder="Date Graduated2"
-                                    required>
-                                <label for="floatingInput" aria-required="">Date
-                                    Graduated</label>
-                            </div>
-                            <div class="form-floating mb-3 flex-fill w-100 w-sm-25">
-                                <select class="form-select form-control" id="degree2" aria-label="degree2">
-                                    <option selected>Select</option>
-                                    <option value="1">Elementary Graduate</option>
-                                    <option value="2">High School Graduate</option>
-                                    <option value="3">Associates degree</option>
-                                    <option value="4">Bachelors Degree</option>
-                                    <option value="5">Master's Degree</option>
-                                </select>
-                                <label for="degree2">Education degree</label>
-                            </div>
-                        </div> -->
-
-
-
-                        <div class=" modal-footer d-lg-flex justify-content-end gap-2">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
-                            <input type="submit" class="btn btn-md btn-outline-success"
-                                data-bs-target="#formEducBacklInfo" value="Save">
-                        </div>
-                    </form>
+        <h6 class="mt-2">Portfolio <span class="text-danger">*</span> (Website or Page)</h6>
+        <div class="col-md-8 col-sm-12">
+            <div class="d-sm-flex gap-2 ">
+                <div class="form-floating mb-3 flex-fill ">
+                    <input type="url" class="form-control" id="birthDate" placeholder="Portfolio">
+                    <label for="birthDate" aria-required="true">Website or FB Page URL</label>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Portfolio Modal -->
-    <div class="modal modal-dialog modal-lg fade" id="formPortfolioModal" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Portfolio</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="d-sm-flex justify-content-center align-items-end g-2">
-                        <div class=" imgBox border border-3 border-success p-2">
-                            <img id="imgPreviewModal" class="img-fluid rounded-3" style="max-height: 150px"
-                                src="/assets/images/hero.png" alt="Default image">
-                        </div>
-                        <br>
-                        <div class="ps-3">
-                            <h4 id="nickName" class="h4">Hi SidongtheGreat</h4> <!-- link to Name -->
-                            <input type="file" id="imgInput" style="display:none" accept="image/*">
-                            <br>
-                            <button id="uploadImg-btn" type="button"
-                                class="shadow-sm h4 btn btn-md btn-outline-success d-flex justify-content-center align-items-center gap-2">
-                                <ion-icon name="cloud-upload-outline"></ion-icon>
-                                Upload
-                            </button>
-                        </div>
-                    </div>
-                    <br>
-                    <form id="formPortfolioInfo" data-bs-toggle="validator" class="box">
-                        <h5 class="h5"> Video URL</h5>
-                        <input id="videoUrl" type="url" class="form-control"
-                            placeholder="Add video URL of Youtube, Vimeo."> <br>
-                        <h5 class="h5"> Personal Link</h5>
-                        <input id="url" type="url" class="form-control" placeholder="Add your personal link here">
-
-                        <div class=" modal-footer d-lg-flex justify-content-end gap-2">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="reset" class="btn btn-md btn-outline-success ">Reset</button>
-                            <input type="submit" class="btn btn-md btn-outline-success"
-                                data-bs-target="#formPortfolioInfo" value="Save">
-                        </div>
-                    </form>
-                </div>
+            <h6 class="mt-3">About Me</h6>
+            <div class="justify-content-center mb-3">
+                <textarea id="about-me" name="about-me" rows="8" cols="50" class="form-control" style="border: 1px solid #ccc; border-radius: 4px;" placeholder="Introduce yourself, including your education, skills, work experience, and how you can assist farmers."></textarea>
             </div>
+        <div class="d-flex justify-content-end gap-2">
+            <input type="submit" class="btn btn-md btn-usp" data-bs-target="#formPersonalInfo"
+                value="Save Settings">
         </div>
-    </div>
+        <!--end of container-->
+    </form>
 
 
+
+          
+          
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <!-- =========== Scripts =========  -->
 
-    <script src="/assets/js/hover.js" type="module"></script>
-    <script src="/assets/js/my-profile.js" type="module">  </script>
+    <script src="/assets/js/hover.js" type="text/javascript"></script>
+    <script src="/assets/js/fh-profile-photo.js" type="module"></script>
 
 </body>
 
