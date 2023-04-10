@@ -24,7 +24,13 @@ const fileUploadInput = document.getElementById("file-upload");
 // Add an event listener to the file upload input element to listen for changes
 fileUploadInput.addEventListener("change", (event) => {
   const file = event.target.files[0];
-  const storageLocationRef = storageRef(storage, "profile-photos/" + user.uid);
+
+  // Get the current user's uid
+  const user = auth.currentUser;
+  const uid = user.uid;
+
+  // Define the storage location reference using the uid
+  const storageLocationRef = storageRef(storage, "profile-photos/" + uid);
   const userRole = 'farmhand';
 
   // Upload the file to the storage location
