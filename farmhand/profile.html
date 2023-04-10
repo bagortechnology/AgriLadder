@@ -157,7 +157,7 @@
         <div class="col-md-6 col-sm-12">
             <div class="d-sm-flex gap-2 ">
                 <div class="form-floating mb-3 flex-fill ">
-                    <input type="date" class="form-control" id="birthDate" placeholder="Birth Date" required>
+                    <input type="date" class="form-control" id="birthDate" placeholder="Birth Date">
                     <label for="birthDate" aria-required="true">Date of Birth</label>
                 </div>
             </div>
@@ -175,12 +175,19 @@
             </div>
         </div>
 
+        <h6>Portfolio <span class="text-danger">*</span> (Website or Page)</h6>
+        <div class="col-md-6 col-sm-12">
+            <div class="d-sm-flex gap-2 ">
+                <div class="form-floating mb-3 flex-fill ">
+                    <input type="url" class="form-control" id="birthDate" placeholder="Portfolio">
+                    <label for="birthDate" aria-required="true">Website or FB Page URL</label>
+                </div>
+            </div>
+        </div>
             <h6 class="mt-3">About Me</h6>
             <div class="justify-content-center mb-3">
-                <textarea id="about-me" name="about-me" rows="4" cols="50" class="form-control" style="border: 1px solid #ccc; border-radius: 4px;"></textarea>
+                <textarea id="about-me" name="about-me" rows="4" cols="50" class="form-control" style="border: 1px solid #ccc; border-radius: 4px;" placeholder="Introduce yourself, including your education, skills, work experience, and how you can assist farmers."></textarea>
             </div>
-
-
         <div class="d-flex justify-content-end gap-2">
             <input type="submit" class="btn btn-md btn-usp" data-bs-target="#formPersonalInfo"
                 value="Save Settings">
