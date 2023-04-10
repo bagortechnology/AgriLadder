@@ -65,46 +65,31 @@ form.addEventListener("submit", (e) => {
     });
   });
 
-  // Listen for changes in the authentication state
+// Get the current authenticated user
+const user = auth.currentUser;
+
+// Listen for changes in the user's authentication state
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    // Retrieve the user data from the database
-    const userRole = 'farmhand';
-    const userRef = ref(database, `users/${userRole}/${user.uid}`);
-    get(userRef).then((snapshot) => {
+    // Get the user's data from the database
+    get(ref(database, `users/${userRole}/${user.uid}`)).then((snapshot) => {
       const data = snapshot.val();
       if (data) {
-        // Populate the form fields with the user data
-        fNameInput.value = data.name.first || '';
-        mNameInput.value = data.name.middle || '';
-        lNameInput.value = data.name.last || '';
-        emailInput.value = data.email || '';
-        mobileInput.value = data.mobile || '';
-        birthDateInput.value = data.birthDate || '';
-        if (data.gender) {
-          const genderInput = [...genderInputs].find((input) => input.value === data.gender);
-          if (genderInput) {
-            genderInput.checked = true;
+        // Update the input fields with the user's data
+        fNameInput.value = data.fName;
+        mNameInput.value = data.mName;
+        lNameInput.value = data.lName;
+        emailInput.value = data.email;
+        mobileInput.value = data.mobile;
+        birthDateInput.value = data.birthDate;
+        genderInputs.forEach((input) => {
+          if (input.value === data.gender) {
+            input.checked = true;
           }
-        }
-        portfolioInput.value = data.portfolio || '';
-        aboutMeInput.value = data.aboutMe || '';
+        });
+        portfolioInput.value = data.portfolio;
+        aboutMeInput.value = data.aboutMe;
       }
-    }).catch((error) => {
-      console.error(error);
     });
-  } else {
-    // Clear the form fields when the user is not authenticated
-    fNameInput.value = '';
-    mNameInput.value = '';
-    lNameInput.value = '';
-    emailInput.value = '';
-    mobileInput.value = '';
-    birthDateInput.value = '';
-    genderInputs.forEach((input) => {
-      input.checked = false;
-    });
-    portfolioInput.value = '';
-    aboutMeInput.value = '';
   }
-});  
+});
