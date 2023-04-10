@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
 import { getDatabase, ref, get, set,update} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
 import { getAuth,} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+import { getStorage, ref } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
@@ -15,6 +16,7 @@ import { getAuth,} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
     const auth = getAuth();
+    const storage = getStorage();
 
   // Listen for the file input change event
   const fileUpload = document.getElementById('file-upload');
