@@ -56,19 +56,29 @@ const profilePhoto = document.getElementById("photo");
 // Listen for changes in the user's authentication state
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    // Get a reference to the user's profile photo in the Firebase Storage
-    const photoRef = storageRef(storage, `profile-photos/${auth.currentUser.uid}`);
+    // User is signed in, retrieve their photo URL from the database
+    get(ref(database, `users/farmhand/${user.uid}`)).then((snapshot) => {
+      const photoURL = snapshot.val().photoURL;
+      if (photoURL) {
+        // Update the profile photo element with the user's photo URL
+        profilePhoto.setAttribute("src", photoURL);
 
-    // Get the download URL for the user's profile photo
-    getDownloadURL(photoRef).then((url) => {
-      // Update the src attribute of the <img> element with the download URL
-      profilePhoto.setAttribute("src", url);
-    }).catch((error) => {
-      console.error("Error getting profile photo download URL:", error);
+        // Get a reference to the user's profile photo in the Firebase Storage
+        const photoRef = storageRef(storage, `profile-photos/${user.uid}`);
+
+        // Get the download URL for the user's profile photo
+        getDownloadURL(photoRef).then((url) => {
+          // Update the src attribute of the <img> element with the download URL
+          profilePhoto.setAttribute("src", url);
+        }).catch((error) => {
+          console.error("Error getting profile photo download URL:", error);
+        });
+      }
     });
   } else {
     // User is signed out, reset the profile photo element to the default photo
     profilePhoto.setAttribute("src", "/assets/images/default-profile-photo.png");
   }
 });
+
 
