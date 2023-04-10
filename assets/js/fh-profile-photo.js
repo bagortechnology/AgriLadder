@@ -18,53 +18,43 @@ const database = getDatabase(app);
 const auth = getAuth();
 const storage = getStorage();
 
-const fileUpload = document.getElementById('file-upload');
-fileUpload.addEventListener('change', function() {
-const file = fileUpload.files[0];
+// Get the file input and image elements
+const fileUpload = document.getElementById("file-upload");
+const photo = document.getElementById("photo");
 
-  if (file) {
-    const fileType = file.type;
-    if (fileType != 'image/png' && fileType != 'image/jpeg') {
-      alert('Please upload a PNG or JPEG image.');
-      return;
-    }
-
-    const fileSize = file.size;
-    const maxSize = 1024 * 1024; // 1 MB
-    if (fileSize > maxSize) {
-      alert('Please upload an image that is smaller than 1 MB.');
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      const image = document.querySelector('.image-upload img');
-      image.src = e.target.result;
-
-      const storageRef = storageRef(storage, 'profile-photos/' + file.name);
-      uploadBytes(storageRef, file).then((snapshot) => {
-        console.log('Uploaded a file:', snapshot.metadata.fullPath);
+// Listen for changes to the file input
+fileUpload.addEventListener("change", function(event) {
+  // Get the selected file
+  const file = event.target.files[0];
+  
+  // Create a reference to the Firebase storage location
+  const storageLocation = storageRef(storage, "profile-photos/" + file.name);
+  
+  // Upload the file to Firebase storage
+  uploadBytes(storageLocation, file).then((snapshot) => {
+    console.log("File uploaded successfully!");
+    
+    // Get the download URL for the uploaded file
+    snapshot.ref.getDownloadURL().then((downloadURL) => {
+      console.log("Download URL:", downloadURL);
+      
+      // Update the user's profile photo URL in the Firebase database
+      const userId = auth.currentUser.uid;
+      const userRef = ref(database, "users/" + userId);
+      update(userRef, { photoURL: downloadURL }).then(() => {
+        console.log("Profile photo URL updated successfully!");
         
-        const userUid = auth.currentUser.uid;
-        snapshot.ref.getDownloadURL().then((downloadURL) => {
-          console.log('File available at', downloadURL);
-          
-          update(ref(database, `users/${userRole}/${user.uid}`), {
-            photoURL: downloadURL
-          }).then(() => {
-            console.log('Image URL updated in the database.');
-          }).catch((error) => {
-            console.error('Error updating image URL in the database:', error);
-          });
-        }).catch((error) => {
-          console.error('Error getting download URL:', error);
-        });
+        // Update the image source in the frontend
+        photo.src = downloadURL;
       }).catch((error) => {
-        console.error('Error uploading file:', error);
+        console.error("Error updating profile photo URL:", error);
       });
-    }
-    reader.readAsDataURL(file);
-  }
+    }).catch((error) => {
+      console.error("Error getting download URL:", error);
+    });
+  }).catch((error) => {
+    console.error("Error uploading file:", error);
+  });
 });
 
 // Get the current user's profile photo
