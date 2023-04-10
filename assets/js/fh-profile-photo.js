@@ -64,7 +64,7 @@ onAuthStateChanged(auth, (user) => {
         profilePhoto.setAttribute("src", photoURL);
 
         // Get a reference to the user's profile photo in the Firebase Storage
-        const photoRef = storageRef(storage, `profile-photos/${user.uid}`);
+        const photoRef = storageRef(storage, "profile-photos/");
 
         // Get the download URL for the user's profile photo
         getDownloadURL(photoRef).then((url) => {
