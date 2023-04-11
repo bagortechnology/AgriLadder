@@ -564,10 +564,31 @@ body {
 
 .btn-usp {
   background-color: var(--green);
-  color:#fff;
+  color: #fff;
 }
 
 .btn-usp:hover {
   border-color: #00660a;
   color: var(--green)
+}
+
+/* ====================== Repointer ================= */
+
+body {
+  background-color: #f9fafb;
+}
+
+.box1 {
+  background-color: #334155;
+  height: 400px;
+  z-index: -1;
+}
+
+.box2 {
+  margin-top: -250px;
+  z-index: 2;
+}
+
+.boxbg {
+  background-color: #FFFFFF;
 }
