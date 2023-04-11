@@ -268,7 +268,7 @@ body {
   color: var(--white);
 }
 
-/* ================== Order Details List ============== */
+/* ================== Recent Job Details List ============== */
 .details {
   position: relative;
   width: 100%;
@@ -486,6 +486,20 @@ body {
   }
 
   .recentOrders {
+    overflow-x: auto;
+  }
+
+  .status.inProgress {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .jobDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .recentWork {
     overflow-x: auto;
   }
 
