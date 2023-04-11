@@ -18,6 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/029ea7a107.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <link rel="stylesheet" href="/assets/css/wallet.css">
     <title>My Wallet | Farmhand</title>
 </head>
 <body>
@@ -114,12 +115,71 @@
                     </label>
                 </div>
 
-                <div class="user">
-                    <img src="/assets/images/Chat Profile.png" alt="">
+                <div class="image-upload">
+                    <img id="photo" src="/assets/images/default-profile-photo.png" class="rounded-circle" alt="Profile Photo" style="height: 45px; width: 45px;">
+                    <label for="file-upload" class="upload-icon">
+                      <i class="fa fa-camera"></i>
+                    </label>
+                    <input id="file-upload" type="file" style="display:none;">
+                  </div>
+            </div>
+
+            <!--==========Wallet =============== -->
+            <div class="container my-5">
+                <div class="container">
+                    <h4 class="mb-3" style="color: #006400"><b class="fs-3">Hi,</b> <span class="text-uppercase" id="username"></span>!</h4>
+                </div>
+        
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3" id="earningBalance">
+                            <div class="card-body">
+                                <span class="wallet"><ion-icon name="wallet-outline"></ion-icon></span>
+                                <h5 class="card-title">Earning Balance <ion-icon name="analytics-outline"></ion-icon></h5>
+                                <p class="card-text badge" id="walletBalance" style="background-color: #008000;">₱2,000.00</p>
+                            </div>
+                        </div>
+        
+                        <div class="card mb-3" id="transactionHistory">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color:green">Transaction History</h5>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                       <b class="mx-1">11-04-2023 4:38 PM</b> Received Payment from Bagor Tech with invoice no. 245.
+                                        <span class="badge" style="background-color: #008000;">₱3,500.00</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                       <b class="mx-1">11-04-2023 3:19 PM</b> Received Payment from Ronquillo Integrated Farm with invoice no. 447.
+                                        <span class="badge" style="background-color: #008000;">₱1,000.00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-6">
+                        <div class="card mb-3" id="payoutHistory">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: green">Payout History</h5>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                       <b class="mx-1">11-04-2023 5:56 PM</b> Withdraw to GCash account number 0975****477
+                                        <span class="badge" style="background-color:#008000">₱1,000.00</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <b class="mx-1">11-04-2023 5:39 PM</b> Withdraw to Maya account number 0935****601
+                                        <span class="badge" style="background-color: #008000;">₱1,500.00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
     <!-- =========== Scripts =========  -->
     <script src="/assets/js/hover.js"></script>
+    <script src="/assets/js/fh-profile-photo.js" type="module"></script>
+    <script src="/assets/js/fh-dash.js" type="module"></script>
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

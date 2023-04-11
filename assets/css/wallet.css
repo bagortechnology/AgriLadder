@@ -1,0 +1,38 @@
+.card#earningBalance {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    font-family: Arial, sans-serif;
+    color: ;
+}
+
+.card#transactionHistory {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.card#payoutHistory {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+li:hover {
+    background-color: #00660a;
+    color: white;
+}
+
+.card#earningBalance:hover {
+    background-color: #00660a;
+    color: white;
+    cursor: pointer;
+    
+}
+
+.wallet ion-icon {
+    font-size: 50px;
+}
+
+#walletBalance {
+    font-size: 40px;
+    font-weight:600
+}
+
+#walletBalance:hover {
+    color: white;
+}
