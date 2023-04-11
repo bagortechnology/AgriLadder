@@ -18,6 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/029ea7a107.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <link rel="stylesheet" href="/assets/css/wallet.css">
     <title>Settings | Farmhand</title>
 </head>
 <body>
@@ -122,6 +123,25 @@
                     <input id="file-upload" type="file" style="display:none;">
                   </div>
             </div>
+            <!--=========Settings==============-->
+        <div class="container">
+            <h2>Settings</h2>
+            <div class="card mb-3" id="transactionHistory">
+                <div class="card-body">
+                    <h5 class="card-title" style="color:green">Profile Visibility</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <h5 class="mx-2">PUBLIC PROFILE</h5>
+                           Personalize your profile and set the visibility.
+                            <span class="badge" style="background-color: #008000;"><a href="/farmhand/my-profile.html" style="text-decoration: none; color: white"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a></span>
+                        </li>
+                    </ul>
+                    <h5 class="my-3">Your Unique Profile URL</h5>
+                    <dl>Copy your unique profile URL for your application.</dl>
+                    <input type="URL" class="form-control" id="profileURL" placeholder="https://agriladder.com/profile/juancruz.html"> <span class="btn" style="color:#008000"><i class="fa fa-copy" aria-hidden="true"></i>Copy</span>
+                </div>
+            </div>
+        </div>
     <!-- =========== Scripts =========  -->
     <script src="/assets/js/hover.js"></script>
     <script src="/assets/js/fh-profile-photo.js" type="module"></script>
