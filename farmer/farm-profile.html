@@ -133,7 +133,65 @@
                   </div>
             </div>
         <!-- ================= Farm Profile ============== -->
-        
+        <form class="container mx-2">
+            <h4 class="h4">Farm Profile</h4> <br>
+            <h6 class="h6">Farmer's Full Name<span class="text-danger">*</span></h6>
+            <div class="d-sm-flex gap-2 ">
+                <div class="form-floating mb-3 flex-fill ">
+                    <input type="text" class="form-control" id="FName" placeholder="First Name" required>
+                    <label for="FName" aria-required="true">First Name</label>
+                </div>
+                <div class="form-floating mb-3 flex-fill ">
+                    <input type="text" class="form-control" id="MName" placeholder="Middle Name" required>
+                    <label for="MName" aria-required="true">Middle Name</label>
+                </div>
+                <div class="form-floating mb-3 flex-fill ">
+                    <input type="text" class="form-control" id="LName" placeholder="Last Name" required>
+                    <label for="LName" aria-required="true">Last Name</label>
+                </div>
+            </div>
+
+            <h6 class="mt-2">Farm Registered Name <span class="text-danger">*</span> (DTI, SEC, CDA)</h6>
+            <div class="col-md-8 col-sm-12">
+                <div class="d-sm-flex gap-2 ">
+                    <div class="form-floating mb-3 flex-fill ">
+                        <input type="url" class="form-control" id="portfolio" placeholder="Portfolio">
+                        <label for="Portfolio" aria-required="true">Enter Farm Registered Name</label>
+                    </div>
+                </div>
+            </div>
+    
+            <h6>Contact Details <span class="text-danger">*</span></h6>
+            <div class="d-sm-flex gap-2">
+                    <div class="form-floating mb-3 flex-fill">
+                        <input type="email" class="form-control" id="email" placeholder="Email" required>
+                        <label for="email" aria-required="true">Email Address</label>
+                    </div>
+                    <div class="form-floating mb-3 flex-fill ">
+                        <input type="tel" class="form-control" id="mobile" placeholder="mobile" required maxlength="13">
+                        <label for="mobile" aria-required="true">Mobile Number</label>
+                      </div>  
+                </div>
+            
+    
+    
+            <h6 class="mt-2">Farm Website or FB Page <span class="text-danger">*</span></h6>
+            <div class="col-md-8 col-sm-12">
+                <div class="d-sm-flex gap-2 ">
+                    <div class="form-floating mb-3 flex-fill ">
+                        <input type="url" class="form-control" id="portfolio" placeholder="Portfolio">
+                        <label for="Portfolio" aria-required="true">Website or FB Page URL</label>
+                    </div>
+                </div>
+            </div>
+                <h6 class="mt-3">About the Farm<span class="text-danger">*</span></h6>
+                <div class="justify-content-center mb-3">
+                    <textarea id="about-me" name="about-me" rows="8" cols="50" class="form-control" style="border: 1px solid #ccc; border-radius: 4px;" placeholder="Provide a brief history of the farm, mission and vision, farming practices, farm products & services, etc."></textarea>
+                </div>
+            <div class="d-flex justify-content-end gap-2">
+                <input type="submit" class="btn btn-md btn-usp" value="Save Settings">
+            </div>
+        </form>
     <!-- =========== Scripts =========  -->
     <script src="/assets/js/hover.js"></script>
     <script src="/assets/js/fr-dash.js" type="module"></script>
