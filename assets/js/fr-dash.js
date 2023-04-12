@@ -38,7 +38,7 @@ onAuthStateChanged(auth, (user) => {
       });
   } else {
     // User is not signed in, redirect to login page
-    window.location.href = '/';
+    window.location.href = '/farmer/login.html';
   }
 });
 
@@ -58,7 +58,7 @@ signOutLink.addEventListener('click', (e) => {
 
     // Redirect to the landing page
     setTimeout(() => {
-      window.location.href = '/';
+      window.location.href = '/farmer/login.html';
     }, 2000);
 
   }).catch((error) => {
