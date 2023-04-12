@@ -18,6 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/029ea7a107.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <link rel="stylesheet" href="/assets/css/wallet.css">
     <title>Dashboard | Farmer</title>
 
 </head>
@@ -131,6 +132,54 @@
                     <input id="file-upload" type="file" style="display:none;">
                   </div>
             </div>
+
+    <!-- =============All Applicants =============== -->
+    <div class="container m-2" id="allApplicants">
+        <h5 class="my-3 pt-3" style="color: #008000;">All Applicants</h5>
+   
+    <!--All Applicants in Table Form-->
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Candidate</th>
+                    <th>Desired Position</th>
+                    <th>Date Applied</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Kris Ronquillo</td>
+                    <td>Sprayman</td>
+                    <td>11 April 2023</td>
+                    <td><span class="status delivered">Shortlisted</span></td>
+                </tr>
+                <tr>
+                    <td>Blessed Bagor</td>
+                    <td>Mudboat Operator</td>
+                    <td>10 April 2023</td>
+                    <td><span class="status delivered">Shortlisted</span></td>
+                </tr>
+
+                <tr>
+                    <td>Charity Dinawanao</td>
+                    <td>Tomato Picker</td>
+                    <td>10 April 2023</td>
+                    <td><span class="status inProgress">Under Review</span></td>
+                </tr>
+
+                <tr>
+                    <td>Jiaren Xia Bagor</td>
+                    <td>Mushroom Fruit Bagger</td>
+                    <td>10 April 2023</td>
+                    <td><span class="status return">Rejected</span></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
     <!-- =========== Scripts =========  -->
     <script src="/assets/js/hover.js"></script>
     <script src="/assets/js/fr-dash.js" type="module"></script>
