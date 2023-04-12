@@ -12,9 +12,9 @@ signOutLink.addEventListener('click', (e) => {
     const cardBody = document.querySelector('.card-body');
     cardBody.insertBefore(alert, loginForm);
 
-    // Redirect to the login page
+    // Redirect to the home page
     setTimeout(() => {
-      window.location.href = '/farmhand/login.html';
+      window.location.href = '/';
     }, 2000);
   }).catch((error) => {
     console.error(error);
