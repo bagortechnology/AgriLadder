@@ -123,3 +123,7 @@ a {
 a:hover {
   color: #80cb2b;
 }
+
+.fa-fire:hover {
+  color:#80cb2b !important;
+}
