@@ -24,18 +24,18 @@ function sendEmail() {
 
     // Send email to recipient
     Email.send({
-        SecureToken : "324dbbf6-80a6-48b0-bbc0-8b9e54ba427f",
+        SecureToken : "9447e6d4-77df-4867-a012-87bec6b19143",
         To : email,
-        From : 'info@agriladder.com',
+        From : 'agriladder@gmail.com',
         Subject : subject,
         Body : body
     }).then(
       recipientMessage => {
         // Send email to owner
         Email.send({
-          SecureToken : "324dbbf6-80a6-48b0-bbc0-8b9e54ba427f",
+          SecureToken : "9447e6d4-77df-4867-a012-87bec6b19143",
           To : "agriladder@gmail.com",
-          From : "info@agriladder.com",
+          From : "agriladder@gmail.com",
           Subject : "New message from " + FName + " " + LName,
           Body : "Sender Email: " + email + "<br/> Message:  " + body + "<br/> Email Status: " + recipientMessage 
         }).then(
