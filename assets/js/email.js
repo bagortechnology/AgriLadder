@@ -34,7 +34,7 @@ function sendEmail() {
         // Send email to owner
         Email.send({
           SecureToken : "fbbd1a2e-0d38-4ddb-b7a6-ed55c95975dd",
-          To : "agriladder@gmail.com",
+          To : "sidongbagor@gmail.com",
           From : "agriladder@gmail.com",
           Subject : "New message from " + FName + " " + LName,
           Body : "Sender Email: " + email + "<br/> Message:  " + body + "<br/> Email Status: " + recipientMessage 
