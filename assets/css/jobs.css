@@ -114,3 +114,12 @@
 .nav-pills .nav-item .active {
   border-bottom: 2px solid #80cb2b;
 }
+
+a {
+  text-decoration: none;
+  color:#00660a;
+}
+
+a:hover {
+  color: #80cb2b;
+}
