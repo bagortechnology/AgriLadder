@@ -24,7 +24,7 @@ function sendEmail() {
 
     // Send email to recipient
     Email.send({
-        SecureToken : "9447e6d4-77df-4867-a012-87bec6b19143",
+        SecureToken : "fbbd1a2e-0d38-4ddb-b7a6-ed55c95975dd",
         To : email,
         From : 'agriladder@gmail.com',
         Subject : subject,
@@ -33,7 +33,7 @@ function sendEmail() {
       recipientMessage => {
         // Send email to owner
         Email.send({
-          SecureToken : "9447e6d4-77df-4867-a012-87bec6b19143",
+          SecureToken : "fbbd1a2e-0d38-4ddb-b7a6-ed55c95975dd",
           To : "agriladder@gmail.com",
           From : "agriladder@gmail.com",
           Subject : "New message from " + FName + " " + LName,
