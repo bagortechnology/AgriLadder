@@ -82,7 +82,71 @@
     </div>
   </nav>
 
-  <div id="jobOverview"></div>
+  <!---Job Overview-->
+  <div class="container job-item p-4 my-4">
+    <div class="row g-4">
+      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+        <img src="/assets/images/kris-farm-organic.png" alt="farmer-logo" class="flex-shrink-0 img-fluid border rounded"
+          style="width: 80px; height: 80px">
+        <div class="text-start ps-4">
+          <h5 class="mb-3 lead fw-bolder" style="color:#00660a">Sprayman <i class="fa fa-fire text-warning"
+              aria-hidden="true"></i></h5>
+          <span class="text-truncate me-3"><i class="fa fa-map-marker-alt me-2"></i>Labason</span>
+          <span class="text-truncate me-3"><i class="far fa-clock me-2"></i>Fixed Term</span>
+          <span class="text-truncate me-3"><i class="far fa-money-bill-alt me-2"></i>₱75.00</span>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+        <div class="d-flex mb-3">
+          <a href="" class="btn btn-light btn-square me-3"><i class="far fa-heart text-light"></i></a>
+          <a href="/farmhand/login.html" class="btn btn-primary">Apply Now</a>
+        </div>
+        <small class="text-truncate"><i class="far fa-calendar-alt me-2"></i>posted 1 hour ago</small>
+      </div>
+    </div>
+  </div>
+
+  <!--Job Description & About the Farm-->
+  <section class="tab-class text-center ">
+    <ul class="nav nav-pills d-inline-flex justify-content-center align-items-center border-bottom mb-5">
+      <li class="nav-item">
+        <a class="d-flex align-items-center text-start pb-3 active" data-bs-toggle="pill" href="#aboutJob">
+          <h6 class="lead mt-n1 mb-0"> About this Job     </h6>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#aboutFarm">
+          <h6 class="lead mt-n1 mb-0">About the Farm </h6>
+        </a>
+      </li>
+    </ul>
+
+    <div class="container">
+        <div class="tab-content">
+            <div id="aboutJob" class="tab-pane fade show p-0 active">
+                <div class="lead fw-bold text-lg-start fs-3 my-3" style="color: #00660a;">About this Job</div>
+                    <div id="jobDescription"><p class="lead px-3 p-lg-5 m-lg-5" style="text-align: justify;">We are looking for a Sprayman who are willing to work during Saturdays on our Cacao trees. 
+                    </p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="tab-content">
+            <div id="aboutFarm" class="tab-pane fade show p-0">
+                <div class="lead fw-bold text-lg-start fs-3 my-3" style="color: #00660a;">About the Farm</div>
+                <div>
+                    <div id="aboutUs">
+                    <p class="lead px-3 p-lg-5 m-lg-5" style="text-align: justify;">
+                        Welcome to Kris Farm Organic, a sustainable integrated organic farming company based in Labason.
+                    </p>
+                    </div>
+            </div>
+            </div>
+        </div>
+    </div>
+ 
+    </section>
   <!--Footer-->
   <footer class="bg-light py-3">
     <div class="container">

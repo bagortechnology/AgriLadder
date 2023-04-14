@@ -36,8 +36,7 @@ onValue(jobsRef, (snapshot) => {
     // Create a new job item element using the HTML code as a template
     const jobItem = document.createElement('div');
     jobItem.classList.add();
-    jobItem.innerHTML = `<!---Job Overview-->
-    <div class="container job-item p-4 my-4">
+    jobItem.innerHTML = `<div class="container job-item p-4 my-4">
       <div class="row g-4">
         <div class="col-sm-12 col-md-8 d-flex align-items-center">
           <img src="/assets/images/kris-farm-organic.png" alt="farmer-logo" class="flex-shrink-0 img-fluid border rounded"
@@ -60,7 +59,7 @@ onValue(jobsRef, (snapshot) => {
     </div>
   
     <!--Job Description & About the Farm-->
-    <section class="tab-class text-center ">
+    < class="tab-class text-center ">
       <ul class="nav nav-pills d-inline-flex justify-content-center align-items-center border-bottom mb-5">
         <li class="nav-item">
           <a class="d-flex align-items-center text-start pb-3 active" data-bs-toggle="pill" href="#aboutJob">
@@ -98,8 +97,7 @@ onValue(jobsRef, (snapshot) => {
               </div>
               </div>
           </div>
-      </div>
-      </section>`;
+      </div>`;
 
     // Append the job item to the job list
     jobListings.appendChild(jobItem); 
