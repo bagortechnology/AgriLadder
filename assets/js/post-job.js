@@ -98,8 +98,7 @@ onAuthStateChanged(auth, (user) => {
           </div>
           <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
             <div class="d-flex mb-3">
-              <a href="#" class="btn search-btn"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color: yellow"></i> Edit</a>
-              <a href="#" class="btn mx-3" data-bs-toggle="collapse" data-bs-target="#jobDescription" aria-expanded="false" aria-controls="jobDescription"><i class="fa fa-eye" aria-hidden="true" style="color: yellow"></i> Job</a>
+              <a href="#" class="btn mx-3" data-bs-toggle="collapse" data-bs-target="#jobDescription" aria-expanded="false" aria-controls="jobDescription" id="jobDescriptionToggle"><i class="fa fa-eye" aria-hidden="true" style="color: yellow"></i> View</a>
             </div>
             <small id="timeStamp" class="text-truncate"><i class="far fa-calendar-alt me-2"></i>updated just now.</small>
           </div>
@@ -116,6 +115,8 @@ onAuthStateChanged(auth, (user) => {
       </div>
     </div>`;
 
+
+
         // Append the job item to the job list
         jobListings.appendChild(jobItem); 
       });
@@ -129,4 +130,3 @@ onAuthStateChanged(auth, (user) => {
 function displayJobs() {
   // Call the function to display the jobs on the page
 };
-

@@ -1,15 +1,20 @@
-const button = document.querySelector('.job-item .btn.mx-3');
-const jobDescription = document.querySelector('#jobDescription');
-const icon = button.querySelector('i');
+// Select the eye icon element
+const eyeIcon = document.querySelector('#jobDescriptionToggle i');
 
-button.addEventListener('click', () => {
+// Select the job description element
+const jobDescription = document.querySelector('#jobDescription');
+
+// Add a click event listener to the eye icon
+eyeIcon.addEventListener('click', () => {
+  // Toggle the visibility of the job description element
   jobDescription.classList.toggle('show');
-  
-  if (icon.classList.contains('fa-eye')) {
-    icon.classList.remove('fa-eye');
-    icon.classList.add('fa-eye-slash');
+
+  // Update the eye icon
+  if (jobDescription.classList.contains('show')) {
+    eyeIcon.classList.remove('fa-eye');
+    eyeIcon.classList.add('fa-eye-slash');
   } else {
-    icon.classList.remove('fa-eye-slash');
-    icon.classList.add('fa-eye');
+    eyeIcon.classList.remove('fa-eye-slash');
+    eyeIcon.classList.add('fa-eye');
   }
 });
