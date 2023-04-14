@@ -98,7 +98,7 @@ onAuthStateChanged(auth, (user) => {
           </div>
           <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
             <div class="d-flex mb-3">
-              <a href="#" class="btn mx-3" data-bs-toggle="collapse" data-bs-target="#jobDescription" aria-expanded="false" aria-controls="jobDescription" id="jobDescriptionToggle"><i class="fa fa-eye" aria-hidden="true" style="color: yellow"></i> View</a>
+              <a href="#" class="btn mx-3" data-bs-toggle="collapse" data-bs-target="#jobDescription" aria-expanded="false" aria-controls="jobDescription" id="jobDescriptionToggle"><i class="fa fa-eye" aria-hidden="true" style="color: yellow"></i> View Job Details</a>
             </div>
             <small id="timeStamp" class="text-truncate"><i class="far fa-calendar-alt me-2"></i>updated just now.</small>
           </div>
