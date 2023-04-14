@@ -60,5 +60,4 @@ function clearForm() {
   document.querySelector('input[name="jobCategory"]:checked').checked = false;
   document.getElementById('hourlyRate').value = '';
   document.getElementById('jobDescription').value = '';
-  document.getElementById('aboutFarm').value = '';
 }
