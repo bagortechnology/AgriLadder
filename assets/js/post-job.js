@@ -29,16 +29,14 @@ form.addEventListener('submit', async function(event) {
     const location = document.getElementById('location').value;
     const jobCategory = document.querySelector('input[name="jobCategory"]:checked').value;
     const hourlyRate = document.getElementById('hourlyRate').value;
-    const jobDescription = document.getElementById('jobDescription').value;
-    const aboutFarm = document.getElementById('aboutFarm').value;    
+    const jobDescription = document.getElementById('jobDescription').value;   
 
     const job = {
         jobTitle,
         location,
         jobCategory,
         hourlyRate,
-        jobDescription,
-        aboutFarm
+        jobDescription
       };      
 
     const userRole = 'farmer';
