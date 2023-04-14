@@ -17,7 +17,7 @@ const database = getDatabase(app);
 const auth = getAuth();
 
 // Get form element
-const form = document.querySelector('.container');
+const form = document.querySelector('postJob');
 
 // Add event listener to the form
 form.addEventListener('submit', async function(event) {
