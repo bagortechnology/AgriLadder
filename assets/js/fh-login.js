@@ -55,7 +55,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebas
 
               // User has the required role, // Redirect to farmhand dashboard page
               setTimeout(() => {
-                window.location.href = '/farmhand/dashboard.html';
+                window.location.href = '/farmhand/my-profile.html';
               }, 2000);
             } else {
               // User doesn't have the required role, display error message
