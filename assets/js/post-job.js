@@ -44,7 +44,7 @@ form.addEventListener('submit', async function(event) {
     const user = auth.currentUser;
       // Update the user's data in the database
       try {
-        await update(ref(database, `users/${userRole}/${user.uid}/${jobTitle}`), job);
+        await update(ref(database, `users/${userRole}/${user.uid}/job/${jobTitle}`), job);
         alert("New Job is posted successfully!");
         // Clear the form inputs
         clearForm();
