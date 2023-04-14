@@ -1,0 +1,56 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+
+const firebaseConfig = {
+      apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
+      authDomain: "agriladder-jobs.firebaseapp.com",
+      databaseURL: "https://agriladder-jobs-default-rtdb.firebaseio.com",
+      projectId: "agriladder-jobs",
+      storageBucket: "agriladder-jobs.appspot.com",
+      messagingSenderId: "635800620871",
+      appId: "1:635800620871:web:724d28204dd3878f36c662"
+    };
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
+
+// Get form element
+const form = document.querySelector('.container');
+
+// Add event listener to the form
+form.addEventListener('submit', async function(event) {
+    // Prevent the default form submission
+    event.preventDefault();
+
+    // Get the form values
+    const jobTitle = document.getElementById('jobTitle').value;
+    const location = document.getElementById('location').value;
+    const jobCategory = document.querySelector('input[name="jobCategory"]:checked').value;
+    const hourlyRate = document.getElementById('hourlyRate').value;
+    const jobDescription = document.getElementById('jobDescription').value;
+    const aboutFarm = document.getElementById('aboutFarm').value;    
+
+    const job = {
+        jobTitle,
+        location,
+        jobCategory,
+        hourlyRate,
+        jobDescription,
+        aboutFarm
+      };      
+
+    const userRole = 'farmer';
+    // Get the current authenticated user
+    const user = auth.currentUser;
+      // Update the user's data in the database
+      try {
+        await update(ref(database, `users/${userRole}/${user.uid}/${jobTitle}`), job);
+        alert("New Job is posted successfully!");
+        // Clear the form inputs
+        form.reset();
+      } catch (error) {
+        alert(`Error posting job: ${error.message}`);
+      }
+    });
