@@ -85,7 +85,7 @@ onAuthStateChanged(auth, (user) => {
         // Create a new job item element using the HTML code as a template
         const jobItem = document.createElement('div');
         jobItem.classList.add();
-        jobItem.innerHTML = `<div class=" job-item p-4 mb-4">
+        jobItem.innerHTML = `<div class=" container job-item p-4 mb-4">
         <div class="row g-4">
           <div class="col-sm-12 col-md-8 d-flex align-items-center">
             <img src="/assets/images/kris-farm-organic.png" alt="farmer-logo" class="flex-shrink-0 img-fluid border rounded" style="width: 80px; height: 80px">
