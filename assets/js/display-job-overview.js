@@ -52,7 +52,6 @@ onValue(jobsRef, (snapshot) => {
         </div>
         <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
           <div class="d-flex mb-3">
-            <a href="" class="btn btn-light btn-square me-3"><i class="far fa-heart text-light"></i></a>
             <a href="/farmhand/login.html" class="btn btn-primary">Apply Now</a>
           </div>
           <small class="text-truncate"><i class="far fa-calendar-alt me-2"></i>posted just now.</small>
