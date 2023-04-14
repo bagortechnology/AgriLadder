@@ -36,35 +36,28 @@ onValue(jobsRef, (snapshot) => {
     // Create a new job item element using the HTML code as a template
     const jobItem = document.createElement('div');
     jobItem.classList.add();
-    jobItem.innerHTML = `<div class=" container job-item p-4 mb-4">
+    jobItem.innerHTML = `<div class="container job-item p-4 mb-4">
     <div class="row g-4">
       <div class="col-sm-12 col-md-8 d-flex align-items-center">
-        <img src="/assets/images/kris-farm-organic.png" alt="farmer-logo" class="flex-shrink-0 img-fluid border rounded" style="width: 80px; height: 80px">
+        <img src="/assets/images/kris-farm-organic.png" alt="farmer-logo" class="flex-shrink-0 img-fluid border rounded"
+          style="width: 80px; height: 80px">
         <div class="text-start ps-4">
-          <h5 id="jobTitle" class="mb-3 lead fw-bolder" style="color:#00660a">${job.jobTitle}</h5>
-          <span id="jobLocation" class="text-truncate me-3"><i class="fa fa-map-marker-alt me-2"></i>${job.location}</span>
-          <span id="jobCategory" class="text-truncate me-3"><i class="far fa-clock me-2"></i>${job.jobCategory}</span>
-          <span id="hourlyRate" class="text-truncate me-3"><i class="far fa-money-bill-alt me-2"></i>₱${job.hourlyRate}</span>
+          <h5 class="mb-3 lead fw-bolder" style="color:#00660a"><a href="/jobs/${job.jobTitle}.html"> ${job.jobTitle} <i class="fa fa-fire text-warning"
+              aria-hidden="true"></i></h5></a>
+          <span class="text-truncate me-3"><i class="fa fa-map-marker-alt me-2"></i>${job.location}</span>
+          <span class="text-truncate me-3"><i class="far fa-clock me-2"></i>${job.jobCategory}</span>
+          <span class="text-truncate me-3"><i class="far fa-money-bill-alt me-2"></i>₱${job.hourlyRate}</span>
         </div>
       </div>
       <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
         <div class="d-flex mb-3">
-          <a href="#" class="btn mx-3" data-bs-toggle="collapse" data-bs-target="#jobDescription" aria-expanded="false" aria-controls="jobDescription" id="jobDescriptionToggle"><i class="fa fa-eye" aria-hidden="true" style="color: yellow"></i> View Job Details</a>
+          <a href="" class="btn btn-light btn-square me-3"><i class="far fa-heart text-light"></i></a>
+          <a href="/farmhand/login.html" class="btn btn-primary">Apply Now</a>
         </div>
-        <small id="timeStamp" class="text-truncate"><i class="far fa-calendar-alt me-2"></i>posted just now.</small>
+        <small class="text-truncate"><i class="far fa-calendar-alt me-2"></i>posted just now</small>
       </div>
-      <div class="col-12">
-        <div id="jobDescription" class="collapse job-description">
-          <div class="lead fw-bold text-lg-start fs-3 my-3" style="color: #00660a;">About this Job</div>
-          <div>
-            <p class="px-3 p-lg-5 m-lg-5" style="text-align: justify;">
-            ${job.jobDescription}
-            </p>
-          </div>
-        </div>                  
     </div>
-  </div>
-</div>`;
+  </div>`;
 
     // Append the job item to the job list
     jobListings.appendChild(jobItem); 
