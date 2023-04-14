@@ -136,6 +136,65 @@
     <!-- ============= Manage Jobs =============== -->
     <div class="container">
             <h5 class="my-3" style="color: #00660a;">Manage Jobs</h5>
+            <a href="#" class="btn search-btn m-3 post-job" style="background-color: #00660a;" data-bs-toggle="modal" data-bs-target="#postJob"><i class="fa fa-plus-circle" aria-hidden="true" style="color: yellow"></i> Post New Job</a>
+            <!--Post New Job Modal-->
+            <form class="modal fade" id="postJob" tabindex="-1" aria-labelledby="form" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="form">Post New Job</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <h6 class="h6">Job Title<span class="text-danger">*</span></h6>
+                    <div class="d-sm-flex gap-2 ">
+                        <div class="form-floating mb-3 flex-fill ">
+                            <input type="text" class="form-control" id="jobTitle" placeholder="Job Title" required>
+                            <label for="jobTitle" aria-required="true">Job Title</label>
+                        </div>
+        
+                    </div>
+            
+                    <h6>Location <span class="text-danger">*</span></h6>
+                    <div class="d-sm-flex gap-2">
+                            <div class="form-floating mb-3 flex-fill">
+                                <input type="text" class="form-control" id="location" placeholder="Location" required>
+                                <label for="location" aria-required="true">Job Location</label>
+                            </div>
+                        </div>
+    
+                        <div class="d-sm-flex gap-2 ">
+                            <h6 class="h6">Category: </h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="jobCategory" id="jobCategory" value="Flexible Hours">
+                                <label class="form-check-label pe-2" for="jobCategory">Flexible Hours</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="jobCategory" id="jobCategory" value="Fixed Term">
+                                <label class="form-check-label" for="jobCategory">Fixed Term</label>
+                            </div>
+                        </div>
+                    
+                        <h6>Hourly Rate <span class="text-danger">*</span></h6>
+                        <div class="d-sm-flex gap-2">
+                                <div class="form-floating mb-3 flex-fill">
+                                    <input type="text" class="form-control" id="hourlyRate" placeholder="Hourly Rate" required>
+                                    <label for="hourlyRate" aria-required="true">Hourly Rate (₱)</label>
+                                </div>
+                            </div>
+    
+                        <h6 class="my-3">Job Description<span class="text-danger">*</span></h6>
+                        <div class="justify-content-center mb-3">
+                            <textarea id="jobDescription" name="jobDescription" rows="8" cols="50" class="form-control" style="border: 1px solid #ccc; border-radius: 4px;" placeholder="Write a short, clear job ad that lists the farm worker's tasks, qualifications, and chances for advancement, and emphasizes their work ethic and love of farming."></textarea>
+                        </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" id="add" class="btn search-btn">Post Job</button>
+                  </div>
+                </div>
+              </div>
+            </form>
             <div class="container job-item p-4 mb-4">
                 <div class="row g-4">
                   <div class="col-sm-12 col-md-8 d-flex align-items-center">
@@ -151,6 +210,7 @@
                     <div class="d-flex mb-3">
                       <a href="" class="btn btn-light btn-square me-3"><i class="fa fa-trash-o text-light"></i></a>
                       <a href="#" class="btn search-btn"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color: yellow"></i> Edit</a>
+                      
                     </div>
                     <small class="text-truncate"><i class="far fa-calendar-alt me-2"></i>updated 1 min ago</small>
                   </div>
@@ -269,6 +329,7 @@
     <script src="/assets/js/hover.js"></script>
     <script src="/assets/js/fr-dash.js" type="module"></script>
     <script src="/assets/js/fr-profile-photo.js" type="module"></script>
+    <script src="/assets/js/edit-jobs.js" type="text/javascript"></script>
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
