@@ -1,0 +1,17 @@
+.btn-job {
+  background-color: #00660a;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.btn-job:hover {
+  background-color: #005007;
+  color: #fff;
+}
+
+.job-description {
+  margin-top: 20px;
+}
