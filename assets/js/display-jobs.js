@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
-import { getDatabase, ref, update, onValue } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+import { getAuth, } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
 
 const firebaseConfig = {
       apiKey: "AIzaSyC3O2EEuaM2o-pzftNVuBs7m3KvvWI4xFI",
