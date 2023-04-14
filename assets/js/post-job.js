@@ -131,4 +131,3 @@ function displayJobs() {
   // Call the function to display the jobs on the page
 };
 
-
