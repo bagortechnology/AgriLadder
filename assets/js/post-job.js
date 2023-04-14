@@ -26,7 +26,7 @@ form.addEventListener('submit', async function(event) {
 
     // Get the form values
     const jobTitle = document.getElementById('jobTitle').value;
-    const location = document.getElementById('location').value;
+    const location = document.getElementById('jobLocation').value;
     const jobCategory = document.querySelector('input[name="jobCategory"]:checked').value;
     const hourlyRate = document.getElementById('hourlyRate').value;
     const jobDescription = document.getElementById('jobDescription').value;   
@@ -56,7 +56,7 @@ form.addEventListener('submit', async function(event) {
 // Function to clear the form inputs
 function clearForm() {
   document.getElementById('jobTitle').value = '';
-  document.getElementById('location').value = '';
+  document.getElementById('jobLocation').value = '';
   document.querySelector('input[name="jobCategory"]:checked').checked = false;
   document.getElementById('hourlyRate').value = '';
   document.getElementById('jobDescription').value = '';
