@@ -49,8 +49,18 @@ form.addEventListener('submit', async function(event) {
         await update(ref(database, `users/${userRole}/${user.uid}/${jobTitle}`), job);
         alert("New Job is posted successfully!");
         // Clear the form inputs
-        form.reset();
+        clearForm();
       } catch (error) {
         alert(`Error posting job: ${error.message}`);
       }
-    });
+});
+
+// Function to clear the form inputs
+function clearForm() {
+  document.getElementById('jobTitle').value = '';
+  document.getElementById('location').value = '';
+  document.querySelector('input[name="jobCategory"]:checked').checked = false;
+  document.getElementById('hourlyRate').value = '';
+  document.getElementById('jobDescription').value = '';
+  document.getElementById('aboutFarm').value = '';
+}
