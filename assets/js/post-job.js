@@ -88,7 +88,7 @@ onAuthStateChanged(auth, (user) => {
         jobItem.innerHTML = `<div class=" job-item p-4 mb-4">
         <div class="row g-4">
           <div class="col-sm-12 col-md-8 d-flex align-items-center">
-            <div class="image-upload"><img id="photo" src="/assets/images/kris-farm-organic.png" alt="farmer-logo" class="flex-shrink-0 img-fluid border rounded" style="width: 80px; height: 80px"></div>
+            <img src="/assets/images/kris-farm-organic.png" alt="farmer-logo" class="flex-shrink-0 img-fluid border rounded" style="width: 80px; height: 80px">
             <div class="text-start ps-4">
               <h5 id="jobTitle" class="mb-3 lead fw-bolder" style="color:#00660a">${job.jobTitle}</h5>
               <span id="jobLocation" class="text-truncate me-3"><i class="fa fa-map-marker-alt me-2"></i>${job.location}</span>
@@ -98,7 +98,6 @@ onAuthStateChanged(auth, (user) => {
           </div>
           <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
             <div class="d-flex mb-3">
-              <a href="" class="btn btn-light btn-square me-3"><i class="fa fa-trash-o text-light"></i></a>
               <a href="#" class="btn search-btn"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color: yellow"></i> Edit</a>
               <a href="#" class="btn mx-3" data-bs-toggle="collapse" data-bs-target="#jobDescription" aria-expanded="false" aria-controls="jobDescription"><i class="fa fa-eye" aria-hidden="true" style="color: yellow"></i> Job</a>
             </div>
